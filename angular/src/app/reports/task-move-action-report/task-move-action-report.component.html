@@ -1,0 +1,75 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="exportReport()">
+      <md-icon>assessment</md-icon>
+      <!--i18n-->Xuất báo cáo<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+
+<md-card class="app-content">
+  <form [formGroup]="form" fxLayout fxLayoutGap="5px">
+    <md-select i18n-placeholder placeholder="Kỹ thuật viên" formControlName="technicianId" fxFlex required>
+      <md-option *ngFor="let technician of technicians" [value]="technician.id">{{technician.fullName}}</md-option>
+    </md-select>
+    <md-input-container fxFlex>
+      <input mdInput [mdDatepicker]="startDatePicker"
+             i18n-placeholder placeholder="Ngày bắt đầu" formControlName="startDate">
+      <button mdSuffix [mdDatepickerToggle]="startDatePicker"></button>
+    </md-input-container>
+    <md-datepicker #startDatePicker></md-datepicker>
+    <md-input-container fxFlex>
+      <input mdInput [mdDatepicker]="endDatePicker"
+             i18n-placeholder placeholder="Ngày kết thúc">
+      <button mdSuffix [mdDatepickerToggle]="endDatePicker"></button>
+    </md-input-container>
+    <md-datepicker #endDatePicker></md-datepicker>
+    <md-select i18n-placeholder placeholder="Biển số xe" formControlName="licensePlate" fxFlex>
+      <md-option [value]="1">{{data.licensePlate}}</md-option>
+    </md-select>
+    <md-select i18n-placeholder placeholder="Vùng làm việc" formControlName="zoneName" fxFlex>
+      <md-option [value]="1">{{data.zoneName}}</md-option>
+    </md-select>
+  </form>
+</md-card>
+<md-card class="app-content">
+  <table class="md-table">
+    <thead>
+    <tr>
+      <th>Ngày</th>
+      <th>Giờ bắt đầu</th>
+      <th>Giờ kết thúc</th>
+      <th class="mat-numeric-column">Số công tơ mét bắt đầu</th>
+      <th class="mat-numeric-column">Số công tơ mét kết thúc</th>
+      <th class="mat-numeric-column">Số Km đã sử dụng</th>
+      <th>Giải trình</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="data.rows.length">
+      <tr *ngFor="let row of data.rows">
+        <td>{{row.moveStartDateString}}</td>
+        <td>{{row.hourStart}}</td>
+        <td>{{row.hourEnd}}</td>
+        <td class="mat-numeric-column">{{row.startSpeedometer | number}}</td>
+        <td class="mat-numeric-column">{{row.endSpeedometer | number}}</td>
+        <td class="mat-numeric-column">{{row.actualSpeedometer | number}}</td>
+        <td>{{row.explanation}}</td>
+      </tr>
+      <tr>
+        <td>Tổng</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="mat-numeric-column">{{data.totalSpeedometer | number}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="!data.rows.length">
+    <tr>
+      <td colspan="7" style="text-align: center;">Chưa có dữ liệu</td>
+    </tr>
+    </tfoot>
+  </table>
+</md-card>

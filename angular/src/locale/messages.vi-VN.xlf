@@ -1,0 +1,1786 @@
+<?xml version="1.0" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template" tool="manual" target-language="vi-VN">
+    <body>
+      <trans-unit id="90fe9fae0783d2318d135abeb52592f09485421e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>More Options</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thêm Tùy Chọn</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">node_modules/@dtrthi/md-data-table/components/md-table-header/md-table-header.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d6111969b4b0929debd4fd0d910733a6fccd37b2" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>No data</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Không có dữ liệu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">node_modules/@dtrthi/md-data-table/components/md-data-table/md-data-table.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5ca707824ab93066c7d9b44e1b8bf216725c2c22" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Filter</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tìm kiếm</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">node_modules/@dtrthi/md-data-table/components/md-filter-button/md-filter-button.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">node_modules/@dtrthi/md-data-table/components/md-filter-button/md-filter-button.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e6c975ebea8b5f8b120905ca7acf9f8edf59d8e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>OK</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">OK</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/core/components/confirm-dialog/confirm-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>Cancel</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">Hủy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/core/components/confirm-dialog/confirm-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-detail-dialog/material-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail-dialog/field-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail-dialog/nursery-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-detail-dialog/document-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request-detail/material-request-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/observer-zones/observer-zone-dialog/observer-zone-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="468b94e975b7301d433c9b202451d66637923d3b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tài khoản</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tài Khoản</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/login/login.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/login/login.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="986b683b0b7a963bf3959bcd705787f45d5b6739" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mật khẩu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mật Khẩu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/login/login.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/login/login.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/settings/settings.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="244aae9346da82b0922506c2d2581373a15641cc" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Email</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="67ee969f813a74bffc2e563dee127500ba9b60ba" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mã xác nhận</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mã Xác Nhận</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bcc46081569d48f140210ebd89d0d9e5b228686a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Activation code</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mã Xác Nhận</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e80197552f90ff2a98bb27a4373b35dfc424a36d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mật khẩu mới</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mật Khẩu Mới</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/settings/settings.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e70e209561583f360b1e9cefd2cbb1fe434b6229" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>New password</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mật Khẩu Mới</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="36564f5e4712eea86181ae6c6e5ba049993e29f1" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Xác nhận mật khẩu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xác Nhận Mật Khẩu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/settings/settings.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f3bdcce4b2e8c37cd7f0f6c92ef8cff34b039b8" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Confirm password</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xác Nhận Mật Khẩu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/forgot-password/forgot-password.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f42ed4ee64f02b2ebf24a0dd5d4f861fd72785e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Họ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Họ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/settings/settings.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fb558b7c97fb01ecc2908ed3953f73386450aeae" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tên</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tên</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/settings/settings.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost-detail-dialog/farmer-cost-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost/farmer-cost.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-list/farmer-relative-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>Save</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">Lưu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/settings/settings.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-detail-dialog/material-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail-dialog/field-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail-dialog/nursery-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-detail-dialog/document-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost-detail-dialog/farmer-cost-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/observer-zones/observer-zone-dialog/observer-zone-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/technician-zones/technician-zone-list/technician-zone-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c3ea9ae10eecc9663dedf4b2fe5a055de4529e65" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Quản Lý Nhân Sự</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Quản Lý Nhân Sự</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="297413f752e1c729c8535c2c4c7b9549187334ff" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Hồ Sơ Nông Dân</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Hồ Sơ Nông Dân</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fee4b05b5593b91667945ccab95cc26970bd36b6" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Quản Lý Vật Tư</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Quản Lý Vật Tư</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="031c9c53a16d7fe5fc9d5b2e9c5e2e904aaaf5c1" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Quản Lý Tài Liệu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Quản Lý Tài Liệu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8d3746970095f874c9d085925e424674840e8927" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Đăng Ký Mùa Vụ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đăng Ký Nông Dân</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4217dc8c5005b701730fa93bfd8f57e40d90bcf7" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Yêu Cầu Vật Tư</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Yêu Cầu Vật Tư</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="81b56e67b570ada7ebcab6e0f87d7e91495cd330" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Chi Phí Nông Dân</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chi Phí Nông Dân</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c2172cab8c1707c2772d0d521ba4d95231b7a16f" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Farmer</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Nông Dân</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost-detail-dialog/farmer-cost-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost/farmer-cost.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">43</context>
+        </context-group>
+        <note priority="1" from="description" annotates="general">title</note>
+      </trans-unit>
+      <trans-unit id="ce2247be24aadfd152d357af4ab95507cc30fa36" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Giám Sát</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Giám Sát</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2300c3e284c6f9bb3db538d784c201f36d39e627" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Vườn Ươm</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Vườn Ươm</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="02e6f242d64e1f869b88f3e6197f145b1fc4b0aa" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Cơ Cấu Giống</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Cơ Cấu Giống</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a3d6a897bf08659c74ae3569b780679bac96963f" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Cập Nhật Diện Tích</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Cập Nhật Diện Tích</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="63ae4d2adf6173264a7b830665da8b05299f4046" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mật Độ Và Phân Bón</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mật Độ Và Phân Bón</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f9cde150bf0dca6263439c68e0fd1eb72207419a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Dự Trù Năng Xuất</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Dự Trù Năng Xuất</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d99a14708cf64dc5dfa6a1ab777850811334becb" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Kế Hoạch Làm Việc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Kế Hoạch Làm Việc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="801655f0421e9643706deff395274db4f765022f" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Km Sử Dụng Xe Máy</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">KM Sử Dụng Xe Máy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b1d403ecd48b66f290e794e6be902702e135f7ef" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Xem công việc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xem Công Việc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Settings</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thiết Lập</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Logout</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đăng Xuất</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/app.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fa97f41a167e302d64cc195b0174ab65bc011710" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Material</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Vật Tư</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-detail-dialog/material-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f61c6867295f3b53d23557021f2f4e0aa1d0b8fc" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Type</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Loại</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-detail-dialog/material-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost-detail-dialog/farmer-cost-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost/farmer-cost.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4cf0728fcf2b0af16de94c2f57dafddcc0ff1a59" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Unit</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đơn Vị</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-detail-dialog/material-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/crop-material-list/crop-material-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request-detail/material-request-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4d6ee53858628de558a18623894a03c8673bce9e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Price</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Giá</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-detail-dialog/material-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-list/materials.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Description</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ghi Chú</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-detail-dialog/material-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request/material-request.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-plan-report/task-plan-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">42</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-plan-report/task-plan-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f6755cff4957d5c3c89bafce5651f1b6fa2b1fd9" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Add</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thêm</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-list/materials.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-list/documents.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost/farmer-cost.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/observer-zones/observer-zone-list/observer-zone-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="45cc8ca94b5a50842a9a8ef804a5ab089a38ae5c" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>ID</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-list/materials.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-list/documents.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request-detail/material-request-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f606f3640f59800af588cecad20da727bc20ddb8" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Material Name</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tên Vật Tư</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-list/materials.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/crop-material-list/crop-material-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request-detail/material-request-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="70bba3ad65d43a8e0b8c1765964b129cf73fba8e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Material Type</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Loại Vật Tư</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/company-materials/material-list/materials.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/crop-material-list/crop-material-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request-detail/material-request-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d25a72b708f6a88df4d5471d8e08822e00f63250" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tỉnh</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tỉnh</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/location/location/location.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b80fb7f36566be76ae983f347bbea92bb9b89894" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Quận/Huyện</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Quận/Huyện</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/location/location/location.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="246149df223a68235095bc28645a2f44cb707610" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Phường/Xã</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Phường/Xã</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/location/location/location.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f6c61dd717d281f046de6c9333685cbcd5652ce4" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Quay lại</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Quay Lại</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail/field-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-detail/plot-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-action-detail/plot-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-plot-timeline/field-plot-timeline.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-action-detail/nursery-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-timeline/nursery-timeline.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/schedule/schedule.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Address</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="exact-match">Địa chỉ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail/field-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail-dialog/field-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-card/field-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail/nursery-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail-dialog/nursery-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">10</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-card/nursery-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">89</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">41</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail-dialog/task-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="16556cdadcfe56f06512013de21313a03e1da74b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Danh sách thửa</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Danh Sách Thửa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail/field-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0b6e360300d605ca7165a47151b0616ae0824fa5" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail/field-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-detail/plot-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="43105e8fbf485ff9838b4917030f6305f5a07b83" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Thửa</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thửa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail/field-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a0af16f83d4f94d514dfda998e53e8d526bba760" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Diện tích</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Diện Tích</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail/field-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="127d3323f7855336fe8677082664ba5403bbabab" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Lịch sử cập nhật</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Lịch Sử Cập Nhật</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-detail/plot-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail/nursery-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4a34d651385457ef62e56b2b4911293717809117" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Nội dung</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Nội Dung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-detail/plot-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5d4e14c0bc9ccb8cb68b1ed0e51a0cb9161b849b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tên thuốc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tên Thuốc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-action-detail/plot-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">57</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-action-detail/nursery-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5138b9187c35f051916bf0b94e838f8a86301d0e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Liều lượng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Liều Lượng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-action-detail/plot-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-action-detail/nursery-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8fcad458b426db03041d3d1d98c7a62fd97e7a2d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tên côn trùng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tên Côn Trùng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-action-detail/plot-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">76</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-action-detail/nursery-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e309b5773ab4401c1c985667bece6e02ea906e4e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tỉ lệ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tỉ Lệ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/plot-action-detail/plot-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">77</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-action-detail/nursery-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0e92f894ac1cac614a14db5e0584b654e3da8866" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Giống</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Giống</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-detail-dialog/field-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail-dialog/nursery-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">64</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1d334c0ba2407c80f8e3fceed99956fb7aaef648" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Chưa đăng ký ruộng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chưa Đăng Ký Ruộng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-card/field-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e90f9ebd20ac2ffcfacbe211c7675d8fcafa6030" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Đăng Ký</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đăng Ký</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-card/field-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-card/nursery-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="363db9725c2da41454f32662a9e358d88fc860d4" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Thông tin ruộng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thông Tin Ruộng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-card/field-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="830990bbf6302f8747f962982a123c69497218ed" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Detail</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chi Tiết</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/fields/field-card/field-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-card/nursery-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="004eecfce019534bc5a61db16263562b5338e958" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Bản đồ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Bản Đồ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail/nursery-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="29c78101b517a94fe50f2166d7ef6cbee7117253" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail/nursery-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">108</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aa372ab47ced271aa34eb2fffd2ae7a4cabf7b2c" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Nội dung</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Nội Dung</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-detail/nursery-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">111</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0cec2f132aa9b98911454bed2eb49bdf004995b3" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Chi tiết <x id="INTERPOLATION" clone="yes"></x></source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chi Tiết </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-action-detail/nursery-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-action-detail/nursery-action-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c2421df1b9a4301e904e7fa8c380b3e912fff8c4" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Chưa đăng ký vườn ươm</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chưa Đăng Ký Vườn Ươm</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-card/nursery-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8cba8256bfd97c0ea7ba12e7f118ed673a487628" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Thông tin vườn ươm</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thông Tin Vườn Ươm</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/nurseries/nursery-card/nursery-card.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ecfdeff189f54d30b3f37c40c46ef67484bc6dec" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Họ và chữ lót</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Họ Và Chữ Lót</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-list/farmer-relative-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6fea70d583ed802a2f4fb78bec9a0e1afc3d0f8a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mã ND</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mã ND</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="43222a1b61111750a57d811496b902a84767a16d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số điện thoại</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số Điên Thoại</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-register-dialog/farmer-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4b90310642d58c7fa144e0ed3bb56206a691354a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>New Farmer</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thêm Nông Dân Mới</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9b003afc6410270843713ac36132cc6a865eff6e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Re-register</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đăng Ký Lại</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b49f8a33c1702ff1ef7cb75d7458d5f9bb8ebf6a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Cancel Registration</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Hủy Đăng Ký</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9dd4184057e4eadd3cc4a489383359dfb1ce9af8" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số năm trồng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số Năm Trồng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="752daa6baad0f8b4684b5c6775345b02bed6746e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>year</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">năm</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="140de9b0b78c98dea09e5f9c93d65e6dcc8db79c" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số nhân khẩu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số Nhân Khẩu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3db8b7e002ace9ed9fa1888d545cf7cd891fb748" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>người</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">người</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">42</context>
+        </context-group>
+        <note priority="1" from="description" annotates="general">suffix</note>
+      </trans-unit>
+      <trans-unit id="45a3c9f1288089ca80ccc26fd6ab1cb52557e282" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số lao động chính</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số Lao Động Chính</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c7cc4ebfb8ab3321f66c39c5ddc3e2854a3bad3b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Diện tích đăng ký</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Diện Tích Đăng Ký</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="86845eaecf3192364e4df1b7c603d793ea7a2905" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>ha</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="exact-match">ha</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">47</context>
+        </context-group>
+        <note priority="1" from="description" annotates="general">suffix</note>
+      </trans-unit>
+      <trans-unit id="ef23b4e674e67fdac1fcb7335823d12d157831c5" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Kỹ thuật viên phụ trách</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Kỹ Thuật Viên Phụ Trách</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8cfcd8267948f2897014335c478b75f057dd140a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Register field</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đăng ký ruộng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4985068aa0e204a5412a08ab8305802a0d056500" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Register nursery</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đăng ký vườn</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-detail/registration-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9b40999ba7123d5e047fa59df086ff6e943d4919" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Address</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Địa Chỉ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">22</context>
+        </context-group>
+        <note priority="1" from="meaning" annotates="general">heading</note>
+      </trans-unit>
+      <trans-unit id="a3ed75a0042bb99cb310b8d5f958b9c9db2bda62" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Xã</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xã</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">22</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="55c5c568358b49c19e0f3c95100fa19a8dc84fbc" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Huyện</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Huyện</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="811ee0268946226aa6a62344994d8e756921c2d4" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số điện thoại</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số Điện Thoại</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-list/farmers.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5b7ede4c26ea83202fe637608ee8bb417c16598d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Status</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Trạng Thái</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/registration-list/registration-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request/material-request.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+        <note priority="1" from="meaning" annotates="general">heading</note>
+      </trans-unit>
+      <trans-unit id="5bec5ffa70ef5b0f0ed1cdc2aacdede3af62f2df" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Crop material information</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thông tin vật tư</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/crop-material-list/crop-material-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ca30c1aa79fb5ab487fbd2caa4ca01f2f6691d70" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Quantity</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số lượng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/crop-material-list/crop-material-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost-detail-dialog/farmer-cost-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost/farmer-cost.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request-detail/material-request-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f7200e10c2238a57229602cf49402b944af106d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Drying oven information</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Thông tin lò sấy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/drying-oven-list/drying-oven-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bbb7fef45a4f69f4a71e487914bedcd4a6c330d1" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Dài</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Dài</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/drying-oven-list/drying-oven-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5186dfcaacac06d9fe60c80ec7c428b12dc05e32" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Rộng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Rộng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/drying-oven-list/drying-oven-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="50081da2d2ed342bfc3da569a22028bb348f2390" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Cao</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Cao</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/drying-oven-list/drying-oven-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f8751cabe5e37855921f5670ff649c3f15c870ea" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Nhiên liệu sấy</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Nhiên liệu sấy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/drying-oven-list/drying-oven-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8f32ea46fbe69231aec2365996fd37e63d245ba7" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số xà gồ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số xà gồ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/drying-oven-list/drying-oven-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a981ebfc4bacf58cd92ba0a7e31390643b922a54" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số lượng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số lượng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/drying-oven-list/drying-oven-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f74423914d4d8da4a277fd19a51d68650c80ccf1" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Đăng ký bán hàng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đăng Ký Bán Hàng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/sale-list/sale-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a7b6e6b6df75faecf1856e7066612a1e73cb285a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Đợt</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Đợt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/sale-list/sale-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d960bae0275c4fd7570ce35a8108729a2618abad" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày đăng ký bán</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày Đăng Ký Bán</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/sale-list/sale-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f6fc948d722a08b0bddd20b1c432eb1e9d9d988b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số lượng đăng ký</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số Lượng Đăng Ký</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/crop-session/sale-list/sale-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3d358145071063a2a406411bef876a345092fe12" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>Document name</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">Tên tài liệu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-detail-dialog/document-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="73f8489a3ae4d805787b8350d3d91e03e830115b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Choose File</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chọn Tài Liệu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-detail-dialog/document-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="48139a8f408fb79f24e82673e89e23c2ac314f23" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>File</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">Tài liệu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-detail-dialog/document-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0a60a8a92f0655ff031e3a518699bead6fd73eb9" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>(less than 5 MB)</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">(nhỏ hơn 5 MB)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-detail-dialog/document-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4b8320be9117daa9aa317a770d9129566456d793" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tên tài liệu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tên Tài Liệu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-list/documents.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d464bf153e0096736cf36cbfc28b0f8b9ec1b3ae" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Loại file</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Loại File</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-list/documents.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="76a18e2d88e10ef777a02941dd66d4e3a8b3f0c6" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Người tải lên</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Người Tải Lên</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-list/documents.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="39efea66533989ec6aea64c0dc508f710ef0d59d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày tải lên</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày Tải Lên</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/documents/document-list/documents.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fad534a378bd483f1c59a7930cabe3d798ca7e08" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>Detail</source>
+        <target equiv-trans="yes" state="final" state-qualifier="exact-match">Chi tiết</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost-detail-dialog/farmer-cost-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">21</context>
+        </context-group>
+        <note priority="1" from="meaning" annotates="general">placeholder</note>
+      </trans-unit>
+      <trans-unit id="0b2423c279ce9d39c2c0a2728994d17d4002217c" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Giá</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Giá</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost-detail-dialog/farmer-cost-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">32</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost/farmer-cost.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fc612d468aca71d2b5dd3cbe3e3b33284e71bbc8" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>Detail</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">Chi Tiết</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-cost/farmer-cost/farmer-cost.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">22</context>
+        </context-group>
+        <note priority="1" from="meaning" annotates="general">heading</note>
+      </trans-unit>
+      <trans-unit id="2be6d2d6ed88b7b41e41e7ed0f1a80587121e270" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Registration Detail</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="exact-match">Chi Tiết Đăng Ký</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmers/farmer-detail/farmer-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d20c02b233d28b0d7eee2f520da02bd009a3dad0" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Quan hệ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Quan Hệ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-list/farmer-relative-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="59dec9ec2d376bcf6bc62558a6ba35b3a965bbef" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số CMND</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số CMND</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-register-dialog/farmer-relative-register-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="242e12c6c96ac246169c5b32bfc4c0b1933c0d3a" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source><x id="INTERPOLATION" clone="yes"></x></source>
+        <target equiv-trans="yes" state="translated"></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-list/farmer-relative-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0f62abfd5e53f6d9878256472aa48bd59f862431" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Danh sách nhân thân</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Danh sách nhân thân</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/farmer-relatives/farmer-relative-list/farmer-relative-list.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4b5bc1a24f83378bb060e6528c860d9329a58d0f" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Người yêu cầu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Người Yêu Cầu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request/material-request.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5d8fd1c759092841e3b9b7b7983601ae46e78e74" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày yêu cầu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày Yêu Cầu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request/material-request.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e994fe07fd740a8190c88dda2b821c16cce7608e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Xác nhận</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xác Nhận</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/material-requests/material-request-detail/material-request-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2ba8725f9607de7d3a4cb6b158a50b6b63d72e78" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Xuất báo cáo</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xuất Báo Cáo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/actual-acreage-report/actual-acreage-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/expected-output-report/expected-output-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/farmer-cost-report/farmer-cost-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/farmer-report/farmer-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/fertilizer-report/fertilizer-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/nursery-report/nursery-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/observer-zone-report/observer-zone-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/seed-report/seed-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-move-action-report/task-move-action-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-plan-report/task-plan-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c0f921f4ad6fb9d9485d843a0030e90ce1340fff" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Kỹ thuật viên</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Người Yêu Cầu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-move-action-report/task-move-action-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-plan-report/task-plan-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="57cf7e50feea62858f7dfa78f5131aa2219417b8" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày bắt đầu</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày Bắt Đầu</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-move-action-report/task-move-action-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5135776f7dfa0b1c72f8832af873783121d97253" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày kết thúc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày Kết Thúc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-move-action-report/task-move-action-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e3c6f4f9c742c961085ca6e5660cfce4baed47fa" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Biển số xe</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Biển Số Xe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-move-action-report/task-move-action-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f627b0b8c6077e35238de630ef7eb55a2521763d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Vùng làm việc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Vùng Làm Việc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-move-action-report/task-move-action-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cae5c6b846c0828234640c88ecacb7929486538b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Ngày cập nhật</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Ngày Cập Nhật</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-plan-report/task-plan-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b4bc7bac6e5a4d5233d2088bd871a30908ea3a97" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Số Km xe hiện tại</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Số KM Xe Hiện Tại</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/reports/task-plan-report/task-plan-report.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="40e7d262e298b4ebc0be8e2589162cf970c2ea2b" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Xem theo</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xem Theo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/schedule/schedule.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="50f8565c35b12fbc457ff0bfc6efad347786bfe9" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Loại công việc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Loại Công Việc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7b66c867af44140c5b28592295e5fb664f3b5f26" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Công việc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Công Việc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f13b7797f785c445dffa8acea8d5432c776efbdf" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mô tả</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mô Tả</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="539189644b58e435f24ea2083d2659f1850c0ba3" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Công việc buổi sáng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Công Việc Buổi Sáng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6c5228cdcfe9917733c87d12a90e038c7d0f163e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Công việc buổi chiều</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Công Việc Buổi Chiều</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail/task-detail.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">59</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>Close</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">Đóng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/tasks/task-detail-dialog/task-detail-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="515ce1e30d5fc15d7eb9b4fa6c21d74e9af41f59" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Công ty</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Công Ty</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/observer-zones/observer-zone-dialog/observer-zone-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e822c2a055784831852a2269e96a89a5e8df247e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Vùng</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Vùng</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/observer-zones/observer-zone-dialog/observer-zone-dialog.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f99589ba25061771265520d7739948738047365" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mã Nhân Viên</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Mã Nhân Viên</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="81e9d066f6d2ec49ae983752ce3d14fc7f2973e8" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tài Khoản</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tài Khoản</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a964e73833ca4a3237f38423d4e08b19a974a97e" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Họ và Chữ Lót</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Họ Và Chữ Lót</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8653a4e59c5d9bd91bce7224f7cd806154a37084" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>SĐT</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">SĐT</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2b2ca2005270caec68005262cf0874a93cc8f416" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel">
+        <source>Chức Vụ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chức Vụ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/user-list/users.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3e1995a9e6b5ee673ea8e9b319c3df750e7c90e0" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Xem Công Việc</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Xem Công Việc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8a6405c2af5225e2f302b76fa98ed13f3eba2b1c" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="yes">
+        <source>Department</source>
+        <target equiv-trans="yes" state="final" state-qualifier="x-user">Chi nhánh</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d8a5988b3cc6fa06a550ff0c48eee1b75b422e3c" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Tổ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Tổ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0210b3bb14747f5e51b0e4a33d8badd65018054d" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Chức vụ</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="x-user">Chức Vụ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="66ab849c84d3b232b8cb6b646186c64ce9b3ecc5" datatype="html" translate="yes" reformat="yes" xml:space="default" size-unit="pixel" approved="no">
+        <source>Mã nhân viên</source>
+        <target equiv-trans="yes" state="translated" state-qualifier="exact-match">Mã Nhân Viên</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile" match-mandatory="no">src/app/users/crop-user-register/crop-user-register.component.ts</context>
+          <context context-type="linenumber" match-mandatory="no">66</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

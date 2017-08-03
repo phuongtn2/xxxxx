@@ -1,0 +1,21 @@
+<md-card>
+  <md-card-title>Chọn vùng giám sát</md-card-title>
+  <md-list>
+    <md-list-item *ngFor="let ob of observerZones">
+      <span>{{ob.company?.name}}</span>
+      <span>{{ob.zone.district.name}} - {{ob.zone.province.name}}</span>
+      <span fxFlex></span>
+      <button md-icon-button (click)="openDialog(ob)"><md-icon>edit</md-icon></button>
+    </md-list-item>
+
+  </md-list>
+
+  <a md-raised-button color="accent" (click)="openDialog()">
+    <md-icon>add</md-icon>
+    <!--i18n-->Add<!--/i18n-->
+  </a>
+
+  <div class="overlay" [fxHide]="true">
+    <md-spinner></md-spinner>
+  </div>
+</md-card>

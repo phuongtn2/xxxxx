@@ -1,0 +1,33 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <a md-raised-button routerLink="/users/register">
+      <md-icon>add</md-icon>
+      <!--i18n-->Add<!--/i18n-->
+    </a>
+  </md-toolbar-row>
+</md-toolbar>
+<md-card class="app-content card-wrap" fxFlex fxLayout="column">
+  <md-data-table
+    [data]="users"
+    [pageSize]="limit"
+    [fixedHeader]="true"
+    [filterable]="true"
+    fxFlex>
+    <md-table-header heading=" "></md-table-header>
+    <md-data-column i18n-title title="Mã Nhân Viên" field="employeeCode"></md-data-column>
+    <md-data-column i18n-title title="Tài Khoản" field="userId"></md-data-column>
+    <md-data-column i18n-title title="Họ và Chữ Lót" field="firstName"></md-data-column>
+    <md-data-column i18n-title title="Tên" field="lastName"></md-data-column>
+    <md-data-column i18n-title="heading|" title="Address" field="address"></md-data-column>
+    <md-data-column i18n-title title="SĐT" field="phone"></md-data-column>
+    <md-data-column i18n-title title="Chức Vụ" field="position"></md-data-column>
+    <md-data-column [numeric]="true" [filterable]="false">
+      <ng-template let-row="mdTableCellModel">
+        <a md-icon-button [routerLink]="['/users', row['id']]">
+          <md-icon>edit</md-icon>
+        </a>
+      </ng-template>
+    </md-data-column>
+  </md-data-table>
+</md-card>

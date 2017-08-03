@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- Log4J  -->
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="Company" type="vn.azteam.tabasupport.core.object.model.Company"/>
+        <typeAlias alias="Province" type="vn.azteam.tabasupport.core.object.model.Province"/>
+        <typeAlias alias="District" type="vn.azteam.tabasupport.core.object.model.District"/>
+        <typeAlias alias="Ward" type="vn.azteam.tabasupport.core.object.model.Ward"/>
+        <typeAlias alias="MailConfig" type="vn.azteam.tabasupport.core.object.model.MailConfig"/>
+        <typeAlias alias="MailTemplate" type="vn.azteam.tabasupport.core.object.model.MailTemplate"/>
+        <typeAlias alias="Account" type="vn.azteam.tabasupport.core.object.model.Account"/>
+        <typeAlias alias="Role" type="vn.azteam.tabasupport.core.object.model.Role"/>
+        <typeAlias alias="Operation" type="vn.azteam.tabasupport.core.object.model.Operation"/>
+        <typeAlias alias="Material" type="vn.azteam.tabasupport.modules.material.object.model.Material"/>
+        <typeAlias alias="User" type="vn.azteam.tabasupport.core.object.model.User"/>
+        <typeAlias alias="Employee" type="vn.azteam.tabasupport.modules.employee.object.model.Employee"/>
+        <typeAlias alias="Department" type="vn.azteam.tabasupport.modules.employee.object.model.Department"/>
+        <typeAlias alias="Division" type="vn.azteam.tabasupport.modules.employee.object.model.Division"/>
+        <typeAlias alias="ObServer" type="vn.azteam.tabasupport.modules.employee.object.model.ObServer"/>
+        <typeAlias alias="Memo" type="vn.azteam.tabasupport.modules.memo.object.model.Memo"/>
+        <typeAlias alias="Farmer" type="vn.azteam.tabasupport.modules.farmer.object.model.Farmer"/>
+        <typeAlias alias="FarmerRelative" type="vn.azteam.tabasupport.modules.farmer.object.model.FarmerRelative"/>
+        <typeAlias alias="Repository" type="vn.azteam.tabasupport.modules.file.object.model.Repository"/>
+        <typeAlias alias="Directory" type="vn.azteam.tabasupport.modules.file.object.model.Directory"/>
+        <typeAlias alias="File" type="vn.azteam.tabasupport.modules.file.object.model.File"/>
+        <typeAlias alias="Document" type="vn.azteam.tabasupport.modules.document.object.model.Document"/>
+        <typeAlias alias="Photo" type="vn.azteam.tabasupport.modules.photo.object.model.Photo"/>
+        <typeAlias alias="Video" type="vn.azteam.tabasupport.modules.video.object.model.Video"/>
+        <typeAlias alias="PlantArea" type="vn.azteam.tabasupport.modules.report.object.model.PlantArea"/>
+        <typeAlias alias="Crop" type="vn.azteam.tabasupport.modules.cropsession.object.model.Crop"/>
+        <typeAlias alias="CropMedia" type="vn.azteam.tabasupport.modules.cropsession.object.model.CropMedia"/>
+        <typeAlias alias="CropRegistration"
+                   type="vn.azteam.tabasupport.modules.cropsession.object.model.CropRegistration"/>
+        <typeAlias alias="CropMaterial"
+                   type="vn.azteam.tabasupport.modules.cropsession.object.model.CropMaterial"/>
+        <typeAlias alias="CropMaterialSupplement"
+                   type="vn.azteam.tabasupport.modules.cropsession.object.model.CropMaterialSupplement"/>
+        <typeAlias alias="CropDryingOven"
+                   type="vn.azteam.tabasupport.modules.cropsession.object.model.CropDryingOven"/>
+        <typeAlias alias="CultivationDetail"
+                   type="vn.azteam.tabasupport.modules.cultivation.object.model.CultivationDetail"/>
+        <typeAlias alias="FieldPlot" type="vn.azteam.tabasupport.modules.cultivation.object.model.FieldPlot"/>
+        <typeAlias alias="CultivationManuring"
+                   type="vn.azteam.tabasupport.modules.cultivation.object.model.CultivationManuring"/>
+        <typeAlias alias="CloverCutting"
+                   type="vn.azteam.tabasupport.modules.cultivation.object.model.CloverCutting"/>
+        <typeAlias alias="CultivationPest"
+                   type="vn.azteam.tabasupport.modules.cultivation.object.model.CultivationPest"/>
+        <typeAlias alias="PesticideSpraying"
+                   type="vn.azteam.tabasupport.modules.cultivation.object.model.PesticideSpraying"/>
+        <typeAlias alias="CultivationHarvest"
+                   type="vn.azteam.tabasupport.modules.cultivation.object.model.CultivationHarvest"/>
+        <typeAlias alias="Cultivation"
+                   type="vn.azteam.tabasupport.modules.cultivation.object.model.Cultivation"/>
+        <typeAlias alias="Pest" type="vn.azteam.tabasupport.modules.pest.object.model.Pest"/>
+        <typeAlias alias="CompanyMaterial" type="vn.azteam.tabasupport.modules.material.object.model.CompanyMaterial"/>
+        <typeAlias alias="Nursery"
+                   type="vn.azteam.tabasupport.modules.nursery.object.model.Nursery"/>
+        <typeAlias alias="NurseryDetail"
+                   type="vn.azteam.tabasupport.modules.nursery.object.model.NurseryDetail"/>
+        <typeAlias alias="NurseryPest"
+                   type="vn.azteam.tabasupport.modules.nursery.object.model.NurseryPest"/>
+        <typeAlias alias="NurseryPesticideSpraying"
+                   type="vn.azteam.tabasupport.modules.nursery.object.model.NurseryPesticideSpraying"/>
+        <typeAlias alias="NurserySeed"
+                   type="vn.azteam.tabasupport.modules.nursery.object.model.NurserySeed"/>
+        <typeAlias alias="SaleRegistration"
+                   type="vn.azteam.tabasupport.modules.sale.object.model.SaleRegistration"/>
+        <typeAlias alias="Task"
+                   type="vn.azteam.tabasupport.modules.task.object.model.Task"/>
+        <typeAlias alias="TaskReport"
+                   type="vn.azteam.tabasupport.modules.task.object.model.TaskReport"/>
+        <typeAlias alias="PushNotification"
+                   type="vn.azteam.tabasupport.core.object.model.PushNotification"/>
+        <typeAlias alias="RegistrationPush"
+                   type="vn.azteam.tabasupport.core.object.model.RegistrationPush"/>
+        <typeAlias alias="CompanyZone"
+                   type="vn.azteam.tabasupport.modules.zone.object.model.CompanyZone"/>
+        <typeAlias alias="RequestMaterial"
+                   type="vn.azteam.tabasupport.modules.material.object.model.RequestMaterial"/>
+        <typeAlias alias="RequestMaterialDetail"
+                   type="vn.azteam.tabasupport.modules.material.object.model.RequestMaterialDetail"/>
+        <typeAlias alias="FarmerCost"
+                   type="vn.azteam.tabasupport.modules.cost.object.model.FarmerCost"/>
+        <typeAlias alias="ZoneObserverReport"
+                   type="vn.azteam.tabasupport.modules.report.object.model.zoneobserver.ZoneObserver"/>
+        <typeAlias alias="TaskPlanReport"
+                   type="vn.azteam.tabasupport.modules.report.object.model.TaskPlanReport"/>
+        <typeAlias alias="SeedType"
+                   type="vn.azteam.tabasupport.modules.report.object.model.seedtype.SeedType"/>
+        <typeAlias alias="DataCostReport"
+                   type="vn.azteam.tabasupport.modules.report.object.model.cost.DataCostReport"/>
+        <typeAlias alias="MoveReport"
+                   type="vn.azteam.tabasupport.modules.report.object.model.MoveReport"/>
+        <typeAlias alias="FertilizerType"
+                   type="vn.azteam.tabasupport.modules.report.object.model.fertilizer.FertilizerType"/>
+        <typeAlias alias="CostFarmerDetailReport"
+                   type="vn.azteam.tabasupport.modules.report.object.model.cost.CostFarmerDetailReport"/>
+        <typeAlias alias="Move" type="vn.azteam.tabasupport.modules.move.object.model.Move"/>
+        <typeAlias alias="Zone" type="vn.azteam.tabasupport.modules.employee.object.model.Zone"/>
+    </typeAliases>
+
+</configuration>

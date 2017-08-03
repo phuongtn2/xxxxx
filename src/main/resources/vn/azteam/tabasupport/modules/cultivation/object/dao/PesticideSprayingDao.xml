@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.PesticideSprayingDao">
+    <sql id="fullColumns">tcps.*</sql>
+
+    <insert id="insertPesticideSpraying" parameterType="PesticideSpraying" keyProperty="pesticideSpraying.id"
+            useGeneratedKeys="true">
+        INSERT
+        INTO
+        `tb_cultivation_pesticide_spraying` (
+        `id`,
+        `clientPrimaryKey`,
+        `fieldPlotId`,
+        `actionId`,
+        `materialId`,
+        `quantity`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{pesticideSpraying.clientPrimaryKey},
+        #{pesticideSpraying.fieldPlotId},
+        #{pesticideSpraying.actionId},
+        #{pesticideSpraying.materialId},
+        #{pesticideSpraying.quantity},
+        #{pesticideSpraying.createId},
+        #{pesticideSpraying.updateId},
+        #{pesticideSpraying.created},
+        #{pesticideSpraying.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="PesticideSpraying">
+        UPDATE tb_cultivation_pesticide_spraying tcps
+        SET
+        tcps.clientPrimaryKey = #{pesticideSpraying.clientPrimaryKey},
+            tcps.materialId = #{pesticideSpraying.materialId},
+            tcps.quantity   = #{pesticideSpraying.quantity}
+        WHERE tcps.id = #{pesticideSpraying.id};
+    </update>
+
+    <select id="findAllPesticideSprayingByDetailId" resultType="PesticideSpraying">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM
+        tb_cultivation_pesticide_spraying tcps
+        WHERE tcps.actionId=#{detailId}
+        ORDER BY tcps.id DESC;
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+table {
+  min-width: 100%;
+
+  th {
+    background-color: #eeeeee;
+    color: rgba(0, 0, 0, .54);
+    white-space: nowrap;
+  }
+
+  th, td {
+    font-size: 13px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+    &.mat-numeric-column {
+      text-align: right;
+    }
+  }
+}

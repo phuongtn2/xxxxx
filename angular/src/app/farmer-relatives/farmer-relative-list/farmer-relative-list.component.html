@@ -1,0 +1,26 @@
+<md-card fxFlex fxLayout>
+  <md-data-table
+    [data]="farmerRelatives"
+    [fixedHeader]="true"
+    fxFlex>
+    <md-table-header i18n-heading heading="Danh sách nhân thân">
+      <button md-button color="primary" (click)="openDialog()">
+        <md-icon>add</md-icon>
+        <!--i18n-->{{'Add' | uppercase}}<!--/i18n-->
+      </button>
+    </md-table-header>
+    <md-data-column i18n-title title="Họ và chữ lót" field="firstName"></md-data-column>
+    <md-data-column i18n-title title="Tên" field="lastName"></md-data-column>
+    <md-data-column i18n-title title="Quan hệ" field="relationship"></md-data-column>
+    <md-data-column [numeric]="true" [filterable]="false">
+      <ng-template let-row="mdTableCellModel">
+        <button md-icon-button (click)="openDialog(row)">
+          <md-icon>edit</md-icon>
+        </button>
+        <button md-icon-button (click)="deleteItem(row)">
+          <md-icon>delete</md-icon>
+        </button>
+      </ng-template>
+    </md-data-column>
+  </md-data-table>
+</md-card>

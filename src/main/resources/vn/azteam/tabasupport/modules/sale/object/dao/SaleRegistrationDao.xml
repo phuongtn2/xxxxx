@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.sale.object.dao.SaleRegistrationDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="12000"/><!--5 minute-->
+        <property name="timeToIdleSeconds" value="12000"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">sr.*</sql>
+
+    <select id="findAll" resultType="SaleRegistration" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_sale_registrations sr
+        INNER JOIN tb_crop_registrations c ON c.id = sr.registrationId
+        WHERE sr.status = 0
+        AND c.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        AND c.companyId = #{companyId}
+        ORDER BY sr.id ASC ;
+    </select>
+
+    <insert id="insertSaleRegistration" parameterType="SaleRegistration" useGeneratedKeys="true"
+            keyProperty="saleRegistration.id" flushCache="true">
+        INSERT
+        INTO
+        `tb_sale_registrations`(
+            `id`,
+            `saleIndex`,
+            `registrationId`,
+            `proposerId`,
+            `expectedQuantity`,
+            `status`,
+            `dateRegistration`,
+            `createId`,
+            `updateId`,
+            `created`,
+            `updated`
+        )
+        VALUES(
+            NULL,
+            #{saleRegistration.saleIndex},
+            #{saleRegistration.registrationId},
+            #{saleRegistration.proposerId},
+            #{saleRegistration.expectedQuantity},
+            #{saleRegistration.status},
+            #{saleRegistration.dateRegistration},
+            #{saleRegistration.createId},
+            #{saleRegistration.updateId},
+            #{saleRegistration.created},
+            #{saleRegistration.updated}
+        );
+    </insert>
+
+    <update id="updateSaleRegistration" flushCache="true">
+        UPDATE
+          `tb_sale_registrations`
+        SET
+            `saleIndex` = #{saleRegistration.saleIndex},
+            `expectedQuantity` = #{saleRegistration.expectedQuantity},
+            `status` = #{saleRegistration.status},
+            `dateRegistration` = #{saleRegistration.dateRegistration},
+            `createId` = #{saleRegistration.createId},
+            `updateId` = #{saleRegistration.updateId},
+            `created` = #{saleRegistration.created},
+            `updated` = #{saleRegistration.updated}
+        WHERE
+            id = #{saleRegistration.id};
+    </update>
+</mapper>

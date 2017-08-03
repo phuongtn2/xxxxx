@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.employee.object.dao.ObServerDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">tob.*</sql>
+
+    <sql id="userBaseColumns">
+        u.firstName,
+        u.lastName,
+        u.fullName,
+        u.phone,
+    </sql>
+
+    <insert id="insert" flushCache="true" parameterType="ObServer" useGeneratedKeys="true" keyProperty="obServer.id">
+        INSERT INTO tb_observers (id, employeeId, companyId, cultivationZoneId, createId, updateId, created, updated)
+        VALUE
+        (NULL, #{obServer.employeeId}, #{obServer.companyId}, #{obServer.cultivationZoneId}, #{obServer.createId},
+        #{obServer.updateId}, #{obServer.created}, #{obServer.updated});
+    </insert>
+
+    <update id="update" parameterType="ObServer" flushCache="true">
+        UPDATE tb_observers tob
+        SET
+
+        tob.employeeId = #{obServer.employeeId},
+        tob.companyId = #{obServer.companyId},
+        tob.cultivationZoneId = #{obServer.cultivationZoneId},
+        tob.updateId = #{obServer.cultivationZoneId},
+        tob.updated = #{obServer.updated}
+        WHERE
+        tob.id = #{obServer.id};
+    </update>
+
+    <select id="findAll" resultType="ObServer">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="fullColumns"/>
+        FROM tb_observers tob
+        INNER JOIN tb_employees te ON (tob.employeeId=te.id)
+        INNER JOIN tb_users u ON (u.id=te.uId);
+    </select>
+</mapper>

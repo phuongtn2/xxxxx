@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.core.object.dao.MailTemplateDao">
+    <sql id="baseColumns">mtpl.*</sql>
+    <sql id="fullColumns">mtpl.*</sql>
+
+    <select id="findAll" resultType="MailTemplate">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_mail_templates mtpl
+        ORDER BY mtpl.id DESC;
+    </select>
+</mapper>

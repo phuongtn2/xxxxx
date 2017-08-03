@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.nursery.object.dao.NurseryPesticideSprayingDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">
+        tnps.*
+    </sql>
+
+    <insert id="insert" parameterType="NurseryPesticideSpraying" useGeneratedKeys="true" keyColumn="id"
+            keyProperty="spraying.id" flushCache="true">
+        INSERT INTO
+        tb_nursery_pesticide_spraying (
+        id,
+        clientPrimaryKey,
+        actionId,
+        pesticideId,
+        quantity,
+        createId,
+        updateId,
+        created,
+        updated
+        )
+        VALUES (
+        NULL,
+        #{spraying.clientPrimaryKey},
+        #{spraying.actionId},
+        #{spraying.pesticideId},
+        #{spraying.quantity},
+        #{spraying.createId},
+        #{spraying.updateId},
+        #{spraying.created},
+        #{spraying.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="NurseryPesticideSpraying" flushCache="true">
+        UPDATE tb_nursery_pesticide_spraying
+        SET
+        clientPrimaryKey = #{spraying.clientPrimaryKey},
+        pesticideId = #{spraying.pesticideId},
+        quantity = #{spraying.quantity},
+        updateId = #{spraying.updateId},
+        updated = #{spraying.updated}
+        WHERE id = #{spraying.id};
+    </update>
+
+    <select id="findAllByDetailIds" flushCache="false" resultType="NurseryPesticideSpraying">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_nursery_pesticide_spraying tnps
+        WHERE tnps.actionId IN (
+        <foreach collection="detailIds" item="detailId" separator=",">
+            #{detailId}
+        </foreach>
+        );
+    </select>
+</mapper>

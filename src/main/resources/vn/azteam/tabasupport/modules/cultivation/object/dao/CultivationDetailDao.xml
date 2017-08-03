@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.CultivationDetailDao">
+
+    <sql id="fullColumns">tcd.*</sql>
+
+    <insert id="insertCultivationDetail" parameterType="CultivationDetail" useGeneratedKeys="true"
+            keyProperty="cultivation.id">
+        INSERT
+        INTO
+        `tb_cultivation_details` (
+        `id`,
+        `clientPrimaryKey`,
+        `registrationId`,
+        `cultivationId`,
+        `fieldPlotId`,
+        `action`,
+        `actionName`,
+        `actionIndex`,
+        `actionUpdateDate`,
+        `actionDate`,
+        `latitude`,
+        `longitude`,
+        `responsibilityEmployeeId`,
+        `target`,
+        `resultTarget`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{cultivation.clientPrimaryKey},
+        #{cultivation.registrationId},
+        #{cultivation.cultivationId},
+        #{cultivation.fieldPlotId},
+        #{cultivation.action},
+        #{cultivation.actionName},
+        #{cultivation.actionIndex},
+        #{cultivation.actionUpdateDate},
+        DATE_FORMAT(#{cultivation.actionDate}, '%Y-%m-%d'),
+        #{cultivation.latitude},
+        #{cultivation.longitude},
+        #{cultivation.responsibilityEmployeeId},
+        #{cultivation.target},
+        #{cultivation.resultTarget},
+        #{cultivation.createId},
+        #{cultivation.updateId},
+        #{cultivation.created},
+        #{cultivation.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="CultivationDetail">
+        UPDATE tb_cultivation_details tcd
+        SET
+        tcd.clientPrimaryKey = #{cultivation.clientPrimaryKey},
+        tcd.actionName = #{cultivation.actionName},
+        tcd.actionIndex = #{cultivation.actionIndex},
+        tcd.target = #{cultivation.target},
+        tcd.resultTarget = #{cultivation.resultTarget},
+        tcd.actionDate = #{cultivation.actionDate},
+        tcd.updateId = #{cultivation.updateId},
+        tcd.updated = #{cultivation.actionDate}
+        WHERE tcd.id = #{cultivation.id};
+    </update>
+
+    <select id="findAllByCultivationIdAndFieldPlotId" resultType="CultivationDetail">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_cultivation_details tcd
+        WHERE tcd.cultivationId = #{cultivationId} AND tcd.fieldPlotId = #{fieldId}
+        ORDER BY tcd.id DESC ;
+    </select>
+</mapper>

@@ -1,0 +1,18 @@
+<h2 md-dialog-title>Đăng Ký Ruộng</h2>
+<form [formGroup]="fieldDetailForm" (ngSubmit)="fieldDetailForm.valid && save()">
+  <md-dialog-content>
+    <md-select i18n-placeholder placeholder="Giống" formControlName="seedId" required>
+      <md-option *ngFor="let seed of seeds" [value]="seed.id">{{seed.name}}</md-option>
+    </md-select>
+    <app-location [formGroup]="fieldDetailForm.get('address')" [restrictedByZone]="true"
+                  fxFlex="100%" fxLayout fxLayoutWrap>
+      <md-input-container fxFlex="100%">
+        <input mdInput i18n-placeholder placeholder="Address" formControlName="street" required>
+      </md-input-container>
+    </app-location>
+  </md-dialog-content>
+  <md-dialog-actions align="end">
+    <button md-raised-button type="submit" i18n>Save</button>
+    <button md-button md-dialog-close i18n>Cancel</button>
+  </md-dialog-actions>
+</form>

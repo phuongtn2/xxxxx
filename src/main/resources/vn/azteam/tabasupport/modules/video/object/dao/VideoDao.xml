@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.video.object.dao.VideoDao">
+    <sql id="fullColumns">v.*</sql>
+
+    <sql id="baseColumns">
+        v.id,
+        v.fileId,
+        v.createId,
+        v.updateId,
+        v.created,
+        v.updated
+    </sql>
+
+    <sql id="fileBaseColumns">
+        f.companyId,
+        f.repositoryId,
+        f.directoryId,
+        f.name,
+        f.extension,
+        f.size,
+        f.version,
+        f.type,
+        f.description,
+        f.owner,
+        f.status
+    </sql>
+
+    <select id="findAll" resultType="Video">
+        SELECT
+        <include refid="baseColumns"/>
+        ,
+        <include refid="fileBaseColumns"/>
+        FROM tb_videos v
+        INNER JOIN tb_files f ON v.fileId = f.id
+        WHERE v.hidden = 0
+        ORDER BY v.id ASC;
+    </select>
+
+    <insert id="insertVideo" parameterType="Video" useGeneratedKeys="true" keyProperty="video.id"
+            keyColumn="id">
+        INSERT
+        INTO
+        `tb_videos`(
+        `id`,
+        `fileId`,
+        `hidden`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        NULL,
+        #{video.fileId},
+        #{video.hidden},
+        #{video.createId},
+        #{video.updateId},
+        #{video.created},
+        #{video.updated}
+        );
+    </insert>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cropsession.object.dao.CropMediaDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">tcm.*</sql>
+
+    <insert id="insert" parameterType="CropMedia" flushCache="true" useGeneratedKeys="true" keyProperty="media.id">
+        INSERT INTO tb_crop_medias (clientPrimaryKey, actionId, phase, fileId, createId, updateId, created, updated)
+            VALUE
+            (#{media.clientPrimaryKey},#{media.actionId}, #{media.phase}, #{media.fileId}, #{media.createId}, #{media.updateId}, #{media.created},
+             #{media.updated});
+    </insert>
+
+    <update id="update" parameterType="CropMedia" flushCache="true">
+        UPDATE tb_crop_medias tcm
+        SET
+            tcm.clientPrimaryKey   = #{media.clientPrimaryKey},
+            tcm.fileId   = #{media.fileId},
+            tcm.delFlag  = #{media.delFlag},
+            tcm.updateId = #{media.updateId},
+            tcm.updated  = #{media.updated}
+        WHERE tcm.id = #{media.id};
+    </update>
+
+    <select id="findAllByAction" flushCache="false" resultType="CropMedia">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_medias tcm
+        WHERE tcm.actionId = #{actionId} AND tcm.phase = #{phase} AND tcm.delFlag =#{delFlag}
+        ORDER BY tcm.fileId DESC ;
+    </select>
+</mapper>

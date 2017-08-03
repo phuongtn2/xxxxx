@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.CultivationHarvestDao">
+    <sql id="fullColumns">tch.*</sql>
+
+    <insert id="insertCultivationHarvest" parameterType="CultivationHarvest" keyProperty="harvest.id"
+            useGeneratedKeys="true">
+        INSERT
+        INTO
+        `tb_cultivation_harvests` (
+        `id`,
+        `registrationId`,
+        `cultivationId`,
+        `harvestIndex`,
+        `planDate`,
+        `harvestDate`,
+        `harvestLast`,
+        `beforeHarvestLast`,
+        `leavesPinRatio`,
+        `pinRatio`,
+        `massRatio`,
+        `productivity`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{harvest.registrationId},
+        #{harvest.cultivationId},
+        #{harvest.harvestIndex},
+        #{harvest.planDate},
+        #{harvest.harvestDate},
+        #{harvest.harvestLast},
+        #{harvest.beforeHarvestLast},
+        #{harvest.leavesPinRatio},
+        #{harvest.pinRatio},
+        #{harvest.massRatio},
+        #{harvest.productivity},
+        #{harvest.createId},
+        #{harvest.updateId},
+        #{harvest.created},
+        #{harvest.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="CultivationHarvest">
+        UPDATE tb_cultivation_harvests tch
+        SET
+        tch.harvestIndex = #{harvest.harvestIndex},
+        tch.planDate = #{harvest.planDate},
+        tch.planDate = #{harvest.planDate},
+        tch.harvestDate = #{harvest.harvestDate},
+        tch.harvestLast = #{harvest.harvestLast},
+        tch.beforeHarvestLast = #{harvest.beforeHarvestLast},
+        tch.updateId = #{harvest.updateId},
+        tch.updated = #{harvest.updated}
+        WHERE tch.id = #{harvest.id};
+    </update>
+
+    <select id="findAllHarvestByCultivationId" resultType="CultivationHarvest">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_cultivation_harvests tch
+        WHERE tch.cultivationId = #{cultivationId}
+        ORDER BY tch.id DESC ;
+    </select>
+
+    <select id="findAllHarvestByRegistrationId" resultType="CultivationHarvest">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_cultivation_harvests tch
+        WHERE tch.registrationId = #{registrationId}
+        ORDER BY tch.id DESC ;
+    </select>
+</mapper>

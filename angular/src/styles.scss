@@ -1,0 +1,122 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+// Include non-theme styles for core.
+@include mat-core();
+
+// Define a theme.
+$primary: mat-palette($mat-green, 500);
+$accent: mat-palette($mat-green, 900);
+$warn: mat-palette($mat-orange, 800);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Scroll
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(223, 223, 223, 0.8);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(223, 223, 223, 0.4);
+}
+
+md-select[placeholder] {
+  margin: 10px 0 16px;
+}
+
+md-sidenav-container {
+  background-color: #e0e0e0;
+}
+
+md-sidenav-container .mat-sidenav-content {
+  width: 100%;
+  height: 100%;
+}
+
+.mat-toolbar {
+  .mat-toolbar-row:first-of-type {
+    display: none;
+  }
+
+  [md-raised-button] {
+    // TODO find this color in the theme
+    color: rgba(0, 0, 0, .87);
+  }
+}
+
+router-outlet + * {
+  height: 100%;
+  display: flex;
+  flex-direction: column !important;
+}
+
+.ui-widget * {
+  box-sizing: border-box;
+  height: 60px;
+}
+
+table.md-table {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  &.full-screen {
+    width: 100%;
+  }
+
+  tr {
+    position: relative;
+    height: 36px;
+    vertical-align: middle;
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+  }
+
+  th, td {
+    padding: 0 16px;
+    text-align: left;
+  }
+
+  td {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+}
+
+.app-content {
+  margin: 16px;
+}
+
+md-card {
+  &.no-padding {
+    padding: 0;
+  }
+
+  &.card-wrap {
+    overflow: auto;
+  }
+
+  > md-data-table {
+    display: block;
+    width: calc(100% + 48px);
+    margin: -24px;
+    margin-top: -24px !important;
+    margin-bottom: -24px !important;
+  }
+}

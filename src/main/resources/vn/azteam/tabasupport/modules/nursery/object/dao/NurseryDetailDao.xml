@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.nursery.object.dao.NurseryDetailDao">
+    <sql id="fullColumns">tnd.*</sql>
+
+    <sql id="baseColumns">
+        tnd.id,
+        tnd.fileId,
+        tnd.createId,
+        tnd.updateId,
+        tnd.created,
+        tnd.updated
+    </sql>
+
+    <insert id="insert" parameterType="NurseryDetail" useGeneratedKeys="true" keyColumn="id" keyProperty="detail.id">
+        INSERT INTO tb_nursery_details (
+        id,
+        clientPrimaryKey,
+        nurseryId,
+        action,
+        actionname,
+        actionIndex,
+        actionUpdateDate,
+        actionDate,
+        target,
+        targetResult,
+        coordX,
+        coordY,
+        createId,
+        updateId,
+        created,
+        updated
+        )
+        VALUE (
+        NULL,
+        #{detail.clientPrimaryKey},
+        #{detail.nurseryId},
+        #{detail.action},
+        #{detail.actionname},
+        #{detail.actionIndex},
+        #{detail.actionUpdateDate},
+        #{detail.actionDate},
+        #{detail.target},
+        #{detail.targetResult},
+        #{detail.coordX},
+        #{detail.coordY},
+        #{detail.createId},
+        #{detail.updateId},
+        #{detail.created},
+        #{detail.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="NurseryDetail">
+        UPDATE tb_nursery_details tnd
+        SET
+        tnd.clientPrimaryKey = #{detail.clientPrimaryKey},
+        tnd.actionname = #{detail.actionname},
+        tnd.actionIndex = #{detail.actionIndex},
+        tnd.actionDate = #{detail.actionDate},
+        tnd.target = #{detail.target},
+        tnd.targetResult = #{detail.targetResult},
+        tnd.coordX = #{detail.coordX},
+        tnd.coordY = #{detail.coordY},
+        tnd.updateId = #{detail.updateId},
+        tnd.updated = #{detail.updated}
+        WHERE tnd.id = #{detail.id};
+    </update>
+
+    <select id="findAllByNurseryIds" resultType="NurseryDetail">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_nursery_details tnd
+        WHERE tnd.nurseryId IN (
+        <foreach collection="nurseryIds" separator="," item="nurseryId">
+            #{nurseryId}
+        </foreach>
+        )
+        ORDER BY tnd.id DESC ;
+    </select>
+</mapper>

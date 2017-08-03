@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.CultivationDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <insert id="insertCultivation" parameterType="Cultivation" keyProperty="cultivation.id" flushCache="true"
+            useGeneratedKeys="true">
+        INSERT
+        INTO
+        `tb_cultivations` (
+        `id`,
+        `registrationId`,
+        `seedId`,
+        `acreage`,
+        `address`,
+        `provinceId`,
+        `districtId`,
+        `wardId`,
+        `densityRow`,
+        `densityColumn`,
+        `plantAcreageRatio`,
+        `leavesRatio`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{cultivation.registrationId},
+        #{cultivation.seedId},
+        #{cultivation.acreage},
+        #{cultivation.address},
+        #{cultivation.provinceId},
+        #{cultivation.districtId},
+        #{cultivation.wardId},
+        #{cultivation.densityRow},
+        #{cultivation.densityColumn},
+        #{cultivation.plantAcreageRatio},
+        #{cultivation.leavesRatio},
+        #{cultivation.createId},
+        #{cultivation.updateId},
+        #{cultivation.created},
+        #{cultivation.updated}
+        );
+    </insert>
+
+    <update id="updateCultivation" parameterType="Cultivation" flushCache="true">
+        UPDATE
+            `tb_cultivations`
+        SET
+        `seedId` = #{cultivation.seedId},
+        `address` = #{cultivation.address},
+        `provinceId` = #{cultivation.provinceId},
+        `districtId` = #{cultivation.districtId},
+        `wardId` = #{cultivation.wardId},
+        `acreage` = #{cultivation.acreage},
+        `densityRow` = #{cultivation.densityRow},
+        `densityColumn` = #{cultivation.densityColumn},
+        `plantAcreageRatio` = #{cultivation.plantAcreageRatio},
+        `leavesRatio` = #{cultivation.leavesRatio},
+        `delFlag` = #{cultivation.delFlag},
+        `createId` = #{cultivation.createId},
+        `updateId` = #{cultivation.updateId}
+        WHERE
+            id = #{cultivation.id};
+    </update>
+
+    <select id="findAllCultivationByCompanyIds" resultType="Cultivation" flushCache="false">
+        SELECT c.*
+        FROM tb_cultivations c
+        INNER JOIN tb_crop_registrations cr ON c.registrationId = cr.id
+        INNER JOIN (SELECT
+        max(DISTINCT cs.id) id
+        FROM tb_crop_season cs) t ON cr.cropId = t.id
+        WHERE cr.companyId IN (
+        <foreach collection="companyIds" item="companyId" separator=",">
+            #{companyId}
+        </foreach>
+        )
+        AND c.delFlag = 0
+        ORDER BY c.id DESC;
+    </select>
+
+    <select id="findAllCultivationResponsibilityEmployeeId" resultType="Cultivation" flushCache="false">
+        SELECT c.*
+        FROM tb_cultivations c
+            INNER JOIN tb_crop_registrations cr ON c.registrationId = cr.id
+            INNER JOIN (SELECT max(DISTINCT cs.id) id
+                        FROM tb_crop_season cs) t ON cr.cropId = t.id
+        WHERE cr.responsibilityEmployeeId = #{responsibilityId}
+        AND c.delFlag = 0
+        AND cr.isCancel = 0
+        ORDER BY c.id DESC;
+    </select>
+</mapper>

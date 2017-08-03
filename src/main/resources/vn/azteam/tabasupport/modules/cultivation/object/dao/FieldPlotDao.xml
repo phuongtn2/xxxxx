@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.FieldPlotDao">
+    <sql id="fullColumns">
+        tfp.*
+    </sql>
+    <insert id="insertFieldPlot" parameterType="FieldPlot" keyProperty="fieldPlot.id" useGeneratedKeys="true">
+        INSERT
+        INTO
+        `tb_field_plots` (
+        `id`,
+        `clientPrimaryKey`,
+        `name`,
+        `acreage`,
+        `registrationId`,
+        `cultivationId`,
+        `cultivationDate`,
+        `densityRow`,
+        `densityColumn`,
+        `plantRowRatio`,
+        `rowPlotRatio`,
+        `leavesRatio`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{fieldPlot.clientPrimaryKey},
+        #{fieldPlot.name},
+        #{fieldPlot.acreage},
+        #{fieldPlot.registrationId},
+        #{fieldPlot.cultivationId},
+        #{fieldPlot.cultivationDate},
+        #{fieldPlot.densityRow},
+        #{fieldPlot.densityColumn},
+        #{fieldPlot.plantRowRatio},
+        #{fieldPlot.rowPlotRatio},
+        #{fieldPlot.leavesRatio},
+        #{fieldPlot.createId},
+        #{fieldPlot.updateId},
+        #{fieldPlot.created},
+        #{fieldPlot.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="FieldPlot">
+        UPDATE tb_field_plots tfp
+        SET
+        clientPrimaryKey = #{fieldPlot.clientPrimaryKey},
+        name = #{fieldPlot.name},
+        acreage = #{fieldPlot.acreage},
+        densityRow = #{fieldPlot.densityRow},
+        densityColumn = #{fieldPlot.densityColumn},
+        plantRowRatio = #{fieldPlot.plantRowRatio},
+        rowPlotRatio = #{fieldPlot.rowPlotRatio},
+        leavesRatio = #{fieldPlot.leavesRatio},
+        cultivationDate = #{fieldPlot.cultivationDate},
+        delFlag = #{fieldPlot.delFlag},
+        updateId = #{fieldPlot.updateId},
+        updated = #{fieldPlot.updated}
+        WHERE tfp.id = #{fieldPlot.id};
+    </update>
+
+    <select id="findAllByCultivationId" resultType="FieldPlot">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_field_plots tfp
+        WHERE tfp.cultivationId = #{cultivationId}
+        AND tfp.delFlag = 0
+        ORDER BY tfp.id DESC ;
+    </select>
+
+    <select id="getAllFieldPlotByRegistrationIds" resultType="FieldPlot" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_field_plots tfp
+        WHERE tfp.registrationId IN (
+        <foreach collection="registrationIds" item="registrationId" separator=",">
+            #{registrationId}
+        </foreach>
+        )
+        AND tfp.delFlag = 0
+        ORDER BY tfp.id DESC ;
+    </select>
+</mapper>

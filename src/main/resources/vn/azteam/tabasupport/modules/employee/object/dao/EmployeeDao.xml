@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.employee.object.dao.EmployeeDao">
+    <sql id="fullColumns">e.*</sql>
+
+    <sql id="baseColumns">
+        e.id,
+        e.companyId,
+        e.uId,
+        e.departmentId,
+        e.divisionId,
+        e.employeeCode,
+        e.position,
+        e.createId,
+        e.updateId,
+        e.created,
+        e.updated
+    </sql>
+
+    <sql id="accountBaseColumns">
+        a.status,
+        a.userId,
+        a.password,
+        a.languageId,
+        a.timeZoneId,
+        a.deviceType,
+        a.loginIP,
+        a.loginDate,
+        a.lastLoginIP,
+        a.lastLoginDate,
+    </sql>
+
+    <sql id="userBaseColumns">
+        u.identityCard,
+        u.firstName,
+        u.lastName,
+        u.fullName,
+        u.phone,
+        u.email,
+        u.address,
+        u.provinceId,
+        u.wardId,
+        u.districtId,
+    </sql>
+
+    <insert id="insertEmployee" parameterType="Employee" useGeneratedKeys="true" keyProperty="employee.id"
+            keyColumn="id">
+        INSERT
+        INTO
+        `tb_employees`(
+        `id`,
+        `uId`,
+        `companyId`,
+        `departmentId`,
+        `divisionId`,
+        `employeeCode`,
+        `position`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        NULL,
+        #{employee.uId},
+        #{employee.companyId},
+        #{employee.departmentId},
+        #{employee.divisionId},
+        #{employee.employeeCode},
+        #{employee.position},
+        #{employee.createId},
+        #{employee.updateId},
+        #{employee.created},
+        #{employee.updated}
+        );
+    </insert>
+
+    <select id="findAll" resultType="Employee">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="accountBaseColumns"/>
+        <include refid="baseColumns"/>
+        FROM tb_employees e
+        INNER JOIN tb_users u ON (e.uId = u.id)
+        INNER JOIN tb_accounts a ON (a.uId =e.uId)
+        ORDER BY e.id DESC;
+    </select>
+
+    <update id="updateEmployee" parameterType="Employee">
+        UPDATE tb_employees
+        SET
+            uId      = #{employee.uId},
+            updateId = #{employee.updateId},
+            updated  = #{employee.updated}
+        WHERE
+            id = #{employee.id}
+            AND companyId = #{employee.companyId};
+    </update>
+
+</mapper>

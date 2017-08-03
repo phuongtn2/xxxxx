@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.core.object.dao.ProvinceDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="baseColumns">tp.*</sql>
+    <sql id="fullColumns">tp.*</sql>
+
+    <select id="findAll" resultType="Province">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_provinces tp
+        ORDER BY tp.id ASC ;
+    </select>
+</mapper>

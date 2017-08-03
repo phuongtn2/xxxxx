@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.employee.object.dao.DivisionDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">tdiv.*</sql>
+
+    <update id="update" parameterType="Division" flushCache="true">
+        UPDATE tb_divisions tdiv
+        SET
+            tdiv.name          = #{division.name},
+            tdiv.managerId     = #{division.managerId},
+            tdiv.subManagerId  = #{division.subManagerId},
+            tdiv.accountantId  = #{division.accountantId},
+            tdiv.storeKeeperId = #{division.storeKeeperId},
+            tdiv.updateId      = #{division.updateId},
+            tdiv.updated       = #{division.updated}
+        WHERE tdiv.id = #{division.id};
+    </update>
+
+    <select id="findAllByCompanyId" resultType="Division">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_divisions tdiv
+        WHERE tdiv.companyId = #{companyId}
+        ORDER BY tdiv.id DESC ;
+    </select>
+
+</mapper>

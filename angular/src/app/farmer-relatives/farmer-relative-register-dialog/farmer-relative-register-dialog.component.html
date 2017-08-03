@@ -1,0 +1,31 @@
+<h1 md-dialog-title>{{title}}</h1>
+
+<form [formGroup]="farmerInfo" fxLayout="column">
+  <md-input-container>
+    <input mdInput i18n-placeholder placeholder="Họ và chữ lót" formControlName="firstName" required>
+    <md-error>{{formErrors.firstName}}</md-error>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput i18n-placeholder placeholder="Tên" formControlName="lastName" required>
+    <md-error>{{formErrors.lastName}}</md-error>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput i18n-placeholder placeholder="Quan hệ" formControlName="relationship" required>
+    <md-error>{{formErrors.relationship}}</md-error>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput i18n-placeholder placeholder="Số CMND" formControlName="identityCard">
+    <md-error>{{formErrors.identityCard}}</md-error>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput i18n-placeholder placeholder="Số điện thoại" formControlName="phone">
+    <md-error>{{formErrors.phone}}</md-error>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput i18n-placeholder placeholder="Email" formControlName="email">
+  </md-input-container>
+  <md-dialog-actions align="end">
+    <button md-raised-button type="button" (click)="farmerInfo.valid && saveFarmerRelative()" i18n>Save</button>
+    <button md-button md-dialog-close i18n>Cancel</button>
+  </md-dialog-actions>
+</form>

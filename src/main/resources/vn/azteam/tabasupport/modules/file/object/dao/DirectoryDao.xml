@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.file.object.dao.DirectoryDao">
+    <sql id="fullColumns">d.*</sql>
+
+    <sql id="baseColumns">
+        d.id,
+        d.parentId,
+        d.companyId,
+        d.name,
+        d.owner,
+        d.status,
+        d.createId,
+        d.updateId,
+        d.created,
+        d.updated
+    </sql>
+
+    <select id="findByName" resultType="Directory">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_directories d
+        WHERE d.name = #{name}
+        LIMIT 0,1;
+    </select>
+
+    <select id="findAll" resultType="Directory">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_directories d
+        ORDER BY d.id DESC;
+    </select>
+
+    <insert id="insertDirectory" parameterType="Directory" useGeneratedKeys="true" keyProperty="dir.id"
+            keyColumn="id">
+        INSERT INTO tb_directories
+        (`id`, `companyId`, `repositoryId`, `parentId`, `name`, `status`, `owner`, `createId`, `updateId`, `created`,
+        `updated`)
+        VALUES
+        (NULL, #{dir.companyId}, #{dir.repositoryId}, #{dir.parentId}, #{dir.name}, #{dir.status}, #{dir.owner},
+        #{dir.createId},
+        #{dir.updateId},
+        #{dir.created}, #{dir.updated});
+    </insert>
+
+</mapper>

@@ -1,0 +1,174 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.2.xsd
+       http://www.springframework.org/schema/security/oauth2
+       http://www.springframework.org/schema/security/spring-security-oauth2-2.0.xsd">
+
+    <!-- Define handler -->
+    <oauth:expression-handler id="oauthExpressionHandler"/>
+    <oauth:web-expression-handler id="oauthWebExpressionHandler"/>
+
+    <!-- Definition of the Authentication Service -->
+    <http pattern="/api/oauth/token" create-session="stateless" use-expressions="true"
+          entry-point-ref="clientAuthenticationEntryPoint" authentication-manager-ref="clientAuthenticationManager"
+          xmlns="http://www.springframework.org/schema/security">
+        <intercept-url pattern="/api/oauth/token" access="permitAll()"/>
+        <anonymous enabled="false"/>
+        <!--<http-basic entry-point-ref="clientAuthenticationEntryPoint"/>-->
+        <!-- include this only if you need to authenticate clients via request parameters -->
+        <custom-filter ref="clientCredentialsTokenEndpointFilter" after="BASIC_AUTH_FILTER"/>
+        <!--<custom-filter ref="corsFilter" after="LAST"/>-->
+        <access-denied-handler ref="oauthAccessDeniedHandler"/>
+    </http>
+
+    <sec:http pattern="/api/reset-password" security="none"/>
+    <sec:http pattern="/api/password" security="none"/>
+
+    <!-- Protected resources -->
+    <sec:http pattern="/api/**"
+              create-session="stateless"
+              entry-point-ref="oauthAuthenticationEntryPoint"
+              access-decision-manager-ref="accessDecisionManager">
+        <sec:anonymous enabled="false"/>
+        <sec:intercept-url pattern="/api/oauth/token/revoke" access="IS_AUTHENTICATED_FULLY"/>
+        <sec:intercept-url pattern="/api/me/**" access="IS_AUTHENTICATED_FULLY"/>
+        <sec:intercept-url pattern="/api/employee/**" access="SCOPE_EMPLOYEE_MANAGER"/>
+        <sec:intercept-url pattern="/api/observer/**" access="SCOPE_EMPLOYEE_MANAGER"/>
+        <sec:intercept-url pattern="/api/department/**" access="SCOPE_EMPLOYEE_MANAGER"/>
+        <sec:intercept-url pattern="/api/material/**" access="SCOPE_MATERIAL_MANAGER"/>
+        <sec:intercept-url pattern="/api/file/**" access="SCOPE_FILE_MANAGER"/>
+        <sec:intercept-url pattern="/api/memo/**" access="SCOPE_MEMO_MANAGER"/>
+        <sec:intercept-url pattern="/api/farmer/**" access="SCOPE_FARMER_MANAGER"/>
+        <sec:intercept-url pattern="/api/document/**" access="SCOPE_DOCUMENT_MANAGER"/>
+        <sec:intercept-url pattern="/api/photo/**" access="SCOPE_PHOTO_MANAGER"/>
+        <sec:intercept-url pattern="/api/video/**" access="SCOPE_VIDEO_MANAGER"/>
+        <sec:intercept-url pattern="/api/crop-session/**" access="SCOPE_CROP_SESSION_MANAGER"/>
+        <sec:intercept-url pattern="/api/cultivation/**" access="SCOPE_CULTIVATION_MANAGER"/>
+        <sec:intercept-url pattern="/api/pest/**" access="SCOPE_PEST_MANAGER"/>
+        <sec:intercept-url pattern="/api/sale/**" access="SCOPE_SALE_MANAGER"/>
+        <sec:intercept-url pattern="/api/task/**" access="SCOPE_TASK_MANAGER"/>
+        <sec:intercept-url pattern="/api/zone/**" access="SCOPE_ZONE_MANAGER"/>
+        <sec:intercept-url pattern="/api/cost/**" access="SCOPE_COST_MANAGER"/>
+        <sec:intercept-url pattern="/api/division/**" access="SCOPE_EMPLOYEE_MANAGER"/>
+        <sec:intercept-url pattern="/api/move/**" access="SCOPE_MOVE_MANAGER"/>
+        <sec:intercept-url pattern="/api/report/**" access="SCOPE_REPORT"/>
+        <sec:intercept-url pattern="/api/employee-zone/**" access="SCOPE_REPORT"/>
+        <sec:custom-filter ref="resourceServerFilter" before="PRE_AUTH_FILTER"/>
+        <sec:access-denied-handler ref="oauthAccessDeniedHandler"/>
+    </sec:http>
+
+    <!-- Authentication in config file -->
+    <authentication-manager id="clientAuthenticationManager" xmlns="http://www.springframework.org/schema/security">
+        <authentication-provider user-service-ref="clientDetailsUserService"/>
+    </authentication-manager>
+
+    <authentication-manager alias="authenticationManager" xmlns="http://www.springframework.org/schema/security">
+        <authentication-provider ref="authenticationProvider"/>
+    </authentication-manager>
+
+    <!-- Token management -->
+    <oauth:authorization-server
+            check-token-enabled="true"
+            client-details-service-ref="clientDetails"
+            token-services-ref="tokenServices"
+            user-approval-handler-ref="userApprovalHandler">
+        <oauth:authorization-code/>
+        <oauth:implicit/>
+        <oauth:refresh-token/>
+        <oauth:client-credentials/>
+        <oauth:password/>
+    </oauth:authorization-server>
+
+    <oauth:resource-server id="resourceServerFilter" resource-id="dstest" token-services-ref="tokenServices"/>
+
+    <!--Beans-->
+
+    <!-- Bean corsFilter -->
+    <!--<bean id="corsFilter" class="metricsystem.core.rest.filter.CORSFilter"/>-->
+
+    <!-- Bean authenticationProvider -->
+    <bean id="authenticationProvider" class="vn.azteam.tabasupport.core.service.impl.AuthenticationProvider">
+        <property name="userDetailsService" ref="userDetailsService"/>
+        <property name="passwordEncoder" ref="passwordEncoder"/>
+    </bean>
+
+    <!-- Bean passwordEncoder -->
+    <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+
+    <!-- Bean oauthAccessDeniedHandler -->
+    <bean id="oauthAccessDeniedHandler"
+          class="org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler"/>
+
+    <!-- Bean auth2SecurityExpressionMethod -->
+    <bean id="auth2SecurityExpressionMethod"
+          class="org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler">
+    </bean>
+
+    <!-- Bean userApprovalHandler -->
+    <bean id="userApprovalHandler"
+          class="org.springframework.security.oauth2.provider.approval.DefaultUserApprovalHandler">
+    </bean>
+
+    <!-- Bean oauthAuthenticationEntryPoint -->
+    <bean id="oauthAuthenticationEntryPoint"
+          class="org.springframework.security.oauth2.provider.error.OAuth2AuthenticationEntryPoint">
+        <property name="realmName" value="dstest"/>
+    </bean>
+
+    <!-- Bean clientAuthenticationEntryPoint -->
+    <bean id="clientAuthenticationEntryPoint"
+          class="org.springframework.security.oauth2.provider.error.OAuth2AuthenticationEntryPoint">
+        <property name="realmName" value="dstest/client"/>
+        <property name="typeName" value="OAuth2"/>
+    </bean>
+
+    <!-- Bean clientCredentialsTokenEndpointFilter -->
+    <bean id="clientCredentialsTokenEndpointFilter"
+          class="org.springframework.security.oauth2.provider.client.ClientCredentialsTokenEndpointFilter">
+        <property name="authenticationManager" ref="clientAuthenticationManager"/>
+    </bean>
+
+    <!-- Beans accessDecisionManager -->
+    <bean id="accessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased"
+          xmlns="http://www.springframework.org/schema/beans">
+        <constructor-arg>
+            <list>
+                <bean class="org.springframework.security.oauth2.provider.vote.ScopeVoter"/>
+                <bean class="org.springframework.security.access.vote.RoleVoter"/>
+                <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+                <bean class="org.springframework.security.web.access.expression.WebExpressionVoter"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Beans clientDetails -->
+    <bean id="clientDetails" class="vn.azteam.tabasupport.core.service.impl.OAuth2ClientDetailServiceImpl"/>
+
+    <!-- Bean tokenEnhancer-->
+    <bean id="tokenEnhancer" class="vn.azteam.tabasupport.core.service.impl.OAuth2TokenEnhancerImpl"/>
+
+    <!-- Bean define service -->
+    <bean id="userDetailsService" class="vn.azteam.tabasupport.core.service.impl.OAuth2UserDetailServiceImpl"/>
+
+    <bean id="clientDetailsUserService"
+          class="org.springframework.security.oauth2.provider.client.ClientDetailsUserDetailsService">
+        <constructor-arg ref="clientDetails"/>
+    </bean>
+
+    <!-- Bean Token Store  -->
+    <bean id="tokenStore" class="org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore"/>
+
+    <!--Bean tokenServices-->
+    <bean id="tokenServices" class="org.springframework.security.oauth2.provider.token.DefaultTokenServices">
+        <property name="tokenStore" ref="tokenStore"/>
+        <property name="tokenEnhancer" ref="tokenEnhancer"/>
+        <property name="supportRefreshToken" value="true"/>
+        <property name="clientDetailsService" ref="clientDetails"/>
+        <property name="accessTokenValiditySeconds" value="10"/>
+    </bean>
+</beans>

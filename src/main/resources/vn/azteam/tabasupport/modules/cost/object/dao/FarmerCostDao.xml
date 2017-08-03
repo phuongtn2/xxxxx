@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cost.object.dao.FarmerCostDao">
+
+    <select id="findAllFarmerCostByCompanyId" resultType="FarmerCost">
+        SELECT tc.*
+        FROM tb_costs tc
+          INNER JOIN tb_crop_registrations c ON tc.registrationId = c.id
+        WHERE c.cropId = (SELECT max(DISTINCT id)
+                          FROM tb_crop_season
+                          LIMIT 0, 1)
+              AND tc.companyId = #{companyId}
+        AND c.responsibilityEmployeeId = #{employeeId}
+        ORDER BY tc.id ASC;
+    </select>
+
+    <insert id="insertFarmerCost" parameterType="FarmerCost" keyProperty="farmerCost.id"
+            useGeneratedKeys="true">
+        INSERT
+        INTO
+          `tb_costs`(
+            `companyId`,
+            `cropId`,
+            `registrationId`,
+        `title`,
+            `type`,
+            `actionType`,
+            `actionId`,
+            `quantity`,
+            `price`,
+            `createId`,
+            `updateId`,
+            `created`,
+            `updated`
+          )
+        VALUES(
+          #{farmerCost.companyId},
+          #{farmerCost.cropId},
+          #{farmerCost.registrationId},
+        #{farmerCost.title},
+          #{farmerCost.type},
+          #{farmerCost.actionType},
+          #{farmerCost.actionId},
+          #{farmerCost.quantity},
+          #{farmerCost.price},
+          #{farmerCost.createId},
+          #{farmerCost.updateId},
+          #{farmerCost.created},
+          #{farmerCost.updated}
+        );
+    </insert>
+
+    <update id="updateFarmerCost" parameterType="FarmerCost">
+        UPDATE
+          `tb_costs`
+        SET
+          `registrationId` = #{farmerCost.registrationId},
+        `title` = #{farmerCost.title},
+          `type` = #{farmerCost.type},
+          `actionType` = #{farmerCost.actionType},
+          `actionId` = #{farmerCost.actionId},
+          `quantity` = #{farmerCost.quantity},
+          `price` = #{farmerCost.price},
+          `createId` =#{farmerCost.createId},
+          `updateId` = #{farmerCost.updateId},
+          `created` = #{farmerCost.created},
+          `updated` = #{farmerCost.updated}
+        WHERE
+          `id` = #{farmerCost.id};
+    </update>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.employee.object.dao.DepartmentDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">td.*</sql>
+
+    <update id="update" parameterType="Department" flushCache="true">
+        UPDATE tb_departments td
+        SET
+            td.name         = #{department.name},
+            td.managerId    = #{department.managerId},
+            td.subManagerId = #{department.subManagerId},
+            td.updateId     = #{department.updateId},
+            td.updated      = #{department.updated}
+        WHERE td.id = #{department.id};
+    </update>
+
+    <select id="findAllByCompanyId" resultType="Department" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_departments td
+        WHERE td.companyId = #{companyId}
+        ORDER BY td.id DESC ;
+    </select>
+</mapper>

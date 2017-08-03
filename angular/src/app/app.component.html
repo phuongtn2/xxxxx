@@ -1,0 +1,116 @@
+<md-progress-bar *ngIf="loading" mode="indeterminate" color="accent"></md-progress-bar>
+<md-sidenav-container fxLayout>
+  <md-sidenav mode="side" [opened]="isLoggedIn()" fxLayout="column" class="mat-elevation-z2">
+    <div id="logo">
+      <img src="/assets/images/logo.png" alt="logo taba">
+      <span>TABA Support</span>
+    </div>
+    <md-nav-list style="overflow: auto">
+      <h3 md-subheader>CHUNG</h3>
+      <a md-list-item *ngIf="authService.currentUser && (authService.currentUser.isAccountant || authService.currentUser.isTechnicianLeader || authService.currentUser.isSubDirector || authService.currentUser.isDirector || authService.currentUser.isSuperAdministrator)"
+         routerLink="/users" routerLinkActive="active">
+        <md-icon md-list-icon>android</md-icon>
+        <!--i18n-->Quản Lý Nhân Sự<!--/i18n-->
+      </a>
+      <a md-list-item *ngIf="authService.currentUser && !authService.currentUser.isTechnician"
+         routerLink="farmers" routerLinkActive="active">
+        <md-icon md-list-icon>business</md-icon>
+        <!--i18n-->Hồ Sơ Nông Dân<!--/i18n-->
+      </a>
+      <a md-list-item *ngIf="authService.currentUser && !authService.currentUser.isTechnician"
+         routerLink="materials" routerLinkActive="active">
+        <md-icon md-list-icon>list</md-icon>
+        <!--i18n-->Quản Lý Vật Tư<!--/i18n-->
+      </a>
+      <a md-list-item routerLink="documents" routerLinkActive="active">
+        <md-icon md-list-icon>library_books</md-icon>
+        <!--i18n-->Quản Lý Tài Liệu<!--/i18n-->
+      </a>
+      <md-divider></md-divider>
+      <h3 md-subheader>QUẢN LÝ MÙA VỤ</h3>
+      <a md-list-item routerLink="crop-session/farmer" routerLinkActive="active">
+        <md-icon md-list-icon>assignment</md-icon>
+        <!--i18n-->Đăng Ký Mùa Vụ<!--/i18n-->
+      </a>
+      <a md-list-item *ngIf="authService.currentUser && (authService.currentUser.isTechnicianLeader || authService.currentUser.isDirector || authService.currentUser.isStorekeeper)"
+         routerLink="material-request" routerLinkActive="active">
+        <md-icon md-list-icon>assignment</md-icon>
+        <!--i18n-->Yêu Cầu Vật Tư<!--/i18n-->
+      </a>
+      <a md-list-item
+         *ngIf="authService.currentUser && authService.currentUser.isTechnician"
+         routerLink="farmer-cost" routerLinkActive="active">
+        <md-icon md-list-icon>monetization_on</md-icon>
+        <!--i18n-->Chi Phí Nông Dân<!--/i18n-->
+      </a>
+      <ng-container *ngIf="authService.currentUser && (authService.currentUser.isSuperAdministrator || authService.currentUser.isDirector)">
+        <md-divider></md-divider>
+        <h3 md-subheader>TRUY XUẤT</h3>
+        <a md-list-item routerLink="report/farmer" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n: title -->Farmer<!--/i18n-->
+        </a>
+        <a md-list-item *ngIf="authService.currentUser && authService.currentUser.isSuperAdministrator"
+           routerLink="report/observer-zone" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Giám Sát<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/nursery" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Vườn Ươm<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/seed" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Cơ Cấu Giống<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/actual-acreage" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Cập Nhật Diện Tích<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/fertilizer" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Mật Độ Và Phân Bón<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/expected-output" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Dự Trù Năng Xuất<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/farmer-cost" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Chi Phí Nông Dân<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/task-plan" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Kế Hoạch Làm Việc<!--/i18n-->
+        </a>
+        <a md-list-item routerLink="report/task-detail" routerLinkActive="active">
+          <md-icon md-list-icon>assignment</md-icon>
+          <!--i18n-->Km Sử Dụng Xe Máy<!--/i18n-->
+        </a>
+      </ng-container>
+    </md-nav-list>
+    <span fxFlex></span>
+    <md-nav-list>
+      <md-list-item *ngIf="authService.currentUser != null" style="pointer-events: none;">
+        <span>{{authService.currentUser.fullName}}</span>
+      </md-list-item>
+      <a md-list-item routerLink="schedule" routerLinkActive="active"
+         *ngIf="authService.currentUser && authService.currentUser.isTechnician">
+        <md-icon md-list-icon>schedule</md-icon>
+        <!--i18n-->Xem công việc<!--/i18n-->
+      </a>
+      <a md-list-item routerLink="settings" routerLinkActive="active">
+        <md-icon md-list-icon>settings</md-icon>
+        <!--i18n-->Settings<!--/i18n-->
+      </a>
+      <a md-list-item routerLink="login" routerLinkActive="active">
+        <md-icon md-list-icon>exit_to_app</md-icon>
+        <!--i18n-->Logout<!--/i18n-->
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <section class="main-content" fxLayout="column" fxFlex>
+    <router-outlet></router-outlet>
+  </section>
+</md-sidenav-container>

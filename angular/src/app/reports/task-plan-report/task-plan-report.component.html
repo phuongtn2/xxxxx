@@ -1,0 +1,93 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="exportReport()">
+      <md-icon>assessment</md-icon>
+      <!--i18n-->Xuất báo cáo<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+
+<md-card class="app-content">
+  <form [formGroup]="form" fxLayout fxLayoutGap="5px">
+    <md-select i18n-placeholder placeholder="Kỹ thuật viên" formControlName="technicianId" fxFlex>
+      <md-option *ngFor="let technician of technicians" [value]="technician.id">{{technician.fullName}}</md-option>
+    </md-select>
+    <md-select i18n-placeholder placeholder="Ngày cập nhật" formControlName="dateReport" fxFlex>
+      <md-option [value]="1">{{data.dateReport | date:'shortDate'}}</md-option>
+    </md-select>
+    <md-select i18n-placeholder placeholder="Số Km xe hiện tại" formControlName="currentSpeedometer" fxFlex>
+      <md-option [value]="1">{{data.currentSpeedometer | number}}</md-option>
+    </md-select>
+  </form>
+</md-card>
+<md-card class="app-content">
+  <table class="md-table">
+    <caption>{{title}}</caption>
+    <ng-container *ngIf="data.thisWeek.length">
+      <thead>
+      <tr>
+        <th colspan="3">KẾ HOẠCH TUẦN</th>
+        <th class="mat-numeric-column">Từ</th>
+        <th>{{data.beginThisWeek | date:'shortDate'}}</th>
+        <th class="mat-numeric-column">Đến</th>
+        <th>{{data.endThisWeek | date:'shortDate'}}</th>
+      </tr>
+      <tr>
+        <th colspan="2" style="text-align: center;">Ngày</th>
+        <th>Địa điểm</th>
+        <th>Công việc buổi sáng</th>
+        <th>Địa điểm</th>
+        <th>Công việc buổi chiều</th>
+        <th i18n>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of data.thisWeek">
+        <td>{{row.startDate | date:'shortDate'}}</td>
+        <td>{{row.startDate | date:'EEEE'}}</td>
+        <td>{{row.districtName}}</td>
+        <td>{{row.morningTask}}</td>
+        <td>{{row.districtName}}</td>
+        <td>{{row.afternoonTask}}</td>
+        <td>{{row.description}}</td>
+      </tr>
+      </tbody>
+    </ng-container>
+    <ng-container *ngIf="data.nextWeek.length">
+    <thead>
+      <tr>
+        <th colspan="3">KẾ HOẠCH TUẦN KẾ TIẾP</th>
+        <th class="mat-numeric-column">Từ</th>
+        <th>{{data.beginNextWeek | date:'shortDate'}}</th>
+        <th class="mat-numeric-column">Đến</th>
+        <th>{{data.endNextWeek | date:'shortDate'}}</th>
+      </tr>
+      <tr>
+        <th colspan="2" style="text-align: center;">Ngày</th>
+        <th>Địa điểm</th>
+        <th>Công việc buổi sáng</th>
+        <th>Địa điểm</th>
+        <th>Công việc buổi chiều</th>
+        <th i18n>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of data.nextWeek">
+        <td>{{row.startDate | date:'shortDate'}}</td>
+        <td>{{row.startDate | date:'EEEE'}}</td>
+        <td>{{row.districtName}}</td>
+        <td>{{row.morningTask}}</td>
+        <td>{{row.districtName}}</td>
+        <td>{{row.afternoonTask}}</td>
+        <td>{{row.description}}</td>
+      </tr>
+      </tbody>
+    </ng-container>
+    <tfoot *ngIf="!data.thisWeek.length && !data.nextWeek.length">
+    <tr>
+      <td colspan="7" style="text-align: center;">Chưa có dữ liệu</td>
+    </tr>
+    </tfoot>
+  </table>
+</md-card>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cropsession.object.dao.CropDryingOvenDao">
+    <sql id="baseColumns">
+        tcdo.id,
+        tcdo.registrationId,
+        tcdo.length,
+        tcdo.width,
+        tcdo.height,
+        tcdo.purlins,
+        tcdo.useHusk,
+        tcdo.useNaturalFirewood,
+        tcdo.useGrownFirewood,
+        tcdo.useCoal,
+        tcdo.useOther,
+        tcdo.quantity
+    </sql>
+
+    <sql id="fullColumns">tcdo.*</sql>
+
+    <insert id="insertCropDryingOven" parameterType="CropDryingOven" useGeneratedKeys="true"
+            keyProperty="cropDryingOven.id">
+        INSERT INTO tb_crop_drying_ovens (id, clientPrimaryKey, registrationId, length, width, height, purlins,
+        useHusk, useNaturalFirewood, useGrownFirewood, useCoal, useOther,
+        quantity, createId, updateId, created, updated)
+        VALUE
+        (NULL, #{cropDryingOven.clientPrimaryKey}, #{cropDryingOven.registrationId}, #{cropDryingOven.length},
+        #{cropDryingOven.width},
+        #{cropDryingOven.height}, #{cropDryingOven.purlins},
+        #{cropDryingOven.useHusk}, #{cropDryingOven.useNaturalFirewood}, #{cropDryingOven.useGrownFirewood},
+        #{cropDryingOven.useCoal}, #{cropDryingOven.useOther},
+        #{cropDryingOven.quantity}, #{cropDryingOven.createId}, #{cropDryingOven.updateId},
+        #{cropDryingOven.created}, #{cropDryingOven.updated}
+        );
+    </insert>
+
+    <update id="updateCropDryingOven" parameterType="CropDryingOven">
+        UPDATE tb_crop_drying_ovens tcdo
+        SET
+        tcdo.clientPrimaryKey = #{cropDryingOven.clientPrimaryKey},
+        tcdo.length = #{cropDryingOven.length},
+        tcdo.width = #{cropDryingOven.width},
+        tcdo.height = #{cropDryingOven.height},
+        tcdo.purlins = #{cropDryingOven.purlins},
+        tcdo.useHusk = #{cropDryingOven.useHusk},
+        tcdo.useNaturalFirewood = #{cropDryingOven.useNaturalFirewood},
+        tcdo.useGrownFirewood = #{cropDryingOven.useGrownFirewood},
+        tcdo.useCoal = #{cropDryingOven.useCoal},
+        tcdo.useOther = #{cropDryingOven.useOther},
+        tcdo.delFlag = #{cropDryingOven.delFlag},
+        tcdo.quantity = #{cropDryingOven.quantity}
+        WHERE tcdo.id = #{cropDryingOven.id};
+    </update>
+
+    <update id="deleteCropDryingOven" parameterType="CropDryingOven">
+        UPDATE tb_crop_drying_ovens tcdo
+        SET
+        tcdo.clientPrimaryKey = #{cropDryingOven.clientPrimaryKey},
+        tcdo.length = #{cropDryingOven.length},
+        tcdo.width = #{cropDryingOven.width},
+        tcdo.height = #{cropDryingOven.height},
+        tcdo.purlins = #{cropDryingOven.purlins},
+        tcdo.useHusk = #{cropDryingOven.useHusk},
+        tcdo.useNaturalFirewood = #{cropDryingOven.useNaturalFirewood},
+        tcdo.useGrownFirewood = #{cropDryingOven.useGrownFirewood},
+        tcdo.useCoal = #{cropDryingOven.useCoal},
+        tcdo.useOther = #{cropDryingOven.useOther},
+        tcdo.delFlag = NULL ,
+        tcdo.quantity = #{cropDryingOven.quantity}
+        WHERE tcdo.id = #{cropDryingOven.id};
+    </update>
+
+    <select id="findAllByRegistrationIds" resultType="CropDryingOven">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_drying_ovens tcdo
+        WHERE tcdo.registrationId IN (
+        <foreach collection="registrationIds" item="registrationId" separator=",">
+            #{registrationId}
+        </foreach>
+        )
+        AND delFlag IS NOT NULL
+        ORDER BY tcdo.id DESC ;
+    </select>
+</mapper>

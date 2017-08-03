@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.material.object.dao.RequestMaterialDao">
+
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="12000"/><!--5 minute-->
+        <property name="timeToIdleSeconds" value="12000"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <select id="findAllRequestMaterialByCompanyId" resultType="RequestMaterial" flushCache="false">
+        SELECT trm.*
+        FROM tb_crop_registrations c
+          INNER JOIN tb_request_materials trm ON trm.registrationId = c.id
+        WHERE c.cropId = (SELECT max(DISTINCT id) currentSeasionId
+                                 FROM tb_crop_season
+                                 LIMIT 0, 1)
+        AND trm.companyId = #{companyId}
+        ORDER BY trm.id DESC ;
+    </select>
+
+    <select id="findAllRequestMaterialDetailByRequestId" resultType="RequestMaterialDetail" flushCache="false">
+        SELECT *
+        FROM tb_request_material_details trmd
+        WHERE trmd.requestMaterialId = #{requestId}
+        ORDER BY trmd.id DESC ;
+    </select>
+
+    <insert id="insertRequestMaterial" parameterType="RequestMaterial" keyProperty="requestMaterial.id"
+            useGeneratedKeys="true" flushCache="true">
+        INSERT
+        INTO
+          `tb_request_materials`(
+            `companyId`,
+        `departmentId`,
+        `divisionId`,
+            `registrationId`,
+            `memo`,
+            `employeeRequestId`,
+            `createId`,
+            `updateId`,
+            `created`,
+            `updated`
+          )
+        VALUES(
+          #{requestMaterial.companyId},
+        #{requestMaterial.departmentId},
+        #{requestMaterial.divisionId},
+          #{requestMaterial.registrationId},
+          #{requestMaterial.memo},
+          #{requestMaterial.employeeRequestId},
+          #{requestMaterial.createId},
+          #{requestMaterial.updateId},
+          #{requestMaterial.created},
+          #{requestMaterial.created}
+        );
+    </insert>
+
+    <insert id="insertRequestMaterialDetail" parameterType="RequestMaterialDetail"
+            keyProperty="requestMaterialDetail.id" useGeneratedKeys="true" flushCache="true">
+        INSERT
+        INTO
+        `tb_request_material_details`(
+        `requestMaterialId`,
+        `materialId`,
+        `requestQuantity`,
+        `approverLv1Id`,
+        `approvedLv1Date`,
+        `approveLv1Quantity`,
+        `approverLv2Id`,
+        `approvedLv2Date`,
+        `approveLv2Quantity`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        #{requestMaterialDetail.requestMaterialId},
+        #{requestMaterialDetail.materialId},
+        #{requestMaterialDetail.requestQuantity},
+        #{requestMaterialDetail.approverLv1Id},
+        #{requestMaterialDetail.approvedLv1Date},
+        #{requestMaterialDetail.approveLv1Quantity},
+        #{requestMaterialDetail.approverLv2Id},
+        #{requestMaterialDetail.approvedLv2Date},
+        #{requestMaterialDetail.approveLv2Quantity},
+        #{requestMaterialDetail.createId},
+        #{requestMaterialDetail.updateId},
+        #{requestMaterialDetail.created},
+        #{requestMaterialDetail.created}
+        );
+    </insert>
+
+    <update id="updateRequestMaterial" parameterType="RequestMaterial" flushCache="true">
+        UPDATE
+          `tb_request_materials`
+        SET
+          `approvedStatus` = #{requestMaterial.approvedStatus}
+        WHERE
+          id = #{requestMaterial.id};
+    </update>
+
+    <update id="updateRequestMaterialDetail" parameterType="RequestMaterialDetail" flushCache="true">
+        UPDATE
+        `tb_request_material_details`
+        SET
+        `approverLv1Id` = #{requestMaterialDetail.approverLv1Id},
+        `approvedLv1Date` = #{requestMaterialDetail.approvedLv1Date},
+        `approveLv1Quantity` = #{requestMaterialDetail.approveLv1Quantity},
+        `approvedLv2Date` = #{requestMaterialDetail.approvedLv2Date},
+        `approverLv2Id` = #{requestMaterialDetail.approverLv2Id},
+        `approveLv2Quantity` = #{requestMaterialDetail.approveLv2Quantity}
+        WHERE
+        id = #{requestMaterialDetail.id};
+    </update>
+</mapper>

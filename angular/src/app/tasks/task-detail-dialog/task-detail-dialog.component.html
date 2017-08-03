@@ -1,0 +1,46 @@
+<h2 md-dialog-title fxLayout>
+  {{title}}
+  <span fxFlex></span>
+  <button md-icon-button (click)="editTask()">
+    <md-icon>edit</md-icon>
+  </button>
+</h2>
+<md-dialog-content>
+  <md-list>
+    <md-list-item>
+      <span>Công việc</span>
+      <span fxFlex></span>
+      <span>{{schedule.title}}</span>
+    </md-list-item>
+    <md-list-item>
+      <span>Ngày</span>
+      <span fxFlex></span>
+      <span>{{schedule.startDate | date:'shortDate'}}</span>
+    </md-list-item>
+    <md-list-item *ngIf="schedule.farmer">
+      <span>Nông dân</span>
+      <span fxFlex></span>
+      <span>{{schedule.farmer.fullName}} <a [href]="'tel:' + schedule.farmer.phone">{{schedule.farmer.phone}}</a></span>
+    </md-list-item>
+    <md-list-item *ngIf="schedule.nursery != null">
+      <span>Vườn ươm{{schedule.nursery.id}}</span>
+      <span fxFlex></span>
+      <span>{{schedule.nursery.acreage}} ha <a class="local" href="#"><i class="glyphicon glyphicon-map-marker"></i> Bản đồ</a> <a class="local" href="#"><i class="glyphicon glyphicon-info-sign"></i> Chi tiết</a></span>
+    </md-list-item>
+    <md-list-item *ngIf="schedule.cultivation != null">
+      <span>Vườn ươm{{schedule.cultivation.id}}</span>
+      <span>{{schedule.cultivation.acreage}} ha <a class="local" href="#"><i class="glyphicon glyphicon-map-marker"></i> Bản đồ</a> <a class="local" href="#"><i class="glyphicon glyphicon-info-sign"></i> Chi tiết</a></span>
+    </md-list-item>
+    <md-list-item>
+      <span i18n>Address</span>
+      <span fxFlex></span>
+      <span>{{address.join(' - ')}}</span>
+    </md-list-item>
+  </md-list>
+</md-dialog-content>
+<md-dialog-actions align="end">
+  <button md-raised-button md-dialog-close>
+    <md-icon>close</md-icon>
+    <!--i18n-->Close<!--/i18n-->
+  </button>
+</md-dialog-actions>

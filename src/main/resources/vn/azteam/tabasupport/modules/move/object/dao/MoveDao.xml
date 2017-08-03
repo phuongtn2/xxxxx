@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.move.object.dao.MoveDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <insert id="insertMove" parameterType="Move" useGeneratedKeys="true" keyColumn="id" keyProperty="move.id"
+            flushCache="true">
+        INSERT
+        INTO
+          `tb_moves`(
+            `id`,
+            `clientPrimaryKey`,
+            `companyId`,
+            `employeeId`,
+            `cropId`,
+            `licensePlate`,
+            `startSpeedometer`,
+            `endSpeedometer`,
+            `moveStartDate`,
+            `moveDueDate`,
+            `explanation`,
+            `provinceId`,
+            `districtId`,
+            `wardId`,
+            `createId`,
+            `updateId`,
+            `created`,
+            `updated`
+          )
+        VALUES(
+          NULL,
+          #{move.clientPrimaryKey},
+          #{move.companyId},
+          #{move.employeeId},
+          #{move.cropId},
+          #{move.licensePlate},
+          #{move.startSpeedometer},
+          #{move.endSpeedometer},
+          #{move.moveStartDate},
+          #{move.moveDueDate},
+          #{move.explanation},
+          #{move.provinceId},
+          #{move.districtId},
+          #{move.wardId},
+          #{move.createId},
+          #{move.updateId},
+          #{move.created},
+          #{move.updated}
+        );
+    </insert>
+
+    <update id="updateMove" parameterType="Move" flushCache="true">
+        UPDATE
+          `tb_moves`
+        SET
+          `clientPrimaryKey` = #{move.clientPrimaryKey},
+          `licensePlate` = #{move.licensePlate},
+          `startSpeedometer` = #{move.startSpeedometer},
+          `endSpeedometer` = #{move.endSpeedometer},
+          `moveStartDate` = #{move.moveStartDate},
+          `moveDueDate` = #{move.moveDueDate},
+          `explanation` = #{move.explanation},
+          `provinceId` = #{move.provinceId},
+          `districtId` = #{move.districtId},
+          `wardId` = #{move.wardId},
+        `delFlag` = #{move.delFlag},
+          `createId` = #{move.createId},
+          `updateId` = #{move.updateId},
+          `created` = #{move.created},
+          `updated` = #{move.updated}
+        WHERE
+          id = #{move.id};
+    </update>
+
+    <select id="findAllMove" resultType="Move" flushCache="false">
+        SELECT m.*
+        FROM tb_moves m
+        WHERE m.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        AND m.employeeId = #{employeeId}
+        AND m.delFlag = 0
+        ORDER BY m.moveStartDate DESC ;
+    </select>
+</mapper>

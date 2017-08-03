@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.report.object.dao.ExportDao">
+    <select id="findAllZoneObserverReport" resultType="ZoneObserverReport">
+        SELECT
+        c.zoneId zoneId,
+        o.employeeId employeeId,
+        o.companyId companyId,
+        o.observerName observerName,
+        o.companyName companyName,
+        count(CASE WHEN c.isCancel = 0
+        THEN isCancel END) farmerRegistQuantity,
+        count(CASE WHEN c.isCancel = 1
+        THEN isCancel END) farmerCancelQuantity,
+        round(sum(c.cultivationAcreage), 1) actualAcreage,
+        round(sum(c.registrationAcreage), 1) registAcreage
+        FROM observers o
+        INNER JOIN tb_crop_registrations c ON c.companyId = o.companyId
+        WHERE c.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        GROUP BY c.zoneId, c.companyId, o.employeeId
+        ORDER BY c.zoneId, o.employeeId ASC ;
+    </select>
+
+    <select id="findAllCurrentWeekTaskPlanReport" resultType="TaskPlanReport">
+        SELECT
+          t.id               taskId,
+          t.registrationId   registrationId,
+          t.title            title,
+          t.description      description,
+          t.startDate        startDate,
+          t.dueDate          dueDate,
+          t.morningTask      morningTask,
+          t.afternoonTask    afternoonTask,
+          t.assigneeId       assigneeId,
+          t.provinceId       provinceId,
+          t.districtId       districtId,
+          t.wardId           wardId,
+          ttr.endSpeedometer endSpeedometer
+        FROM tb_tasks t
+        LEFT JOIN tb_task_reports ttr ON t.id = ttr.taskId
+        WHERE t.cropId = (SELECT max(DISTINCT id) currentSeasionId
+                          FROM tb_crop_season
+                          LIMIT 0, 1)
+              AND t.assigneeId = #{assigneeId}
+              AND YEARWEEK(t.startDate) = YEARWEEK(NOW())
+        AND t.delFlag = 0
+        ORDER BY t.id DESC;
+    </select>
+
+    <select id="findAllNextWeekTaskPlanReport" resultType="TaskPlanReport">
+        SELECT
+        t.id               taskId,
+        t.registrationId   registrationId,
+        t.title            title,
+        t.description      description,
+        t.startDate        startDate,
+        t.dueDate          dueDate,
+        t.morningTask      morningTask,
+        t.afternoonTask    afternoonTask,
+        t.assigneeId       assigneeId,
+        t.provinceId       provinceId,
+        t.districtId       districtId,
+        t.wardId           wardId,
+        ttr.endSpeedometer endSpeedometer
+        FROM tb_tasks t
+        LEFT JOIN tb_task_reports ttr ON t.id = ttr.taskId
+        WHERE t.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        AND t.assigneeId = #{assigneeId}
+        AND YEARWEEK(t.startDate) = YEARWEEK(NOW() + INTERVAL 1 WEEK)
+        AND t.delFlag = 0
+        ORDER BY t.id DESC;
+    </select>
+
+    <select id="findAllSeedType" resultType="SeedType">
+        SELECT
+          c.id            registrationId,
+          c.companyId     companyId,
+          tcz.provinceId  provinceId,
+          tcz.districtId  districtId,
+          SUM(tc.acreage) actualAcreage,
+          tc.seedId       seedId
+        FROM tb_crop_registrations c
+          INNER JOIN tb_cultivation_zones tcz ON c.zoneId = tcz.id
+          INNER JOIN tb_cultivations tc ON c.cultivationId = tc.id
+        WHERE c.cropId = (SELECT max(DISTINCT id) currentSeasionId
+                          FROM tb_crop_season
+                          LIMIT 0, 1)
+              AND c.isCancel = 0
+        ANd tc.delFlag = 0
+        GROUP BY c.companyId, tcz.provinceId, tcz.districtId, tc.seedId
+        ORDER BY c.companyId, tcz.provinceId, tcz.districtId ASC;
+    </select>
+
+    <select id="findAllDataCostReport" resultType="DataCostReport">
+        SELECT
+          tc.id                      id,
+          tc.companyId               companyId,
+          tc.cropId                  cropId,
+          tc.registrationId          registrationId,
+        tc.title title,
+          tc.type                    type,
+          tc.actionType              actionType,
+          tc.actionId                actionId,
+          tc.price                   price,
+          c.farmerId                 farmerId,
+          c.cultivationAcreage       actualAcreage,
+          c.responsibilityEmployeeId employeeId,
+          tc.quantity                quantity
+        FROM tb_costs tc
+          INNER JOIN tb_crop_registrations c ON tc.registrationId = c.id
+        WHERE c.cropId = (SELECT max(DISTINCT id)
+                          FROM tb_crop_season
+                          LIMIT 0, 1)
+        ORDER BY c.responsibilityEmployeeId, c.id ASC;
+    </select>
+
+    <select id="findAllCostFarmerDetailReport" resultType="CostFarmerDetailReport">
+        SELECT
+        DISTINCT
+        tc.title title,
+        tc.type type,
+        tc.actionType actionType,
+        tc.companyId companyId,
+        tc.cropId cropId
+        FROM tb_costs tc
+        INNER JOIN tb_crop_registrations c ON tc.registrationId = c.id
+        WHERE c.cropId = (SELECT max(DISTINCT id)
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        GROUP BY tc.type, tc.title, tc.actionType
+        ORDER BY tc.type, tc.actionType ASC;
+    </select>
+
+    <select id="findAllMoveReport" resultType="MoveReport">
+        SELECT m.*
+        FROM tb_moves m
+        WHERE m.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        AND m.employeeId = #{employeeId}
+        AND m.moveStartDate IS NOT NULL
+        AND m.moveStartDate BETWEEN #{startDateReport} AND #{endDateReport}
+        AND m.companyId = #{companyId}
+        AND m.delFlag = 0
+        ORDER BY m.moveStartDate DESC ;
+    </select>
+
+    <select id="findAllFertilizerReport" resultType="FertilizerType">
+        SELECT
+        c.id registrationId,
+        c.companyId companyId,
+        tcz.provinceId provinceId,
+        tcz.districtId districtId,
+        c.cultivationId cultivationId,
+        tc.acreage actualAcreage,
+        tfp.id fieldPlotId,
+        (tfp.plantRowRatio * tfp.rowPlotRatio) fieldPlotTreeQuantity,
+        tcps.materialId materialId,
+        tcps.quantity materialQuantity
+        FROM tb_crop_registrations c
+          INNER JOIN tb_cultivation_zones tcz ON c.zoneId = tcz.id
+          INNER JOIN tb_cultivations tc ON c.cultivationId = tc.id
+          INNER JOIN tb_field_plots tfp ON tfp.cultivationId = tc.id
+          INNER JOIN tb_cultivation_pesticide_spraying tcps ON tfp.id = tcps.fieldPlotId
+        WHERE c.cropId = (SELECT max(DISTINCT id) currentSeasionId
+                          FROM tb_crop_season
+                          LIMIT 0, 1)
+              AND c.isCancel = 0
+        AND tc.delFlag = 0
+        GROUP BY c.companyId, tcz.provinceId, tcz.districtId, c.cultivationId, tfp.id, tcps.materialId
+        ORDER BY c.companyId, tcz.provinceId, tcz.districtId ASC;
+    </select>
+</mapper>

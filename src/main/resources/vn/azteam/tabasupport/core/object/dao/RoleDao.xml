@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.core.object.dao.RoleDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="baseColumns">r.*</sql>
+    <sql id="fullColumns">r.*</sql>
+
+    <select id="findAll" resultType="Role" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_roles AS r
+        ORDER BY r.id DESC ;
+    </select>
+
+    <select id="findAccountRoles" parameterType="java.lang.Long" resultType="Role" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_roles AS r
+        INNER JOIN tb_accounts_roles AS ar ON (r.id=ar.roleId)
+        WHERE ar.accountId = #{accountId}
+        ORDER BY r.parentRoleId ASC ;
+    </select>
+
+    <select id="findAccountRolesByUid" parameterType="java.lang.Long" resultType="Role" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_roles AS r
+        INNER JOIN tb_accounts_roles AS ar ON (r.id=ar.roleId)
+        INNER JOIN tb_accounts AS a ON (ar.accountId=a.id)
+        INNER JOIN tb_users AS u ON (a.uId=u.id)
+        WHERE u.id = #{uId}
+        ORDER BY r.parentRoleId ASC ;
+    </select>
+
+    <select id="findRoleBySlug" parameterType="java.lang.String" resultType="Role" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_roles AS r
+        WHERE r.slug = #{slug}
+        ORDER BY r.parentRoleId DESC
+        LIMIT 0,1;
+    </select>
+
+    <insert id="insertAccountRole" flushCache="true">
+        INSERT INTO tb_accounts_roles (accountId, roleId, createId, updateId, created, updated)
+            VALUE
+            (#{accountId}, #{roleId}, #{createId}, #{createId}, #{created}, #{created});
+    </insert>
+</mapper>

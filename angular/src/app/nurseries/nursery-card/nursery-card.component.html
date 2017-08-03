@@ -1,0 +1,34 @@
+<md-card [fxHide]="!(registration && registration.id)">
+  <md-card-content *ngIf="!nurseryInfo" fxLayout fxLayoutAlign="initial center">
+    <!--i18n-->Chưa đăng ký vườn ươm<!--/i18n-->
+    <span fxFlex></span>
+    <button md-button color="primary" (click)="openDialog()">
+      <md-icon>create</md-icon>
+      <!--i18n-->Đăng Ký<!--/i18n-->
+    </button>
+  </md-card-content>
+  <md-card-title *ngIf="nurseryInfo" fxLayout fxLayoutAlign="initial center">
+    <!--i18n-->Thông tin vườn ươm<!--/i18n-->
+    <button md-icon-button color="accent" (click)="openDialog()">
+      <md-icon>edit</md-icon>
+    </button>
+    <span fxFlex></span>
+    <a md-raised-button color="primary" [routerLink]="['/crop-session', 'farmer', registration?.farmer.farmerCode, 'nursery-detail']">
+      <!--i18n-->Detail<!--/i18n-->
+    </a>
+  </md-card-title>
+  <md-card-content *ngIf="nurseryInfo">
+    <md-list>
+      <md-list-item>
+        <span style="min-width: 100px;" i18n>Address</span>
+        <span fxFlex></span>
+        <span>{{address}}</span>
+      </md-list-item>
+      <md-list-item *ngIf="seed">
+        <span style="min-width: 100px;">Giống</span>
+        <span fxFlex></span>
+        <span>{{seed.name}}</span>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

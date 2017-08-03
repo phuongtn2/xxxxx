@@ -1,0 +1,77 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="goBack()">
+      <md-icon>arrow_back</md-icon>
+      <!--i18n-->Quay lại<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<section *ngIf="plot" fxLayout>
+  <md-card class="app-content" fxFlex style="overflow: auto;">
+    <md-list>
+      <md-list-item>
+        <span>Ngày trồng</span>
+        <span fxFlex></span>
+        <span>{{plot.cultivationDate | date:'shortDate'}}</span>
+      </md-list-item>
+      <md-list-item>
+        <span>Số hàng</span>
+        <span fxFlex></span>
+        <span>{{plot.rowPlotRatio | number}}</span>
+      </md-list-item>
+      <md-list-item>
+        <span>Khoảng cách hàng</span>
+        <span fxFlex></span>
+        <span>{{plot.densityRow | number}}</span>
+      </md-list-item>
+      <md-list-item>
+        <span>Số cây</span>
+        <span fxFlex></span>
+        <span>{{plot.plantRowRatio | number}}</span>
+      </md-list-item>
+      <md-list-item>
+        <span>Khoảng cách cây</span>
+        <span fxFlex></span>
+        <span>{{plot.densityColumn | number}}</span>
+      </md-list-item>
+      <md-list-item>
+        <span>Diện tích thực</span>
+        <span fxFlex></span>
+        <span>{{plot.acreage | number}} ha</span>
+      </md-list-item>
+      <md-list-item *ngFor="let content of plot.pestContents">
+        <span>{{content.pestId}}</span>
+        <span fxFlex></span>
+        <span>{{content.ratio}}</span>
+      </md-list-item>
+      <md-list-item>
+        <span>Trung bình số lá/cây</span>
+        <span fxFlex></span>
+        <span>{{plot.leafsRatio}}</span>
+      </md-list-item>
+    </md-list>
+  </md-card>
+  <md-card class="app-content" fxFlex fxLayout="column">
+    <md-data-table [data]="plot.details" [fixedHeader]="true" fxFlex>
+      <md-table-header i18n-title title="Lịch sử cập nhật">
+        <span fxFlex></span>
+        <a md-icon-button mdTooltip="Xem biểu đồ" *ngIf="plot.details?.length > 0"
+           [routerLink]="['/crop-session', 'farmer', registration.farmer.farmerCode, 'field-detail', 'plot', plot.id, 'timeline']">
+          <md-icon>show_chart</md-icon>
+        </a>
+      </md-table-header>
+      <md-data-column i18n-title title="Ngày" field="actionDate">
+        <ng-template let-row="mdTableCellModel">{{row['actionDate'] | date:'shortDate'}}</ng-template>
+      </md-data-column>
+      <md-data-column i18n-title title="Nội dung" field="actionName"></md-data-column>
+      <md-data-column [numeric]="true">
+        <ng-template let-row="mdTableCellModel">
+          <a md-icon-button [routerLink]="['/crop-session', 'farmer', registration.farmer.farmerCode, 'field-detail', 'plot', plot.id, 'action', row['id']]">
+            <md-icon>chevron_right</md-icon>
+          </a>
+        </ng-template>
+      </md-data-column>
+    </md-data-table>
+  </md-card>
+</section>

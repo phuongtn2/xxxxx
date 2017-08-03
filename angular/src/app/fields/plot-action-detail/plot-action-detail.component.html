@@ -1,0 +1,99 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span>Thửa</span>
+    <md-icon>chevron_right</md-icon>
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="goBack()">
+      <md-icon>arrow_back</md-icon>
+      <!--i18n-->Quay lại<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<section *ngIf="plotAction" fxLayout fxLayoutWrap>
+  <md-card class="app-content" fxFlex="calc(50% - 32px)">
+    <p fxLayout>
+      Hoạt động
+      <span fxFlex></span>
+      <span>{{plotAction.actionName}}</span>
+    </p>
+    <p fxLayout>
+      Ngày cập nhật
+      <span fxFlex></span>
+      <span>{{plotAction.actionUpdateDate | date:'shortDate'}}</span>
+    </p>
+    <p fxLayout>
+      Người cập nhật
+      <span fxFlex></span>
+      <span>{{registration.responsibilityEmployee.fullName}}</span>
+    </p>
+    <p fxLayout>
+      Ngày thực hiện
+      <span fxFlex></span>
+      <span>{{plotAction.actionDate | date:'shortDate'}}</span>
+    </p>
+    <p fxLayout>
+      Hiện trạng
+      <span fxFlex></span>
+      <span>{{plotAction.target}}</span>
+    </p>
+    <p fxLayout>
+      Khuyến cáo
+      <span fxFlex></span>
+      <span>{{plotAction.resultTarget}}</span>
+    </p>
+  </md-card>
+  <md-card class="app-content" fxFlex="calc(50% - 32px)">
+    <md-card-title>Vị trí</md-card-title>
+    <md-card-content>
+      <app-mini-map [location]="{lat: plotAction.latitude, lng: plotAction.longitude}" (click)="openMapPopup()"></app-mini-map>
+    </md-card-content>
+  </md-card>
+  <md-card class="app-content" fxFlex="calc(50% - 32px)" *ngIf="plotAction.action != FieldAction.Irrigation">
+    <md-card-title>Chi tiết {{plotAction.actionName}}</md-card-title>
+    <md-card-content *ngIf="plotAction.action == FieldAction.Manuring || plotAction.action == FieldAction.PesticidesSpraying">
+      <md-data-table
+        [data]="plotAction.contents"
+        fxFlex>
+        <md-data-column i18n-title title="Tên thuốc" field="materialName"></md-data-column>
+        <md-data-column i18n-title title="Liều lượng" field="quantity" [numeric]="true">
+          <ng-template let-row="mdTableCellModel">
+            {{row['quantity']}} {{row['materialUnit']}}
+          </ng-template>
+        </md-data-column>
+      </md-data-table>
+    </md-card-content>
+    <md-card-content *ngIf="plotAction.action == FieldAction.CloverCutting">
+      <md-card-content>
+        <p fxLayout *ngFor="let content of plotAction.contents">
+          Mật độ hoa <span style="margin-left: auto;">{{content.densityFlower}}</span>
+        </p>
+      </md-card-content>
+    </md-card-content>
+    <md-card-content *ngIf="plotAction.action == FieldAction.Pest">
+      <md-data-table
+        [data]="plotAction.contents"
+        fxFlex>
+        <md-data-column i18n-title title="Tên côn trùng" field="pestName"></md-data-column>
+        <md-data-column i18n-title title="Tỉ lệ" field="ratio" [numeric]="true"></md-data-column>
+      </md-data-table>
+    </md-card-content>
+  </md-card>
+  <md-card class="app-content" fxFlex="calc(50% - 32px)">
+    <md-grid-list cols="2">
+      <md-grid-tile *ngFor="let m of plotAction.medias">
+        <img *ngIf="isImage(m.file.type)" src="{{getMediaFileUrl(m.fileId)}}"
+             [style.max-width.%]="100" [style.max-height.%]="100" [style.cursor]="'pointer'"
+             (click)="openImagePopup(getMediaFileUrl(m.fileId))">
+        <ng-container *ngIf="isVideo(m.file.type)">
+          <img src="/assets/images/video-thumbnail.png"
+               [style.max-width.%]="100" [style.max-height.%]="100" [style.cursor]="'pointer'"
+               (click)="openVideoPopup(getMediaFileUrl(m.fileId))">
+        </ng-container>
+        <a *ngIf="!isImage(m.file.type) && !isVideo(m.file.type)" [href]="getMediaFileUrl(m.fileId)" target="_blank">
+          <img src="/assets/images/unknown-file-type.jpg"
+               [style.max-width.%]="100" [style.max-height.%]="100">
+        </a>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-card>
+</section>

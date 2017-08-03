@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.memo.object.dao.MemoDao">
+
+    <insert id="insertMemo" parameterType="Memo">
+        INSERT
+        INTO
+        tb_memos(
+        `title`,
+        `description`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        #{memo.title},
+        #{memo.description},
+        #{memo.createId},
+        #{memo.updateId},
+        #{memo.created},
+        #{memo.updated}
+        );
+    </insert>
+
+    <update id="updateMemo" parameterType="Memo">
+        UPDATE
+        tb_memos
+        SET
+        `title` = #{memo.title},
+        `description` = #{memo.description},
+        `createId` = #{memo.createId},
+        `updateId` = #{memo.updateId},
+        `created` = #{memo.created},
+        `updated` = #{memo.updated}
+        WHERE
+        tb_memos.id = #{memo.id};
+    </update>
+
+    <select id="findAll" parameterType="java.lang.Long" resultType="Memo">
+        SELECT *
+        FROM tb_memos AS m
+        WHERE m.createId = #{userId}
+        ORDER BY m.id ASC;
+    </select>
+
+    <delete id="deleteMemo">
+        DELETE
+        FROM tb_memos
+        WHERE tb_memos.id = #{memoId};
+    </delete>
+</mapper>

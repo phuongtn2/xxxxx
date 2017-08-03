@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.core.object.dao.PushNotificationDao">
+    <sql id="fullColumns">p.*</sql>
+
+    <select id="findAll" resultType="PushNotification">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_push_notifications p
+        ORDER BY p.id ASC ;
+    </select>
+
+    <insert id="insertPushNotification" parameterType="PushNotification" useGeneratedKeys="true"
+            keyProperty="pushNotification.id"
+            keyColumn="id">
+        INSERT
+        INTO
+          `tb_push_notifications`(
+            `id`,
+            `titlePush`,
+            `bodyPush`,
+            `pushKey`,
+            `deviceType`,
+            `nurseryId`,
+            `cultivationId`,
+            `registrationId`,
+            `farmerId`,
+            `responsibilityEmployeeId`,
+            `createId`,
+            `updateId`,
+            `updated`,
+            `created`
+          )
+        VALUES(
+          NULL ,
+          #{pushNotification.titlePush},
+          #{pushNotification.bodyPush},
+          #{pushNotification.pushKey},
+          #{pushNotification.deviceType},
+          #{pushNotification.nurseryId},
+          #{pushNotification.cultivationId},
+          #{pushNotification.registrationId},
+          #{pushNotification.farmerId},
+          #{pushNotification.responsibilityEmployeeId},
+          #{pushNotification.createId},
+          #{pushNotification.updateId},
+          #{pushNotification.updated},
+          #{pushNotification.created}
+        );
+    </insert>
+
+    <delete id="deletePushNotification">
+        DELETE
+        FROM tb_push_notifications
+        WHERE id = #{pushNotification.id};
+    </delete>
+
+    <select id="findAllRegistrationPush" resultType="RegistrationPush">
+        SELECT
+          tcr.id       registrationId,
+          t.pushKey    pushKey,
+          t.deviceType deviceType,
+          s.fullName   farmerName,
+          t.id         employeeId,
+          s.id         farmerId
+        FROM tb_crop_registrations tcr
+          INNER JOIN (SELECT
+                        f.id,
+                        u.fullName
+                      FROM tb_users u
+                        INNER JOIN tb_farmers f
+                      WHERE f.uId = u.id) s ON tcr.farmerId = s.id
+          INNER JOIN (SELECT
+                        a.pushKey,
+                        a.deviceType,
+                        e2.id
+                      FROM tb_accounts a
+                        INNER JOIN employees e2 ON e2.uId = a.uId) t ON tcr.responsibilityEmployeeId = t.id
+        WHERE tcr.cropId = (SELECT max(DISTINCT id) currentSeasionId
+                            FROM tb_crop_season
+                            LIMIT 0, 1)
+        AND t.pushKey IS NOT NULL AND t.pushKey != ''
+        AND t.deviceType IS NOT NULL AND t.deviceType != ''
+        ORDER BY tcr.id ASC;
+    </select>
+</mapper>

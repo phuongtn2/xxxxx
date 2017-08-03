@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <sec:global-method-security pre-post-annotations="enabled" proxy-target-class="true">
+        <sec:expression-handler ref="expressionHandler"/>
+    </sec:global-method-security>
+
+    <bean id="oauth2PermissionEvaluator" class="vn.azteam.tabasupport.core.service.impl.OAuth2PermissionEvaluatorImpl"/>
+    <bean id="oauth2RoleHierarchy" class="vn.azteam.tabasupport.core.service.impl.OAuth2RoleHierarchyImpl"/>
+
+    <bean id="expressionHandler" class="vn.azteam.tabasupport.core.service.impl.RestMethodSecurityExpressionHandler">
+        <property name="permissionEvaluator" ref="oauth2PermissionEvaluator"/>
+        <property name="roleHierarchy" ref="oauth2RoleHierarchy"/>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="vn.azteam.tabasupport.converter.http.ModelHttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="vn.azteam.tabasupport">
+        <context:include-filter type="regex" expression=".core.rest.*"/>
+        <context:include-filter type="regex" expression=".modules.*.rest.*"/>
+    </context:component-scan>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+</beans>

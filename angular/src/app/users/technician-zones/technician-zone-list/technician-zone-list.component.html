@@ -1,0 +1,19 @@
+<md-card>
+  <md-card-title fxLayout>
+    Chọn vùng quản lý
+    <span fxFlex></span>
+    <button md-icon-button i18n-mdTooltip mdTooltip="Save" [disabled]="!formArray.dirty" (click)="saveTechnicianZones()">
+      <md-icon>save</md-icon>
+    </button>
+  </md-card-title>
+  <md-list>
+    <md-list-item *ngFor="let zone of zones">
+      <md-checkbox [checked]="isTechnicianZone(zone)" (change)="onCheckboxChange($event, zone)">
+        {{zone.district?.name}} - {{zone.province?.name}}
+      </md-checkbox>
+    </md-list-item>
+  </md-list>
+  <div class="overlay" [fxShow]="changing">
+    <md-spinner></md-spinner>
+  </div>
+</md-card>

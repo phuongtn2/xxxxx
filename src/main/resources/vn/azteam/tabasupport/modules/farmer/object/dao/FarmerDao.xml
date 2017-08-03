@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.farmer.object.dao.FarmerDao">
+
+    <sql id="fullColumns">e.*</sql>
+
+    <sql id="baseColumns">
+        f.id,
+        f.companyId,
+        f.uId,
+        f.farmerCode,
+        f.exp,
+        f.createId,
+        f.updateId,
+        f.created,
+        f.updated
+    </sql>
+
+    <sql id="userBaseColumns">
+        u.identityCard,
+        u.firstName,
+        u.lastName,
+        u.fullName,
+        u.gender,
+        u.phone,
+        u.email,
+        u.address,
+        u.provinceId,
+        u.districtId,
+        u.wardId,
+    </sql>
+
+    <insert id="insertFarmer" parameterType="Farmer" useGeneratedKeys="true" keyProperty="farmer.id"
+            keyColumn="id">
+        INSERT INTO tb_farmers
+        (
+        `id`,
+        `companyId`,
+        `uId`,
+        `farmerCode`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES
+        (
+        NULL,
+        #{farmer.companyId},
+        #{farmer.uId},
+        #{farmer.farmerCode},
+        #{farmer.createId},
+        #{farmer.updateId},
+        #{farmer.created},
+        #{farmer.updated}
+        );
+    </insert>
+
+    <select id="findAllFarmer" resultType="Farmer">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="baseColumns"/>,
+        (SELECT COUNT(DISTINCT tcr.farmerId)
+        FROM tb_crop_registrations tcr
+        WHERE tcr.farmerId = f.id AND tcr.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        ) inCurrentCrop
+        FROM tb_farmers f
+        INNER JOIN tb_users u ON (f.uId = u.id)
+        ORDER BY f.id DESC;
+    </select>
+
+    <update id="updateFarmer" parameterType="Farmer">
+        UPDATE tb_farmers
+        SET
+        uId = #{farmer.uId},
+        updateId = #{farmer.updateId},
+        updated = #{farmer.updated}
+        WHERE
+        id = #{farmer.id}
+        AND companyId = #{farmer.companyId};
+    </update>
+
+</mapper>

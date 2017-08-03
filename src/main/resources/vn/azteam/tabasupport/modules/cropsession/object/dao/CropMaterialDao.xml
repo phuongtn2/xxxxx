@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cropsession.object.dao.CropMaterialDao">
+    <sql id="baseColumns">
+        tcm.id,
+        tcm.registrationId,
+        tcm.materialId,
+        tcm.quantity,
+        tcm.status
+    </sql>
+
+    <sql id="fullColumns">tcm.*</sql>
+
+    <insert id="insertCropMaterial" parameterType="CropMaterial" useGeneratedKeys="true" keyProperty="material.id">
+        INSERT INTO tb_crop_materials (id,clientPrimaryKey, companyId, registrationId, materialId, quantity, status,
+        createId, updateId,
+        created, updated)
+        VALUE
+        (NULL, #{material.clientPrimaryKey}, #{material.companyId}, #{material.registrationId}, #{material.materialId},
+        #{material.quantity},
+        #{material.status},
+        #{material.createId}, #{material.updateId}, #{material.created}, #{material.updated})
+    </insert>
+
+    <select id="findAllByCompanyIds" resultType="CropMaterial">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_materials tcm
+        WHERE tcm.companyId IN (
+        <foreach collection="companyIds" item="companyId" separator=",">
+            #{companyId}
+        </foreach>
+        )
+        ORDER BY tcm.id DESC ;
+    </select>
+
+    <select id="findAllByRegistrationIds" resultType="CropMaterial">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_materials tcm
+        WHERE tcm.registrationId IN (
+        <foreach collection="registrationIds" item="registrationId" separator=",">
+            #{registrationId}
+        </foreach>
+        )
+        ORDER BY tcm.id DESC ;
+    </select>
+
+    <update id="updateCropMaterial" parameterType="CropMaterial">
+        UPDATE tb_crop_materials tcm
+        SET
+        tcm.clientPrimaryKey = #{material.clientPrimaryKey},
+        tcm.quantity = #{material.quantity},
+        tcm.delFlag = #{material.delFlag},
+        tcm.status = #{material.status}
+        WHERE tcm.id = #{material.id};
+    </update>
+</mapper>

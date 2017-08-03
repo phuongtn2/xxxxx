@@ -1,0 +1,64 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button type="button" (click)="saveTask()">
+      <md-icon>save</md-icon>
+      <!--i18n-->Save<!--/i18n-->
+    </button>
+    <button md-raised-button type="button" (click)="goBack()">
+      <md-icon>cancel</md-icon>
+      <!--i18n-->Cancel<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<md-card class="app-content" fxLayout>
+  <form [formGroup]="taskDetailInfo" fxFlex="50%" fxLayout fxLayoutWrap>
+    <md-select i18n-placeholder placeholder="Loại công việc" formControlName="taskType" fxFlex="100%">
+      <md-option [value]="1">
+        Công việc vườn ươm/đồng ruộng
+      </md-option>
+      <md-option [value]="2">
+        Công việc hằng ngày
+      </md-option>
+    </md-select>
+    <md-input-container fxFlex="100%">
+      <input mdInput i18n-placeholder placeholder="Công việc" formControlName="title">
+    </md-input-container>
+    <md-input-container fxFlex="50%">
+      <input mdInput [mdDatepicker]="startDatePicker"
+             i18n-placeholder placeholder="Ngày bắt đầu" formControlName="startDate">
+      <button mdSuffix [mdDatepickerToggle]="startDatePicker"></button>
+    </md-input-container>
+    <md-datepicker #startDatePicker></md-datepicker>
+    <md-input-container fxFlex="50%">
+      <input mdInput [mdDatepicker]="dueDatePicker"
+             i18n-placeholder placeholder="Ngày kết thúc" formControlName="dueDate">
+      <button mdSuffix [mdDatepickerToggle]="dueDatePicker"></button>
+    </md-input-container>
+    <md-datepicker #dueDatePicker></md-datepicker>
+    <md-input-container fxFlex="100%">
+      <textarea mdInput i18n-placeholder placeholder="Mô tả" formControlName="description"></textarea>
+    </md-input-container>
+    <div fxFlex="100%" fxLayout fxLayoutAlign="initial center" [fxShow]="taskDetailInfo.get('taskType').value == 1">
+      <md-select i18n-placeholder placeholder="Farmer" formControlName="registrationId" fxFlex="50%"
+                 (change)="onRegistrationSelect($event.value)">
+        <md-option *ngFor="let registration of registrations" [value]="registration.id">
+          {{registration.farmer?.fullName}}
+        </md-option>
+      </md-select>
+      <md-radio-group formControlName="target" fxFlex="100%">
+        <md-radio-button value="1" [fxShow]="selectedRegistration?.nurseryId > 0">Tới vườn ươm</md-radio-button>
+        <md-radio-button value="2" [fxShow]="selectedRegistration?.cultivationId > 0">Tới ruộng trồng</md-radio-button>
+      </md-radio-group>
+    </div>
+    <div fxFlex="100%" fxLayout fxLayoutWrap [fxShow]="taskDetailInfo.get('taskType').value == 2">
+      <md-input-container fxFlex="50%">
+        <textarea mdInput i18n-placeholder placeholder="Công việc buổi sáng" formControlName="morningTask"></textarea>
+      </md-input-container>
+      <md-input-container fxFlex="50%">
+        <textarea mdInput i18n-placeholder placeholder="Công việc buổi chiều" formControlName="afternoonTask"></textarea>
+      </md-input-container>
+      <app-location [formGroup]="taskDetailInfo.get('address')" [restrictedByZone]="true" fxFlex="100%" fxLayout></app-location>
+    </div>
+  </form>
+</md-card>

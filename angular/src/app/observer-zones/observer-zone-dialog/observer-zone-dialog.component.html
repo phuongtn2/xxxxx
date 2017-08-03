@@ -1,0 +1,16 @@
+<h1 md-dialog-title>{{title}}</h1>
+<form [formGroup]="observerForm">
+  <md-dialog-content fxLayout="column">
+    <md-select i18n-placeholder placeholder="Công ty" formControlName="companyId" (change)="onSelectCompany($event.value)" required>
+      <md-option *ngFor="let company of companies" [value]="company.id">{{company.name}}</md-option>
+    </md-select>
+    <md-select i18n-placeholder placeholder="Vùng" formControlName="observerZoneId" required>
+      <md-option *ngFor="let z of companyZones" [value]="z.id">{{z.district.name}} - {{z.province.name}}</md-option>
+    </md-select>
+  </md-dialog-content>
+
+  <md-dialog-actions align="end">
+    <button md-raised-button type="button" (click)="saveObserverZone()" i18n>Save</button>
+    <button md-button md-dialog-close i18n>Cancel</button>
+  </md-dialog-actions>
+</form>

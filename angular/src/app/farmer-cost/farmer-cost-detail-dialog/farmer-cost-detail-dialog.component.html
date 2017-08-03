@@ -1,0 +1,43 @@
+<h2 md-dialog-title>{{title}}</h2>
+<form [formGroup]="farmerCostForm" (ngSubmit)="farmerCostForm.valid && saveFarmerCost()">
+  <md-dialog-content fxLayout="column" [style.padding-top.px]="8">
+    <md-select i18n-placeholder="title" placeholder="Farmer" formControlName="registrationId" required>
+      <md-option *ngFor="let registration of registrations" [value]="registration.id">
+        {{registration.farmer.fullName}}
+      </md-option>
+    </md-select>
+    <md-select i18n-placeholder placeholder="Type" formControlName="costType" required>
+      <md-option *ngFor="let type of CostTypes" [value]="type.key.value">
+        {{type.value}}
+      </md-option>
+    </md-select>
+    <md-select i18n-placeholder placeholder="Tên" formControlName="actionType" required
+               [fxHide]="farmerCostForm.get('costType').value === 'OTHER'">
+      <md-option *ngFor="let actionType of ActionTypes" [value]="actionType.key.value">
+        {{actionType.value}}
+      </md-option>
+    </md-select>
+    <md-input-container>
+      <input mdInput i18n-placeholder="placeholder|" placeholder="Detail" [mdAutocomplete]="mdAuto" formControlName="costTitle" required>
+      <md-error>{{formErrors.costTitle}}</md-error>
+    </md-input-container>
+    <md-autocomplete #mdAuto="mdAutocomplete">
+        <md-option *ngFor="let m of filteredMaterials | async" [value]="m.name">{{m.name}}</md-option>
+    </md-autocomplete>
+    <md-input-container>
+      <input mdInput i18n-placeholder="placeholder" placeholder="Quantity" formControlName="quantity" number required>
+      <md-error>{{formErrors.quantity}}</md-error>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput i18n-placeholder placeholder="Giá" formControlName="price" number required>
+      <md-error>{{formErrors.price}}</md-error>
+    </md-input-container>
+  </md-dialog-content>
+  <md-dialog-actions align="end">
+    <button md-raised-button type="submit">
+      <md-icon>save</md-icon>
+      <!--i18n-->Save<!--/i18n-->
+    </button>
+    <button md-button md-dialog-close>Cancel</button>
+  </md-dialog-actions>
+</form>

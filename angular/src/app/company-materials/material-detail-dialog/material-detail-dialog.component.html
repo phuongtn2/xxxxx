@@ -1,0 +1,29 @@
+<h1 md-dialog-title>{{title}}</h1>
+<form [formGroup]="materialInfo">
+  <md-dialog-content fxLayout="column">
+    <md-input-container>
+      <input mdInput i18n-placeholder placeholder="Material" [mdAutocomplete]="mdAuto" formControlName="material" required>
+      <md-error>{{formErrors.material}}</md-error>
+    </md-input-container>
+    <md-autocomplete #mdAuto="mdAutocomplete" [displayWith]="displayMaterialWith">
+      <md-option *ngFor="let m of filteredMaterials | async" [value]="m">{{m.name}}</md-option>
+    </md-autocomplete>
+    <md-input-container>
+      <input mdInput i18n-placeholder placeholder="Type" formControlName="typeStr">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput i18n-placeholder placeholder="Unit" formControlName="unit">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput i18n-placeholder placeholder="Price" formControlName="price" required>
+      <md-error>{{formErrors.price}}</md-error>
+    </md-input-container>
+    <md-input-container>
+      <textarea mdInput i18n-placeholder placeholder="Description" formControlName="memo"></textarea>
+    </md-input-container>
+  </md-dialog-content>
+  <md-dialog-actions align="end">
+    <button md-raised-button type="button" (click)="materialInfo.valid && saveMaterial()" i18n>Save</button>
+    <button md-button md-dialog-close i18n>Cancel</button>
+  </md-dialog-actions>
+</form>

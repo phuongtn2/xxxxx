@@ -1,0 +1,57 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="exportReport()">
+      <md-icon>assessment</md-icon>
+      <!--i18n-->Xuất báo cáo<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+
+<md-card class="app-content">
+  <table class="md-table">
+    <thead>
+    <tr>
+      <th>GSBATV</th>
+      <th>Nhà đầu tư</th>
+      <th>Số hộ ND đăng ký</th>
+      <th>Số hộ ND thực hiện</th>
+      <th>Diện tích đăng ký (ha)</th>
+      <th>Diện tích thực trồng (ha)</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="data.observerZones.length">
+    <tr>
+      <th colspan="2" style="text-align: center;">Tổng toàn vùng</th>
+      <th class="mat-numeric-column">{{data.totalFarmerRegisterQuantity | number:'1.0'}}</th>
+      <th class="mat-numeric-column">{{data.totalFarmerActualQuantity | number:'1.0'}}</th>
+      <th class="mat-numeric-column">{{data.totalRegisterAcreage | number:'1.2-2'}}</th>
+      <th class="mat-numeric-column">{{data.totalActualAcreage | number:'1.2-2'}}</th>
+    </tr>
+    <ng-container *ngFor="let observerZone of data.observerZones">
+      <ng-container *ngIf="observerZone.companies && observerZone.companies.length">
+        <tr>
+          <th [attr.rowspan]="observerZone.companies.length + 1">{{observerZone.observerName}}</th>
+          <td>Tổng</td>
+          <td class="mat-numeric-column">{{observerZone.totalFarmerRegisterQuantity | number:'1.0'}}</td>
+          <td class="mat-numeric-column">{{observerZone.totalFarmerActualQuantity | number:'1.0'}}</td>
+          <td class="mat-numeric-column">{{observerZone.totalRegisterAcreage | number:'1.2-2'}}</td>
+          <td class="mat-numeric-column">{{observerZone.totalActualAcreage | number:'1.2-2'}}</td>
+        </tr>
+        <tr *ngFor="let company of observerZone.companies">
+          <td>{{company.name}}</td>
+          <td class="mat-numeric-column">{{company.farmerRegisterQuantity | number:'1.0'}}</td>
+          <td class="mat-numeric-column">{{company.farmerActualQuantity | number:'1.0'}}</td>
+          <td class="mat-numeric-column">{{company.registerAcreage | number:'1.2-2'}}</td>
+          <td class="mat-numeric-column">{{company.actualAcreage | number:'1.2-2'}}</td>
+        </tr>
+      </ng-container>
+    </ng-container>
+    </tbody>
+    <tfoot *ngIf="!data.observerZones.length">
+    <tr>
+      <td colspan="6" style="text-align: center;">Chưa có dữ liệu</td>
+    </tr>
+    </tfoot>
+  </table>
+</md-card>

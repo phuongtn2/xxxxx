@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--<PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] [%-5level] %logger{36} - %msg%n"/>-->
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}][%-5level] %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!--Spring web default logger-->
+        <Logger name="org.springframework.web" level="debug"/>
+        <logger name="org.springframework.web.servlet" value="debug"/>
+
+        <!--mybatis dao dto log-->
+        <Logger name="vn.azteam.tabasupport.core.object.dao" level="debug"/>
+        <Logger name="vn.azteam.tabasupport.modules.*.object.dao" level="debug"/>
+
+        <!--Default log-->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

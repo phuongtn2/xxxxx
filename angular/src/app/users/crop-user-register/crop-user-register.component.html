@@ -1,0 +1,77 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <a md-raised-button
+       [routerLink]="['/user', user.id, 'schedule']"
+       *ngIf="isEditing && user && user.isTechnician">
+      <!--i18n-->Xem Công Việc<!--/i18n-->
+    </a>
+    <button md-raised-button (click)="saveUser()">
+      <md-icon>save</md-icon>
+      <!--i18n-->Save<!--/i18n-->
+    </button>
+    <a md-raised-button routerLink="/users">
+      <md-icon>cancel</md-icon>
+      <!--i18n-->Cancel<!--/i18n-->
+    </a>
+  </md-toolbar-row>
+</md-toolbar>
+<div fxLayout>
+<md-card class="app-content" fxFlex="50%">
+  <form [formGroup]="userInfo" fxLayout fxLayoutWrap fxLayoutGap="8px">
+    <md-input-container fxFlex="calc(50% - 8px)">
+      <input mdInput i18n-placeholder placeholder="Họ" formControlName="firstName" required>
+      <md-error>{{formErrors.firstName}}</md-error>
+    </md-input-container>
+    <md-input-container fxFlex="calc(50% - 8px)">
+      <input mdInput i18n-placeholder placeholder="Tên" formControlName="lastName" required>
+      <md-error>{{formErrors.lastName}}</md-error>
+    </md-input-container>
+    <md-input-container fxFlex="calc(50% - 8px)">
+      <input mdInput i18n-placeholder placeholder="Số điện thoại" formControlName="phone" required>
+      <md-error>{{formErrors.phone}}</md-error>
+    </md-input-container>
+    <md-input-container fxFlex="calc(50% - 8px)">
+      <input mdInput i18n-placeholder placeholder="Email" formControlName="email" required>
+      <md-error>{{formErrors.email}}</md-error>
+    </md-input-container>
+    <app-location [formGroup]="userInfo.get('address')" fxFlex="100%" fxLayout fxLayoutWrap style="padding-right: 5px;">
+      <md-input-container fxFlex="100%">
+        <input mdInput i18n-placeholder placeholder="Address" formControlName="street" required>
+      </md-input-container>
+    </app-location>
+    <div fxFlex="calc(50% - 8px)" fxLayout="column" *ngIf="!isEditing">
+      <md-input-container>
+        <input mdInput i18n-placeholder placeholder="Tài khoản" formControlName="userId" required>
+        <md-error>{{formErrors.userId}}</md-error>
+      </md-input-container>
+      <md-input-container>
+        <input mdInput type="password" i18n-placeholder placeholder="Mật khẩu" formControlName="password" required>
+        <md-error>{{formErrors.password}}</md-error>
+      </md-input-container>
+    </div>
+    <div fxFlex="calc(50% - 8px)" fxLayout="column" *ngIf="!isEditing">
+      <md-select i18n-placeholder placeholder="Department" formControlName="departmentId" (change)="onSelectDepartment($event.value)" required>
+        <md-option *ngFor="let department of departments" [value]="department.id">{{department.name}}</md-option>
+      </md-select>
+      <md-select i18n-placeholder placeholder="Tổ" formControlName="divisionId" required>
+        <md-option *ngFor="let division of divisions" [value]="division.id">{{division.name}}
+        </md-option>
+      </md-select>
+    </div>
+    <md-select i18n-placeholder placeholder="Chức vụ" formControlName="roleSlug" fxFlex="calc(50% - 8px)" required>
+      <md-option *ngFor="let role of roleSlugs" [value]="role.key.value">{{role.value}}</md-option>
+    </md-select>
+    <md-input-container>
+      <input mdInput i18n-placeholder placeholder="Mã nhân viên" formControlName="employeeCode" fxFlex="calc(50% - 8px)" required>
+      <md-error>{{formErrors.employeeCode}}</md-error>
+    </md-input-container>
+  </form>
+</md-card>
+  <app-observer-zone-list
+    *ngIf="user && user.isSupervisor && !authService.currentUser.isAccountant"
+    [user]="user" class="app-content" fxFlex="50%"></app-observer-zone-list>
+  <app-technician-zone-list
+    *ngIf="user && user.isTechnician"
+    [user]="user" class="app-content" fxFlex="50%"></app-technician-zone-list>
+</div>

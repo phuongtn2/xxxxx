@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.CultivationPestDao">
+    <sql id="fullColumns">tcp.*</sql>
+
+    <insert id="insertCultivationPest" parameterType="CultivationPest" keyProperty="pest.id"
+            useGeneratedKeys="true">
+        INSERT
+        INTO
+        `tb_cultivation_pests` (
+        `id`,
+        `clientPrimaryKey`,
+        `cultivationId`,
+        `actionId`,
+        `fieldPlotId`,
+        `pestId`,
+        `ratio`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{pest.clientPrimaryKey},
+        #{pest.cultivationId},
+        #{pest.actionId},
+        #{pest.fieldPlotId},
+        #{pest.pestId},
+        #{pest.ratio},
+        #{pest.createId},
+        #{pest.updateId},
+        #{pest.created},
+        #{pest.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="CultivationPest">
+        UPDATE tb_cultivation_pests tcp
+        SET
+        tcp.clientPrimaryKey = #{pest.clientPrimaryKey},
+        tcp.pestId = #{pest.pestId},
+        tcp.ratio = #{pest.ratio},
+        tcp.updateId = #{pest.updateId},
+        tcp.updated = #{pest.updated}
+        WHERE tcp.id = #{pest.id};
+    </update>
+
+    <select id="findAllPestByDetailId" resultType="CultivationPest">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_cultivation_pests tcp
+        WHERE tcp.actionId=#{detailId}
+        ORDER BY tcp.id DESC ;
+    </select>
+</mapper>

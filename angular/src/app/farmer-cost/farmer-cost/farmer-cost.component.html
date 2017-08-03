@@ -1,0 +1,30 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="openDetailDialog()">
+      <md-icon>add</md-icon>
+      <!--i18n-->Add<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<md-card class="app-content card-wrap" fxFlex fxLayout="column">
+  <md-data-table
+    [data]="farmerCosts"
+    [pageSize]="limit"
+    [fixedHeader]="true"
+    [filterable]="true"
+    (rowClick)="onRowClick($event)"
+    fxFlex>
+    <md-table-header heading=" "></md-table-header>
+    <md-data-column i18n-title="title" title="Farmer" field="registration.farmer.fullName"></md-data-column>
+    <md-data-column i18n-title title="Type" field="typeStr"></md-data-column>
+    <md-data-column i18n-title title="Tên" field="actionTypeStr"></md-data-column>
+    <md-data-column i18n-title="heading|" title="Detail" field="title"></md-data-column>
+    <md-data-column i18n-title="title" title="Quantity" field="quantity" [numeric]="true">
+      <ng-template let-row="mdTableCellModel">{{row['quantity'] | number}}</ng-template>
+    </md-data-column>
+    <md-data-column i18n-title title="Giá" field="price" [numeric]="true">
+      <ng-template let-row="mdTableCellModel">{{row['price'] | number}}</ng-template>
+    </md-data-column>
+  </md-data-table>
+</md-card>

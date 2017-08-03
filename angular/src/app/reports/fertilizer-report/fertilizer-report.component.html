@@ -1,0 +1,79 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="exportReport()">
+      <md-icon>assessment</md-icon>
+      <!--i18n-->Xuất báo cáo<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+
+<md-card class="app-content">
+  <table class="md-table">
+    <thead>
+    <tr>
+      <th>Nhà đầu tư</th>
+      <th>Huyện</th>
+      <th>Tỉnh</th>
+      <th>Diện tích thực trồng (ha)</th>
+      <th *ngFor="let header of data.headers">{{header.title}}</th>
+      <th>N (Kg/ha)</th>
+      <th>P2O5 (Kg/ha)</th>
+      <th>K2O (Kg/ha)</th>
+      <th>Mật độ (cây/ha)</th>
+      <th>N (gr/cây)</th>
+      <th>P2O5 (gr/cây)</th>
+      <th>K2O (gr/cây)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th colspan="3" style="text-align: center;">Tổng</th>
+      <th class="mat-numeric-column">{{data.acreage}}</th>
+      <th *ngFor="let materialData of data.materialQuantities" class="mat-numeric-column">{{materialData.quantity}}</th>
+      <th class="mat-numeric-column">{{data.nPerHa}}</th>
+      <th class="mat-numeric-column">{{data.p2o5PerHa}}</th>
+      <th class="mat-numeric-column">{{data.k2oPerHa}}</th>
+      <th class="mat-numeric-column"></th>
+      <th class="mat-numeric-column"></th>
+      <th class="mat-numeric-column"></th>
+      <th class="mat-numeric-column"></th>
+    </tr>
+    <ng-container *ngFor="let company of data.companies">
+      <ng-container *ngIf="company.companyBranches && company.companyBranches.length">
+        <tr>
+          <th rowspan="2">{{company.name}}</th>
+          <th colspan="2" style="text-align: center;">Tổng</th>
+          <td class="mat-numeric-column">{{company.acreage}}</td>
+          <td *ngFor="let materialData of company.materialQuantities" class="mat-numeric-column">{{materialData.quantity}}</td>
+          <td class="mat-numeric-column">{{company.nPerHa}}</td>
+          <td class="mat-numeric-column">{{company.p2o5PerHa}}</td>
+          <td class="mat-numeric-column">{{company.k2oPerHa}}</td>
+          <td class="mat-numeric-column"></td>
+          <td class="mat-numeric-column"></td>
+          <td class="mat-numeric-column"></td>
+          <td class="mat-numeric-column"></td>
+        </tr>
+        <tr *ngFor="let branch of company.companyBranches">
+          <th>{{branch.districtName}}</th>
+          <th>{{branch.provinceName}}</th>
+          <td class="mat-numeric-column">{{branch.acreage}}</td>
+          <td *ngFor="let data of branch.materials" class="mat-numeric-column">{{data.quantity}}</td>
+          <td class="mat-numeric-column">{{branch.nPerHa}}</td>
+          <td class="mat-numeric-column">{{branch.p2o5PerHa}}</td>
+          <td class="mat-numeric-column">{{branch.k2oPerHa}}</td>
+          <td class="mat-numeric-column">{{branch.density}}</td>
+          <td class="mat-numeric-column">{{branch.nPerTree}}</td>
+          <td class="mat-numeric-column">{{branch.p2o5PerTree}}</td>
+          <td class="mat-numeric-column">{{branch.k2oPerTree}}</td>
+        </tr>
+      </ng-container>
+    </ng-container>
+    </tbody>
+    <tfoot *ngIf="!data">
+    <tr>
+      <td colspan="10" style="text-align: center;">Chưa có dữ liệu</td>
+    </tr>
+    </tfoot>
+  </table>
+</md-card>

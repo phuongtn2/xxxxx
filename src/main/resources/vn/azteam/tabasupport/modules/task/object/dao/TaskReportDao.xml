@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.task.object.dao.TaskReportDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="12000"/><!--5 minute-->
+        <property name="timeToIdleSeconds" value="12000"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">tr.*</sql>
+
+    <select id="findAll" resultType="TaskReport" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_task_reports tr
+        ORDER BY tr.id DESC ;
+    </select>
+
+    <insert id="insertTaskReport" parameterType="TaskReport" useGeneratedKeys="true" flushCache="true"
+            keyProperty="taskReport.id">
+        INSERT
+        INTO
+        `tb_task_reports`(
+        `id`,
+        `clientPrimaryKey`,
+        `taskId`,
+        `registrationId`,
+        `actionId`,
+        `phase`,
+        `licensePlate`,
+        `startSpeedometer`,
+        `endSpeedometer`,
+        `moveStartDate`,
+        `moveDueDate`,
+        `explanation`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        NULL,
+        #{taskReport.clientPrimaryKey},
+        #{taskReport.taskId},
+        #{taskReport.registrationId},
+        #{taskReport.actionId},
+        #{taskReport.phase},
+        #{taskReport.licensePlate},
+        #{taskReport.startSpeedometer},
+        #{taskReport.endSpeedometer},
+        #{taskReport.moveStartDate},
+        #{taskReport.moveDueDate},
+        #{taskReport.explanation},
+        #{taskReport.createId},
+        #{taskReport.updateId},
+        #{taskReport.created},
+        #{taskReport.updated}
+        );
+    </insert>
+
+    <update id="updateTaskReport" flushCache="true">
+        UPDATE
+        `tb_task_reports`
+        SET
+        `clientPrimaryKey` = #{taskReport.clientPrimaryKey},
+        `actionId` = #{taskReport.actionId},
+        `phase` = #{taskReport.phase},
+        `licensePlate` = #{taskReport.licensePlate},
+        `startSpeedometer` = #{taskReport.startSpeedometer},
+        `endSpeedometer` = #{taskReport.endSpeedometer},
+        `moveStartDate` = #{taskReport.moveStartDate},
+        `moveDueDate` = #{taskReport.moveDueDate},
+        `explanation` = #{taskReport.explanation},
+        `createId` = #{taskReport.createId},
+        `updateId` = #{taskReport.updateId},
+        `created` = #{taskReport.created},
+        `updated` = #{taskReport.updated}
+        WHERE
+        `id` = #{taskReport.id};
+    </update>
+
+</mapper>

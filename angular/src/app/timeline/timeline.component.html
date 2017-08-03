@@ -1,0 +1,17 @@
+<div class="timeline">
+  <div *ngIf="orderedTimeline" fxLayout>
+    <div fxFlex>
+      <ul *ngFor="let time of orderedTimeline">
+        <li *ngFor="let item of time">
+          <i class="arrow"></i>
+          <div class="content bounce-in">
+            <time>{{item.actionUpdateDate | date:'shortDate'}}</time>
+            <h3>{{item.actionName}}</h3>
+            <div *ngIf="item.medias && item.medias[0]" class="thumb-nail"
+                 [style.background-image]="getSafeMediaUrl(item.medias[0].fileId)"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

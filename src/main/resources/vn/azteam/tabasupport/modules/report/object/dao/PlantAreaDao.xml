@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.report.object.dao.PlantAreaDao">
+    <select id="findAll" resultType="PlantArea">
+        SELECT
+        c.id registrationId,
+        c.companyId companyId,
+        c.farmerId farmerId,
+        c.nurseryId nurseryId,
+        c.cultivationId cultivationId,
+        c.soilType soilType,
+        c.responsibilityEmployeeId responsibilityEmployeeId,
+        c.registrationAcreage registrationAcreage,
+        c.cultivationAcreage actualAcreage,
+        c.isCancel isCancel,
+        tcz.provinceId provinceId,
+        tcz.districtId districtId
+        FROM tb_crop_registrations c
+        INNER JOIN tb_cultivation_zones tcz ON c.zoneId = tcz.id
+        WHERE c.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        ORDER BY c.companyId, tcz.provinceId, tcz.districtId ASC;
+    </select>
+</mapper>

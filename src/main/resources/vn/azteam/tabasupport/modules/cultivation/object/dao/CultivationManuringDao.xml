@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.CultivationManuringDao">
+    <sql id="fullColumns">tcm.*</sql>
+
+    <insert id="insertCultivationManuring" parameterType="CultivationManuring" keyProperty="manuring.id"
+            useGeneratedKeys="true">
+        INSERT
+        INTO
+        `tb_cultivation_manurings` (
+        `id`,
+        `clientPrimaryKey`,
+        `actionId`,
+        `fieldPlotId`,
+        `materialId`,
+        `quantity`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{manuring.clientPrimaryKey},
+        #{manuring.actionId},
+        #{manuring.fieldPlotId},
+        #{manuring.materialId},
+        #{manuring.quantity},
+        #{manuring.createId},
+        #{manuring.updateId},
+        #{manuring.created},
+        #{manuring.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="CultivationManuring">
+        UPDATE tb_cultivation_manurings tcm
+        SET
+        tcm.clientPrimaryKey = #{manuring.clientPrimaryKey},
+        tcm.materialId = #{manuring.materialId},
+        tcm.quantity = #{manuring.quantity},
+        tcm.updateId = #{manuring.updateId},
+        tcm.updateId = #{manuring.updateId}
+        WHERE tcm.id = #{manuring.id};
+    </update>
+
+    <select id="findAllByDetailId" resultType="CultivationManuring">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_cultivation_manurings tcm
+        WHERE tcm.actionId= #{detailId}
+        ORDER BY tcm.id DESC ;
+    </select>
+</mapper>

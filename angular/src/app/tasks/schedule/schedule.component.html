@@ -1,0 +1,37 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <a md-raised-button [routerLink]="['/user', userId, 'schedule', 'add']">Thêm Công Việc</a>
+    <button md-raised-button (click)="goBack()">
+      <md-icon>arrow_back</md-icon>
+      <!--i18n-->Quay lại<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<section fxFlex fxLayout="column">
+  <md-card class="app-content">
+    <md-select i18n-placeholder placeholder="Xem theo" [(ngModel)]="type">
+      <md-option
+        *ngFor="let type of types"
+        [value]="type.id">{{type.name}}</md-option>
+    </md-select>
+  </md-card>
+  <div fxFlex fxLayout>
+    <app-calendar *ngIf="type === 1" [inline]="true" (onSelect)="onSelectDay($event)" fxFlex></app-calendar>
+    <md-card class="app-content" fxFlex>
+      <ul id="type_1" class="control clearfix" *ngIf="type === 2">
+        <li class="prev">
+          <a class="ui-datepicker-prev ui-corner-all" (click)="changeMonth(-1)">
+            <span class="fa fa-angle-left">Tháng trước</span>
+          </a>
+        </li>
+        <li class="content">{{dayDisplay}}</li>
+        <li class="prev"><a class="ui-datepicker-next ui-corner-all" (click)="changeMonth(1)">
+          <span class="fa fa-angle-right">Tháng kế</span>
+        </a>
+        </li>
+      </ul>
+      <app-task-list [assigneeId]="userId" [scheduleGroupTimes]="scheduleGroupTimes" [compareMonthYear]="compareMonthYear"></app-task-list>
+    </md-card>
+  </div>
+</section>

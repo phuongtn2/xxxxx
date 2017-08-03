@@ -1,0 +1,33 @@
+# OAuth Engineer App Client
+appClient.engineer.clientId=HY6BJIT58XGMN86UTM
+appClient.engineer.resourceIds=dstest,client
+appClient.engineer.scoped=material_manager,employee_manager,file_manager,memo_manager,farmer_manager,document_manager,\
+  photo_manager,video_manager,crop_session_manager,cultivation_manager,pest_manager,sale_manager,task_manager,zone_manager,cost_manager,report,move_manager
+appClient.engineer.authorizedGrantTypes=password,authorization_code,refresh_token,implicit,redirect
+appClient.engineer.tokenValidity=3600
+appClient.engineer.refreshTokenValidity=7200
+# Default value
+default.site.url=http://maderata.com
+default.user.role.slug=user
+default.paging.limit=20
+default.file.basePath=/opt/tomcat/taba_data
+#Document max size: 5MB
+default.document.maxSize=5242880
+#Photo max size: 5MB
+default.photo.maxSize=5242880
+#Video max size: 50MB
+default.video.maxSize=52428800
+# Type: txt, doc, docx, xls, xlsx, ppt, pptx, pdf
+default.document.type =text/plain,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,\
+  application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,\
+  application/vnd.openxmlformats-officedocument.presentationml.presentation,application/pdf
+# Type: mp4, avi, mov
+default.video.type =video/mp4,video/avi,video/quicktime
+# Type: png, jpg, jpeg
+default.photo.type =image/png,image/jpeg
+#Setting push notification second, minute, hour, day of month, month, day(s) of week
+cron.insert=0 1 6 * * ?
+cron.push=0 30 6 * * ?
+#Android push notification
+notification.android.server.address=https://fcm.googleapis.com/fcm/send
+notification.android.server.key=AAAA-53fSZo:APA91bF7p7l9t0vQRLD_5kHJ2T00G41mZoPP5TnMrSf8ssD3u6sj1QUhPTXoAhs6w4xGSaIPpcHJsL3cH2PpfGU9DqI1tTUMAPJx6nLkbkA_NIK4Bw7Up_ljeTYeAnOf-C0qUSflidkv

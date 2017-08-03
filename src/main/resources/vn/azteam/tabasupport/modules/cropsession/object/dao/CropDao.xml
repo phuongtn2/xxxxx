@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cropsession.object.dao.CropDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="12000"/><!--5 minute-->
+        <property name="timeToIdleSeconds" value="12000"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="baseColumns">
+        cs.id,
+        cs.name,
+        cs.description,
+        cs.createId,
+        cs.updateId,
+        cs.created,
+        cs.updated
+    </sql>
+
+    <sql id="fullColumns">cs.*</sql>
+
+    <insert id="insertCrop" parameterType="Crop" useGeneratedKeys="true" keyProperty="crop.id" flushCache="true">
+        INSERT INTO tb_crop_season (id, name, description, createId, updateId, created, updated)
+            VALUE
+            (NULL, #{crop.name}, #{crop.description}, #{crop.createId}, #{crop.updateId}, #{crop.created},
+             #{crop.updated})
+    </insert>
+
+    <update id="updateCrop" parameterType="Crop" flushCache="true">
+        UPDATE tb_crop_season
+        SET
+        name = #{crop.name},
+        description = #{crop.description},
+        updateId = #{crop.updateId},
+        updated = #{crop.updated}
+        WHERE id = #{crop.id};
+    </update>
+
+    <select id="findAll" resultType="Crop" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_season cs
+        ORDER BY cs.id DESC ;
+    </select>
+</mapper>

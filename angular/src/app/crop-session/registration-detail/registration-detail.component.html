@@ -1,0 +1,104 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="openNewFarmerModal()" *ngIf="!isEditing">
+      <md-icon>add</md-icon>
+      <!--i18n-->New Farmer<!--/i18n-->
+    </button>
+    <button md-raised-button *ngIf="registration && !registration.canCancel" (click)="registerAgainRegistration()" i18n>Re-register</button>
+    <button md-raised-button *ngIf="registration && registration.canCancel" (click)="cancelRegistration()" i18n>Cancel Registration</button>
+    <button md-raised-button (click)="saveFarmer()">
+      <md-icon>save</md-icon>
+      <!--i18n-->Save<!--/i18n-->
+    </button>
+    <a md-raised-button routerLink="/crop-session/farmer">
+      <md-icon>cancel</md-icon>
+      <!--i18n-->Cancel<!--/i18n-->
+    </a>
+  </md-toolbar-row>
+</md-toolbar>
+
+<div fxLayout fxLayoutWrap>
+  <form [formGroup]="registerForm" fxLayout fxLayoutWrap>
+    <md-card class="app-content" fxFlex="calc(50% - 32px)" fxLayout fxLayoutWrap fxLayoutGap="8px">
+      <md-select i18n-placeholder placeholder="Farmer" formControlName="farmerId" required fxFlex="calc(100% - 8px)">
+        <md-option *ngIf="isEditing" [value]="registration.farmer.id">{{registration.farmer.fullName}}</md-option>
+        <ng-container *ngIf="!isEditing">
+          <md-option *ngFor="let farmer of farmers" [value]="farmer.id">{{farmer.fullName}}</md-option>
+        </ng-container>
+      </md-select>
+      <md-input-container fxFlex="calc(50% - 8px)">
+        <input mdInput i18n-placeholder placeholder="Số năm trồng" formControlName="exp" required>
+        <span mdSuffix i18n>year</span>
+        <md-error>{{formErrors.exp}}</md-error>
+      </md-input-container>
+      <md-input-container fxFlex="calc(50% - 8px)">
+        <input mdInput i18n-placeholder placeholder="Số nhân khẩu" formControlName="householdMembers" required>
+        <span mdSuffix i18n="suffix">người</span>
+        <md-error>{{formErrors.householdMembers}}</md-error>
+      </md-input-container>
+      <md-input-container fxFlex="calc(50% - 8px)">
+        <input mdInput i18n-placeholder placeholder="Số lao động chính" formControlName="labors" required>
+        <span mdSuffix i18n="suffix">người</span>
+        <md-error>{{formErrors.labors}}</md-error>
+      </md-input-container>
+      <md-input-container fxFlex="calc(50% - 8px)">
+        <input mdInput i18n-placeholder placeholder="Diện tích đăng ký" formControlName="registrationAcreage" required>
+        <span mdSuffix i18n="suffix">ha</span>
+        <md-error>{{formErrors.registrationAcreage}}</md-error>
+      </md-input-container>
+      <md-select i18n-placeholder placeholder="Kỹ thuật viên phụ trách" formControlName="responsibilityEmployeeId" required fxFlex="calc(50% - 8px)">
+        <md-option *ngFor="let e of responsibilityEmployees" [value]="e.id">{{e.fullName}}</md-option>
+      </md-select>
+      <md-input-container fxFlex="calc(100% - 8px)">
+        <textarea mdInput i18n-placeholder placeholder="Description" rows="5" formControlName="memo"></textarea>
+      </md-input-container>
+    </md-card>
+
+    <div fxFlex="calc(50% - 32px)" fxLayout="column">
+      <md-card *ngIf="!isEditing" class="app-content">
+        <md-card-title>
+          <md-slide-toggle formControlName="toggleRegisterField" i18n>Register field</md-slide-toggle>
+        </md-card-title>
+        <md-card-content formGroupName="fieldDetail" [fxHide]="registerForm.get('fieldDetail').disabled">
+          <md-select i18n-placeholder placeholder="Giống" formControlName="seedId" required>
+            <md-option *ngFor="let seed of seeds" [value]="seed.id">{{seed.name}}</md-option>
+          </md-select>
+          <app-location [formGroup]="registerForm.get('fieldDetail.address')" [restrictedByZone]="true"
+                        fxFlex="100%" fxLayout fxLayoutWrap>
+            <md-input-container fxFlex="100%">
+              <input mdInput i18n-placeholder placeholder="Address" formControlName="street" required>
+            </md-input-container>
+          </app-location>
+        </md-card-content>
+      </md-card>
+      <app-field-card *ngIf="isEditing && registration && registration.field" [registration]="registration"
+                      class="app-content" fxFlex="calc(50% - 32px)"></app-field-card>
+
+      <md-card *ngIf="!isEditing" class="app-content">
+        <md-card-title>
+          <md-slide-toggle formControlName="toggleRegisterNursery" i18n>Register nursery</md-slide-toggle>
+        </md-card-title>
+        <md-card-content formGroupName="nurseryDetail" [fxHide]="registerForm.get('nurseryDetail').disabled">
+          <md-select i18n-placeholder placeholder="Giống" formControlName="seedId" required>
+            <md-option *ngFor="let seed of seeds" [value]="seed.id">{{seed.name}}</md-option>
+          </md-select>
+          <app-location [formGroup]="registerForm.get('nurseryDetail.address')" [restrictedByZone]="true"
+                        fxFlex="100%" fxLayout fxLayoutWrap>
+            <md-input-container fxFlex="100%">
+              <input mdInput i18n-placeholder placeholder="Address" formControlName="street" required>
+            </md-input-container>
+          </app-location>
+        </md-card-content>
+      </md-card>
+      <app-nursery-card *ngIf="isEditing && registration && registration.nursery" [registration]="registration"
+                        class="app-content" fxFlex="calc(50% - 32px)"></app-nursery-card>
+    </div>
+  </form>
+  <app-drying-oven-list *ngIf="!!(registration && registration.id)"
+                        [registration]="registration" class="app-content" fxFlex="100%"></app-drying-oven-list>
+  <app-crop-material-list *ngIf="!!(registration && registration.id)"
+                        [registration]="registration" class="app-content" fxFlex="calc(50% - 32px)"></app-crop-material-list>
+  <app-sale-list *ngIf="!!(registration && registration.id)"
+                 [registration]="registration" class="app-content" fxFlex="calc(50% - 32px)"></app-sale-list>
+</div>

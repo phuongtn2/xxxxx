@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cropsession.object.dao.CropMaterialSupplementDao">
+    <sql id="baseColumns">
+        tcms.id,
+        tcms.registrationId,
+        tcms.actionId,
+        tcms.phase,
+        tcms.materialId,
+        tcms.quantity,
+        tcms.memo
+    </sql>
+
+    <sql id="fullColumns">tcms.*</sql>
+
+    <insert id="insert" parameterType="CropMaterialSupplement" useGeneratedKeys="true"
+            keyProperty="material.id">
+        INSERT INTO tb_crop_material_supplements (id, clientPrimaryKey, registrationId, phaseId, actionId, phase,
+        materialId, quantity,
+        memo,
+        createId, updateId,
+        created, updated)
+        VALUE
+        (NULL, #{material.clientPrimaryKey}, #{material.registrationId}, #{material.phaseId}, #{material.actionId},
+        #{material.phase},
+        #{material.materialId},
+        #{material.quantity}, #{material.memo}, #{material.createId}, #{material.updateId},
+        #{material.created}, #{material.updated})
+    </insert>
+
+    <update id="updateCropMaterialSupplement" parameterType="CropMaterialSupplement">
+        UPDATE tb_crop_material_supplements tcms
+        SET
+        tcms.clientPrimaryKey = #{material.clientPrimaryKey},
+        tcms.phaseId = #{material.phaseId},
+        tcms.phase = #{material.phase},
+        tcms.actionId = #{material.actionId},
+        tcms.quantity = #{material.quantity},
+        tcms.delFlag = #{material.delFlag},
+        tcms.memo = #{material.memo}
+        WHERE tcms.id = #{material.id};
+    </update>
+
+    <select id="findAllByRegistrationIds" resultType="CropMaterialSupplement">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_material_supplements tcms
+        WHERE tcms.registrationId IN (
+        <foreach collection="registrationIds" item="registrationId" separator=",">
+            #{registrationId}
+        </foreach>
+        )
+        ORDER BY tcms.id DESC ;
+    </select>
+
+    <select id="findAllCropMaterialSupplementByActionId" resultType="CropMaterialSupplement">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_material_supplements tcms
+        WHERE tcms.actionId=#{actionId}
+        AND tcms.phase=#{phase}
+        ORDER BY tcms.id DESC ;
+    </select>
+</mapper>

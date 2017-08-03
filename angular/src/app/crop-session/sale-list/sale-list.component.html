@@ -1,0 +1,12 @@
+<md-card fxFlex fxLayout="column">
+  <md-data-table [data]="saleRegistrations" [fixedHeader]="true" fxFlex>
+    <md-table-header i18n-title title="Đăng ký bán hàng"></md-table-header>
+    <md-data-column i18n-title title="Đợt" field="saleIndex"></md-data-column>
+    <md-data-column i18n-title title="Ngày đăng ký bán">
+      <ng-template let-row="mdTableCellModel">
+        {{row['dateRegistration'] | date:'shortDate'}}
+      </ng-template>
+    </md-data-column>
+    <md-data-column i18n-title title="Số lượng đăng ký" field="expectedQuantity"></md-data-column>
+  </md-data-table>
+</md-card>

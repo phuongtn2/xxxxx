@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.core.object.dao.UserDao">
+  <sql id="baseColumns">u.*</sql>
+  <sql id="fullColumns">u.*</sql>
+
+  <select id="findAll" resultType="User">
+    SELECT
+    <include refid="fullColumns"/>
+    FROM tb_users u
+    ORDER BY u.id DESC;
+  </select>
+
+  <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="user.id" keyColumn="id">
+        INSERT INTO tb_users(
+        `id`,
+        `clientPrimaryKey`,
+        `companyId`,
+        `identityCard`,
+        `firstName`,
+        `lastName`,
+        `fullName`,
+        `phone`,
+        `email`,
+        `address`,
+        `gender`,
+        `provinceId`,
+        `wardId`,
+        `districtId`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        NULL,
+        #{user.clientPrimaryKey},
+        #{user.companyId},
+        #{user.identityCard},
+        #{user.firstName},
+        #{user.lastName},
+        #{user.fullName},
+        #{user.phone},
+        #{user.email},
+        #{user.address},
+        #{user.gender},
+        #{user.provinceId},
+        #{user.wardId},
+        #{user.districtId},
+        #{user.createId},
+        #{user.updateId},
+        #{user.created},
+        #{user.updated}
+        );
+
+    </insert>
+
+  <update id="updateUser" parameterType="User">
+        UPDATE tb_users
+        SET
+      clientPrimaryKey = #{user.clientPrimaryKey},
+        identityCard = #{user.identityCard},
+            firstName  = #{user.firstName},
+            lastName   = #{user.lastName},
+            fullName   = #{user.fullName},
+            phone      = #{user.phone},
+            email      = #{user.email},
+            address    = #{user.address},
+            gender     = #{user.gender},
+            provinceId = #{user.provinceId},
+        wardId = #{user.wardId},
+            districtId = #{user.districtId},
+            updateId   = #{user.updateId},
+            updated    = #{user.updated}
+        WHERE
+        id = #{user.id};
+    </update>
+
+</mapper>

@@ -1,0 +1,81 @@
+app-calendar {
+  padding-left: 20px;
+}
+
+md-select {
+  padding-left: 20px;
+}
+
+ul.control {
+  list-style-type: none;
+  display: flex;
+
+  li {
+    background-color: #989898;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 18px;
+    flex: 2;
+    padding: 2px;
+    text-align: center;
+
+    a {
+      color: #000;
+      font-size: 16px;
+      height: 22px;
+      line-height: 22px;
+      display: block;
+      text-decoration: none;
+      position: relative;
+    }
+  }
+
+  li:last-child, li:first-child {
+    flex: 1;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #666;
+
+      a {
+        color: white;
+      }
+    }
+
+    a {
+      &:hover {
+        color: white;
+      }
+
+      &:after {
+        position: absolute;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        top: 4px;
+        left: 0;
+      }
+
+      span {
+        width: 100%;
+
+        &:before {
+          float: left;
+        }
+      }
+    }
+  }
+
+  li:last-child a span:before {
+    float: right;
+  }
+
+  li:last-child a:after {
+    right: 0;
+    left: auto;
+  }
+}

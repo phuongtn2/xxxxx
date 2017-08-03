@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.file.object.dao.RepositoryDao">
+    <sql id="fullColumns">repo.*</sql>
+
+    <sql id="baseColumns">
+        repo.id,
+        repo.companyId,
+        repo.path,
+        repo.createId,
+        repo.updateId,
+        repo.created,
+        repo.updated
+    </sql>
+
+    <select id="findAll" resultType="Repository">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_repositories repo
+        ORDER BY repo.id DESC;
+    </select>
+</mapper>

@@ -1,0 +1,9 @@
+# ENV test
+# DataBase config
+# Default MySQL
+# Version 5.7
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost/taba_support_dev?allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8
+jdbc.username=master
+jdbc.password=Abcd@1234
+jdbc.timezone=+7:00

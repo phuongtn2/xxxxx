@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.nursery.object.dao.NurseryPestDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">
+        tnp.*
+    </sql>
+
+    <insert id="insert" parameterType="NurseryPest" useGeneratedKeys="true" keyColumn="id"
+            keyProperty="pest.id" flushCache="true">
+        INSERT INTO
+        tb_nursery_pests (
+        id,
+        clientPrimaryKey,
+        nurseryId,
+        actionId,
+        pestId,
+        ratio,
+        createId,
+        updateId,
+        created,
+        updated
+        )
+        VALUES (
+        NULL,
+        #{pest.clientPrimaryKey},
+        #{pest.nurseryId},
+        #{pest.actionId},
+        #{pest.pestId},
+        #{pest.ratio},
+        #{pest.createId},
+        #{pest.updateId},
+        #{pest.created},
+        #{pest.updated});
+    </insert>
+
+    <update id="update" parameterType="NurseryPest" flushCache="true">
+        UPDATE tb_nursery_pests
+        SET
+        clientPrimaryKey = #{pest.clientPrimaryKey},
+        pestId = #{pest.pestId},
+        ratio = #{pest.ratio},
+        updateId = #{pest.updateId},
+        updated = #{pest.updated}
+        WHERE id = #{pest.id};
+    </update>
+
+    <select id="findAllByDetailIds" flushCache="false" resultType="NurseryPest">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_nursery_pests tnp
+        WHERE tnp.actionId IN (
+        <foreach collection="detailIds" item="detailId" separator=",">
+            #{detailId}
+        </foreach>
+        )
+        ORDER BY tnp.id DESC;
+    </select>
+
+    <select id="findAllByNurseryId" flushCache="false" resultType="NurseryPest">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_nursery_pests tnp
+        WHERE tnp.nurseryId = #{nurseryId}
+        ORDER BY tnp.id DESC;
+    </select>
+</mapper>

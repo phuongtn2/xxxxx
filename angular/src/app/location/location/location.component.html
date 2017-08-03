@@ -1,0 +1,14 @@
+<ng-container *ngIf="formGroup">
+  <md-select i18n-placeholder placeholder="Tỉnh" [formControl]="formGroup.get('provinceId')"
+             (change)="onSelectProvince($event.value)" required fxFlex="33%">
+    <md-option *ngFor="let province of allProvinces" [value]="province.id">{{province.name}}</md-option>
+  </md-select>
+  <md-select i18n-placeholder placeholder="Quận/Huyện" [formControl]="formGroup.get('districtId')"
+             (change)="onSelectDistrict($event.value)" required fxFlex="33%">
+    <md-option *ngFor="let district of allDistricts" [value]="district.id">{{district.name}}</md-option>
+  </md-select>
+  <md-select i18n-placeholder placeholder="Phường/Xã" [formControl]="formGroup.get('wardId')" required fxFlex="33%">
+    <md-option *ngFor="let ward of wards" [value]="ward.id">{{ward.name}}</md-option>
+  </md-select>
+  <ng-content></ng-content>
+</ng-container>

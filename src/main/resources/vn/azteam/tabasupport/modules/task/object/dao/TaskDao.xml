@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.task.object.dao.TaskDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="12000"/><!--5 minute-->
+        <property name="timeToIdleSeconds" value="12000"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">t.*</sql>
+
+    <select id="findAll" resultType="Task" flushCache="false">
+        SELECT t.*
+        FROM tb_tasks t
+        WHERE t.cropId = (SELECT max(DISTINCT id) currentSeasionId
+        FROM tb_crop_season
+        LIMIT 0, 1)
+        AND t.delFlag = 0
+        ORDER BY t.id DESC ;
+    </select>
+
+    <insert id="insertTask" parameterType="Task" useGeneratedKeys="true" flushCache="true" keyProperty="task.id">
+        INSERT
+        INTO
+        tb_tasks(
+            id,
+        clientPrimaryKey,
+            cropId,
+            companyId,
+            departmentId,
+        divisionId,
+            registrationId,
+        nurseryId,
+        cultivationId,
+            title,
+            description,
+            startDate,
+            dueDate,
+            morningTask,
+            afternoonTask,
+            assigneeId,
+            ownerId,
+        workStartDate,
+        workDueDate,
+            provinceId,
+            districtId,
+            wardId,
+        status,
+        delFlag,
+            createId,
+            updateId,
+            created,
+            updated
+        )
+        VALUES(
+            NULL,
+        #{task.clientPrimaryKey},
+            #{task.cropId},
+            #{task.companyId},
+            #{task.departmentId},
+        #{task.divisionId},
+            #{task.registrationId},
+        #{task.nurseryId},
+        #{task.cultivationId},
+            #{task.title},
+            #{task.description},
+            #{task.startDate},
+            #{task.dueDate},
+            #{task.morningTask},
+            #{task.afternoonTask},
+            #{task.assigneeId},
+            #{task.ownerId},
+        #{task.workStartDate},
+        #{task.workDueDate},
+            #{task.provinceId},
+            #{task.districtId},
+            #{task.wardId},
+        #{task.status},
+        #{task.delFlag},
+            #{task.createId},
+            #{task.updateId},
+            #{task.created},
+            #{task.updated}
+        );
+    </insert>
+
+    <update id="updateTask" flushCache="true">
+        UPDATE
+        `tb_tasks`
+        SET
+        `clientPrimaryKey` = #{task.clientPrimaryKey},
+        `title` = #{task.title},
+        `status` = #{task.status},
+        `description` = #{task.description},
+        `startDate` = #{task.startDate},
+        `dueDate` = #{task.dueDate},
+        `morningTask` = #{task.morningTask},
+        `afternoonTask` = #{task.afternoonTask},
+        `assigneeId` = #{task.assigneeId},
+        `workStartDate` = #{task.workStartDate},
+        `workDueDate` = #{task.workDueDate},
+        `delFlag` = #{task.delFlag}
+        WHERE
+        id = #{task.id};
+    </update>
+
+</mapper>

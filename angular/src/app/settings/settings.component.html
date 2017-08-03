@@ -1,0 +1,52 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+  </md-toolbar-row>
+</md-toolbar>
+<md-card class="app-content" fxLayout>
+<form [formGroup]="settingsForm" (ngSubmit)="settingsForm.valid && changeUserInfo()"
+      fxLayout fxLayoutAlign="4d">
+  <div fXFlex [style.margin-left.px]="30">
+    <p>
+      Tài khoản <span>{{user.userId}}</span>
+    </p>
+    <p>
+      <md-input-container>
+        <input mdInput name="firstName" i18n-placeholder placeholder="Họ" formControlName="firstName" required>
+        <md-error>{{formErrors.firstName}}</md-error>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container>
+        <input mdInput name="lastName" i18n-placeholder placeholder="Tên" formControlName="lastName" required>
+        <md-error>{{formErrors.lastName}}</md-error>
+      </md-input-container>
+    </p>
+  </div>
+  <!-- TODO: fix it -->
+  <div fxFlex [style.margin-left.px]="60">
+    <p>Đổi mật khẩu</p>
+    <p>
+      <md-input-container>
+        <input mdInput type="password" name="currentPassword" i18n-placeholder placeholder="Mật khẩu" formControlName="currentPassword">
+        <md-error>{{formErrors.currentPassword}}</md-error>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container>
+        <input mdInput type="password" name="newPassword" i18n-placeholder placeholder="Mật khẩu mới" formControlName="newPassword">
+        <md-error>{{formErrors.newPassword}}</md-error>
+      </md-input-container>
+    </p>
+    <p>
+      <md-input-container>
+        <input mdInput type="password" name="confirmPassword" i18n-placeholder placeholder="Xác nhận mật khẩu" formControlName="confirmPassword">
+        <md-error>{{formErrors.confirmPassword}}</md-error>
+      </md-input-container>
+    </p>
+    <p>
+      <button md-raised-button i18n>Save</button>
+    </p>
+  </div>
+</form>
+</md-card>

@@ -1,0 +1,13 @@
+<md-list fxFlex>
+  <div *ngFor="let item of scheduleGroupTimes">
+    <div *ngIf="item.strDate == compareMonthYear || item.monthAndYear == compareMonthYear">
+      <h3 md-subheader>{{item.date | date:'shortDate'}}</h3>
+      <md-list-item *ngFor="let task of item.listTask" (click)="openDialog(task)">
+        <span fxFlex *ngIf="task.nursery != null">Vườn ươm {{task.nursery.id}} - {{task.farmer.fullName}}</span>
+        <span fxFlex *ngIf="task.cultivation != null">Thửa {{task.cultivation.id}} - {{task.farmer.fullName}}</span>
+        <span fxFlex *ngIf="task.cultivation == null && task.nursery == null">{{task.farmer.fullName}}</span>
+        <span>{{task.title}}</span>
+      </md-list-item>
+    </div>
+  </div>
+</md-list>

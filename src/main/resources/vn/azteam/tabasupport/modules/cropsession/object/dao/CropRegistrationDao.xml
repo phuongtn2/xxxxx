@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cropsession.object.dao.CropRegistrationDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="baseColumns">
+        tcr.id,
+        tcr.createId,
+        tcr.updateId,
+        tcr.created,
+        tcr.updated
+    </sql>
+
+    <sql id="fullColumns">tcr.*</sql>
+
+    <select id="findAll" resultType="CropRegistration" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_registrations tcr
+        ORDER BY tcr.id DESC ;
+    </select>
+
+    <select id="findAllByCompanyIds" resultType="CropRegistration" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_registrations tcr
+        WHERE tcr.companyId IN (
+        <foreach collection="companyIds" item="companyId" separator=",">
+            #{companyId}
+        </foreach>
+        )
+        ORDER BY tcr.id DESC ;
+    </select>
+
+    <select id="findAllInCropByCompanyIds" resultType="CropRegistration" flushCache="false">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_crop_registrations tcr
+        WHERE
+        tcr.cropId = #{cropSessionId}
+        AND tcr.companyId IN (
+        <foreach collection="companyIds" item="companyId" separator=",">
+            #{companyId}
+        </foreach>
+        )
+        ORDER BY tcr.id DESC ;
+    </select>
+
+    <insert id="insertCropRegistration" parameterType="CropRegistration" useGeneratedKeys="true"
+            keyProperty="registration.id"
+            flushCache="true">
+        INSERT INTO tb_crop_registrations (
+        id,
+        clientPrimaryKey,
+        farmerId,
+        companyId,
+        cropId,
+        zoneId,
+        nurseryId,
+        cultivationId,
+        departmentId,
+        divisionId,
+        exp,
+        responsibilityEmployeeId,
+        registrationAcreage,
+        householdMembers,
+        labors,
+        memo,
+        createId,
+        updateId,
+        created,
+        updated)
+        VALUE (
+        NULL,
+        #{registration.clientPrimaryKey},
+        #{registration.farmerId},
+        #{registration.companyId},
+        #{registration.cropId},
+        #{registration.zoneId},
+        #{registration.nurseryId},
+        #{registration.cultivationId},
+        #{registration.departmentId},
+        #{registration.divisionId},
+        #{registration.exp},
+        #{registration.responsibilityEmployeeId},
+        #{registration.registrationAcreage},
+        #{registration.householdMembers},
+        #{registration.labors},
+        #{registration.memo},
+        #{registration.createId},
+        #{registration.updateId},
+        #{registration.created},
+        #{registration.updated}
+        );
+    </insert>
+
+    <update id="updateRegistration" flushCache="true">
+        UPDATE tb_crop_registrations tcr
+        SET
+        tcr.clientPrimaryKey = #{registration.clientPrimaryKey},
+        tcr.zoneId = #{registration.zoneId},
+        tcr.exp = #{registration.exp},
+        tcr.registrationAcreage = #{registration.registrationAcreage},
+        tcr.householdMembers = #{registration.householdMembers},
+        tcr.householdMembers = #{registration.labors},
+        tcr.cultivationAcreage = #{registration.cultivationAcreage},
+        tcr.isCancel = #{registration.isCancel},
+        tcr.memo = #{registration.memo},
+        tcr.nurseryId = #{registration.nurseryId},
+        tcr.cultivationId = #{registration.cultivationId},
+        tcr.responsibilityEmployeeId = #{registration.responsibilityEmployeeId}
+        WHERE
+            tcr.id = #{registration.id}
+            AND tcr.companyId = #{registration.companyId};
+    </update>
+</mapper>

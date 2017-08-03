@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.core.object.dao.AccountDao">
+
+    <sql id="baseColumns">
+        a.id,
+        a.companyId,
+        a.uId,
+        a.status,
+        a.userId,
+        a.password,
+        a.languageId,
+        a.timeZoneId,
+        a.deviceType,
+        a.loginIP,
+        a.loginDate,
+        a.lastLoginIP,
+        a.lastLoginDate,
+        a.createId,
+        a.updateId,
+        a.created,
+        a.updated
+    </sql>
+
+    <sql id="fullColumns">a.*</sql>
+
+    <sql id="userBaseColumns">
+        u.firstName,
+        u.lastName,
+        u.fullName,
+        u.phone,
+        u.email,
+        u.address,
+        u.provinceId,
+        u.wardId,
+        u.districtId,
+    </sql>
+
+    <select id="finAll" resultType="Account" flushCache="false">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="baseColumns"/>
+        FROM tb_accounts AS a
+        INNER JOIN tb_users u ON (a.uId=u.id)
+        ORDER BY a.id DESC;
+    </select>
+
+    <select id="findById" parameterType="java.lang.Long" resultType="Account" flushCache="false">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="baseColumns"/>
+        FROM tb_accounts AS a
+        INNER JOIN tb_users u ON (a.uId=u.id)
+        WHERE a.id=#{id}
+        ORDER BY a.id ASC;
+    </select>
+
+    <select id="findByUserId" parameterType="java.lang.String" resultType="Account" flushCache="false">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="baseColumns"/>
+        FROM tb_accounts AS a
+        INNER JOIN tb_users u ON (a.uId=u.id)
+        WHERE a.userId=#{username}
+        ORDER BY a.id ASC;
+    </select>
+
+    <select id="findByUid" parameterType="java.lang.Long" resultType="Account" flushCache="false">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="baseColumns"/>
+        FROM tb_accounts AS a
+        INNER JOIN tb_users u ON (a.uId=u.id)
+        WHERE a.uId=#{uId}
+        LIMIT 0,1;
+    </select>
+
+    <insert id="insertAccount" parameterType="Account" useGeneratedKeys="true" keyProperty="account.id" keyColumn="id"
+            flushCache="true">
+        INSERT INTO tb_accounts
+        (`id`,
+        `uId`,
+        `companyId`,
+        `status`,
+        `userId`,
+        `password`,
+        `languageId`,
+        `timeZoneId`,
+        `deviceType`,
+        `loginIP`,
+        `loginDate`,
+        `lastLoginIP`,
+        `lastLoginDate`,
+        `createId`,
+        `updated`,
+        `created`,
+        `updateId`)
+        VALUES
+        (NULL,
+        #{account.uId},
+        #{account.companyId},
+        #{account.status},
+        #{account.userId},
+        #{account.password},
+        #{account.languageId},
+        #{account.timeZoneId},
+        #{account.deviceType},
+        #{account.loginIP},
+        #{account.loginDate},
+        #{account.lastLoginIP},
+        #{account.lastLoginDate},
+        #{account.createId},
+        #{account.updated},
+        #{account.created},
+        #{account.updateId});
+
+    </insert>
+
+    <update id="updateAccount" parameterType="Account" flushCache="true">
+        UPDATE tb_accounts
+        SET
+        `companyId` = #{account.companyId},
+        `status` = #{account.status},
+        `userId` = #{account.userId},
+        `languageId` = #{account.languageId},
+        `timeZoneId` = #{account.timeZoneId},
+        `deviceType` = #{account.deviceType},
+        `loginIP` = #{account.loginIP},
+        `loginDate` = #{account.loginDate},
+        `lastLoginIP` = #{account.lastLoginIP},
+        `lastLoginDate` = #{account.lastLoginDate},
+        `updated` = #{account.updated},
+        `updateId` = #{account.updateId}
+        WHERE `id` = #{account.id};
+    </update>
+
+    <update id="updatePassword" parameterType="Account" flushCache="true">
+        UPDATE tb_accounts
+        SET
+            `password`      = #{account.newPassword},
+            `deviceType`    = #{account.deviceType},
+            `loginIP`       = #{account.loginIP},
+            `loginDate`     = #{account.loginDate},
+            `lastLoginIP`   = #{account.lastLoginIP},
+            `lastLoginDate` = #{account.lastLoginDate},
+            `updated`       = #{account.updated},
+            `updateId`      = #{account.updateId}
+        WHERE `id` = #{account.id};
+    </update>
+
+    <update id="updatePushInformation" parameterType="Account" flushCache="true">
+        UPDATE tb_accounts
+        SET
+        `deviceType` = #{account.deviceType},
+        `pushKey` = #{account.pushKey}
+        WHERE `id` = #{account.id};
+    </update>
+</mapper>

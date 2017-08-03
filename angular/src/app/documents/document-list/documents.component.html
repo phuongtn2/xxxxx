@@ -1,0 +1,39 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="openDialog()">
+      <md-icon>add</md-icon>
+      <!--i18n-->Add<!--/i18n-->
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<md-card class="app-content card-wrap" fxFlex fxLayout="column">
+  <md-data-table
+    [data]="documents"
+    [pageSize]="limit"
+    [fixedHeader]="true"
+    [filterable]="true"
+    fxFlex>
+    <md-table-header heading=" "></md-table-header>
+    <md-data-column i18n-title title="ID" field="id"></md-data-column>
+    <md-data-column i18n-title title="Tên tài liệu" field="documentName"></md-data-column>
+    <md-data-column i18n-title title="Loại file" field="extension"></md-data-column>
+    <md-data-column i18n-title title="Người tải lên" field="documentOwner"></md-data-column>
+    <md-data-column i18n-title title="Ngày tải lên" [filterable]="false">
+      <ng-template let-row="mdTableCellModel">{{row['uploadedDate'] | date:'shortDate'}}</ng-template>
+    </md-data-column>
+    <md-data-column [numeric]="true" [filterable]="false">
+      <ng-template let-row="mdTableCellModel">
+        <button md-icon-button (click)="openDialog(row)">
+          <md-icon>edit</md-icon>
+        </button>
+        <button md-icon-button (click)="deleteDocument(row)">
+          <md-icon>delete</md-icon>
+        </button>
+        <a md-icon-button (click)="downloadDocument(row)">
+          <md-icon>file_download</md-icon>
+        </a>
+      </ng-template>
+    </md-data-column>
+  </md-data-table>
+</md-card>

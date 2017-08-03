@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.photo.object.dao.PhotoDao">
+    <sql id="fullColumns">p.*</sql>
+
+    <sql id="baseColumns">
+        p.id,
+        p.fileId,
+        p.createId,
+        p.updateId,
+        p.created,
+        p.updated
+    </sql>
+
+    <sql id="fileBaseColumns">
+        f.companyId,
+        f.repositoryId,
+        f.directoryId,
+        f.name,
+        f.extension,
+        f.size,
+        f.version,
+        f.type,
+        f.description,
+        f.owner,
+        f.status
+    </sql>
+
+    <select id="findAll" resultType="Photo">
+        SELECT
+        <include refid="baseColumns"/>
+        ,
+        <include refid="fileBaseColumns"/>
+        FROM tb_photos p
+        INNER JOIN tb_files f ON p.fileId = f.id
+        WHERE p.hidden = 0
+        ORDER BY p.id ASC;
+    </select>
+
+    <insert id="insertPhoto" parameterType="Photo" useGeneratedKeys="true" keyProperty="photo.id"
+            keyColumn="id">
+        INSERT
+        INTO
+        `tb_photos`(
+        `id`,
+        `fileId`,
+        `hidden`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        NULL,
+        #{photo.fileId},
+        #{photo.hidden},
+        #{photo.createId},
+        #{photo.updateId},
+        #{photo.created},
+        #{photo.updated}
+        );
+    </insert>
+</mapper>

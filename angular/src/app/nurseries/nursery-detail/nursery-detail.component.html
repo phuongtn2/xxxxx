@@ -1,0 +1,120 @@
+<md-toolbar color="primary" class="mat-elevation-z4">
+  <md-toolbar-row fxLayoutGap="10px">
+    <span fxFlex>{{title}}</span>
+    <button md-raised-button (click)="goBack()">
+      <md-icon>arrow_back</md-icon>
+      Quay lại
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<section *ngIf="registration && nursery" fxLayout>
+  <div fxFlex="50%" fxLayout="column">
+    <md-card class="app-content">
+      <md-card-title>Thông tin nông dân</md-card-title>
+      <p fxLayout>
+        <span>Họ tên</span>
+        <span fxFlex></span>
+        <span>{{registration.farmer.fullName}}</span>
+        <a [href]="'tel:' + registration.farmer.phone">{{registration.farmer.phone}}</a></p>
+      <p fxLayout>
+        <span>Diện tích gieo giống</span>
+        <span fxFlex></span>
+        <span>{{nursery.acreage}} ha</span>
+      </p>
+      <p fxLayout>
+        <span i18n>Address</span>
+        <span fxFlex></span>
+        <span>{{nursery.address}}</span>
+        <button md-raised-button (click)="openMap(nursery.address)">
+          <md-icon>place</md-icon>
+          <!--i18n-->Bản đồ<!--/i18n-->
+        </button>
+      </p>
+    </md-card>
+    <md-card class="app-content" fxFlex>
+      <p fxLayout>
+        Kỹ thuật viên
+        <span fxFlex></span>
+        <span>{{registration.responsibilityEmployee.fullName}}</span>
+        <a [href]="'tel:' + registration.responsibilityEmployee.phone">
+          {{registration.responsibilityEmployee.phone}}</a>
+      </p>
+      <p *ngIf="seed" fxLayout>
+        Giống
+        <span fxFlex></span>
+        <span>{{seed.name}} - {{nursery.quantity}} {{seed.unit}}</span>
+      </p>
+      <p fxLayout>
+        Ngày gieo
+        <span fxFlex></span>
+        <span>{{nursery.seedingDate | date:'shortDate'}}</span>
+      </p>
+      <p fxLayout>
+        Ngày cấy chuyền
+        <span fxFlex></span>
+        <span>{{nursery.exchangeDate | date:'shortDate'}}</span>
+      </p>
+      <p fxLayout>
+        Số cây con/m2
+        <span fxFlex></span>
+        <span>{{nursery.density | number}}</span>
+      </p>
+      <p fxLayout>
+        Tổng số cây con
+        <span fxFlex></span>
+        <span>{{nursery.quantity | number}}</span>
+      </p>
+      <p fxLayout>
+        Phần trăm cấy chuyền
+        <span fxFlex></span>
+        <span>{{nursery.exchangeRatio | percent}}</span>
+      </p>
+      <p fxLayout>
+        Phần trăm cấy bầu
+        <span fxFlex></span>
+        <span>{{nursery.skinRatio | percent}}</span>
+      </p>
+      <p fxLayout>
+        Phần trăm khay xốp
+        <span fxFlex></span>
+        <span>{{nursery.trayRatio | percent}}</span>
+      </p>
+      <p *ngFor="let content of nursery.pestContents" fxLayout>
+        <span>{{content.pestId}}</span>
+        <span fxFlex></span>
+        <span>{{content.ratio}}</span>
+      </p>
+      <p fxLayout>
+        Tổng cây con đạt chuẩn
+        <span fxFlex></span>
+        <span>{{nursery.standardQuantity}}</span>
+      </p>
+      <p fxLayout>
+        Khả năng cây con đáp ứng
+        <span fxFlex></span>
+        <span>{{nursery.hasAbility}}</span>
+      </p>
+    </md-card>
+  </div>
+  <md-card class="app-content" fxFlex fxLayout="column">
+    <md-data-table [data]="nursery.details" [fixedHeader]="true" fxFlex>
+      <md-table-header i18n-title title="Lịch sử cập nhật">
+        <span fxFlex></span>
+        <a md-icon-button mdTooltip="Xem biểu đồ" *ngIf="nursery.details?.length > 0"
+           [routerLink]="['/crop-session', 'farmer', registration.farmer.farmerCode, 'nursery-detail', 'timeline']">
+          <md-icon>show_chart</md-icon>
+        </a>
+      </md-table-header>
+      <md-data-column i18n-title title="Ngày" field="actionDate">
+        <ng-template let-row="mdTableCellModel">{{row['actionDate'] | date:'shortDate'}}</ng-template>
+      </md-data-column>
+      <md-data-column i18n-title title="Nội dung" field="actionName"></md-data-column>
+      <md-data-column [numeric]="true">
+        <ng-template let-row="mdTableCellModel">
+          <a [routerLink]="['/crop-session', 'farmer', registration.farmer.farmerCode, 'nursery-detail', 'action', row['id']]">
+            <md-icon>chevron_right</md-icon></a>
+        </ng-template>
+      </md-data-column>
+    </md-data-table>
+  </md-card>
+</section>

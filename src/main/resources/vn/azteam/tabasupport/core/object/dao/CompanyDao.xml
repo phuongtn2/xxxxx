@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.core.object.dao.CompanyDao">
+    <sql id="baseColumns">c.*</sql>
+    <sql id="fullColumns">c.*</sql>
+
+    <select id="findAll" resultType="Company">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_companies c
+        ORDER BY c.id DESC;
+    </select>
+</mapper>

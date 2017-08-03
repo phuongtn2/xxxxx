@@ -1,0 +1,9 @@
+<md-card fxFlex fxLayout="column">
+  <md-data-table [data]="cropMaterials" [fixedHeader]="true" fxFlex>
+    <md-table-header i18n-heading heading="Crop material information"></md-table-header>
+    <md-data-column i18n-title title="Material Name" field="material.name"></md-data-column>
+    <md-data-column i18n-title title="Material Type" field="material.typeStr"></md-data-column>
+    <md-data-column i18n-title title="Quantity" field="quantity"></md-data-column>
+    <md-data-column i18n-title title="Unit" field="material.unit"></md-data-column>
+  </md-data-table>
+</md-card>

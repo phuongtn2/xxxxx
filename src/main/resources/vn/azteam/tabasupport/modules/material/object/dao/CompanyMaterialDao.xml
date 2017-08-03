@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.material.object.dao.CompanyMaterialDao">
+
+    <sql id="baseColumns">
+        c.id,
+        c.companyId,
+        c.materialId,
+        c.status,
+        c.price,
+        c.memo,
+        c.createId,
+        c.updateId,
+        c.created,
+        c.updated
+    </sql>
+    <sql id="materialBaseColumns">
+        m.sku,
+        m.name,
+        m.unit,
+        m.volumeWeight,
+        m.type,
+        m.subType
+    </sql>
+    <insert id="insertCompanyMaterial" parameterType="CompanyMaterial" useGeneratedKeys="true"
+            keyProperty="companyMaterial.id">
+        INSERT
+        INTO
+          `tb_company_materials`(
+            `id`,
+            `companyId`,
+            `materialId`,
+            `status`,
+            `price`,
+            `memo`,
+            `createId`,
+            `updateId`,
+            `created`,
+            `updated`
+          )
+        VALUES(
+            NULL,
+            #{companyMaterial.companyId},
+            #{companyMaterial.materialId},
+            #{companyMaterial.status},
+            #{companyMaterial.price},
+            #{companyMaterial.memo},
+            #{companyMaterial.createId},
+            #{companyMaterial.updateId},
+            #{companyMaterial.created},
+            #{companyMaterial.updated}
+        );
+    </insert>
+
+    <select id="findAllCompanyMaterialById" parameterType="java.lang.Long" resultType="CompanyMaterial">
+        SELECT
+        <include refid="baseColumns"/>,
+        <include refid="materialBaseColumns"/>
+        FROM tb_company_materials c
+        INNER JOIN tb_materials m ON c.materialId = m.id
+        WHERE c.companyId = #{companyId}
+        AND m.isActive = 1
+        ORDER BY c.id ASC;
+    </select>
+
+    <update id="updateCompanyMaterial" parameterType="CompanyMaterial">
+        UPDATE
+          `tb_company_materials` AS c
+        SET
+          `status` = #{companyMaterial.status},
+          `price` = #{companyMaterial.price},
+          `memo` = #{companyMaterial.memo},
+          `createId` = #{companyMaterial.createId},
+          `updateId` = #{companyMaterial.updateId},
+          `created` = #{companyMaterial.created},
+          `updated` = #{companyMaterial.updated}
+        WHERE
+          c.id = #{companyMaterial.id};
+    </update>
+
+    <delete id="deleteCompanyMaterial" parameterType="java.lang.Long">
+        DELETE
+        FROM tb_company_materials
+        WHERE id = #{companyMaterialId};
+    </delete>
+</mapper>

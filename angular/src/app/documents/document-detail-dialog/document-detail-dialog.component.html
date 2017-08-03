@@ -1,0 +1,21 @@
+<h1 md-dialog-title>{{title}}</h1>
+<form>
+<md-dialog-content>
+  <md-input-container>
+    <input mdInput type="text" name="documentName" i18n-placeholder placeholder="Document name" [(ngModel)]="doc.documentName">
+  </md-input-container>
+  <div fxLayout fxLayoutAlign="initial center" [style.margin-bottom.px]="8">
+    <button md-button color="accent" *ngIf="!doc.id" (click)="fileInput.click()" i18n>Choose File</button>
+    <input type="file" #fileInput name="file" i18n-placeholder placeholder="File"
+           (change)="inputFileChange($event)"
+           accept=".txt, .doc, .docx, .xls, .xlsx, .ppt, .pptx, .pdf"
+           style="display: none;">
+    <span fxFlex></span>
+    <span *ngIf="!doc.id" i18n>(less than 5 MB)</span>
+  </div>
+</md-dialog-content>
+<md-dialog-actions align="end">
+  <button md-raised-button (click)="saveDocument()" i18n>Save</button>
+  <button md-button md-dialog-close i18n>Cancel</button>
+</md-dialog-actions>
+</form>

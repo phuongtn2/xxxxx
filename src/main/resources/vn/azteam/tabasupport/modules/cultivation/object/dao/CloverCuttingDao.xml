@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.cultivation.object.dao.CloverCuttingDao">
+    <sql id="fullColumns">tcc.*</sql>
+
+    <insert id="insertCloverCutting" parameterType="CloverCutting" keyProperty="cloverCutting.id"
+            useGeneratedKeys="true">
+        INSERT
+        INTO
+        `tb_cultivation_clover_cuttings` (
+        `id`,
+        `clientPrimaryKey`,
+        `actionId`,
+        `densityFlower`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES (
+        NULL,
+        #{cloverCutting.clientPrimaryKey},
+        #{cloverCutting.actionId},
+        #{cloverCutting.densityFlower},
+        #{cloverCutting.createId},
+        #{cloverCutting.updateId},
+        #{cloverCutting.created},
+        #{cloverCutting.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="CloverCutting">
+        UPDATE tb_cultivation_clover_cuttings tcc
+        SET
+        tcc.clientPrimaryKey = #{cloverCutting.clientPrimaryKey},
+            tcc.densityFlower = #{cloverCutting.densityFlower},
+            tcc.updateId      = #{cloverCutting.updateId},
+            tcc.updated       = #{cloverCutting.updated}
+        WHERE tcc.id = #{cloverCutting.id};
+    </update>
+
+    <select id="findAllByActionId" resultType="CloverCutting">
+        SELECT
+        <include refid="fullColumns"/>
+        FROM tb_cultivation_clover_cuttings tcc
+        WHERE tcc.actionId=#{detailId}
+        ORDER BY tcc.id DESC ;
+    </select>
+</mapper>

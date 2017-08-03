@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.farmer.object.dao.FarmerRelativeDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">e.*</sql>
+
+    <sql id="baseColumns">
+        tfr.id,
+        tfr.uId,
+        tfr.farmerId,
+        tfr.relationship,
+        tfr.delFlg,
+        tfr.createId,
+        tfr.updateId,
+        tfr.created,
+        tfr.updated
+    </sql>
+
+    <sql id="userBaseColumns">
+        u.identityCard,
+        u.companyId,
+        u.firstName,
+        u.lastName,
+        u.fullName,
+        u.gender,
+        u.phone,
+        u.email,
+        u.address,
+        u.provinceId,
+        u.districtId,
+        u.wardId,
+    </sql>
+
+    <insert id="insert" parameterType="FarmerRelative" useGeneratedKeys="true" keyProperty="relative.id"
+            keyColumn="id" flushCache="true">
+        INSERT INTO tb_farmer_relatives
+        (
+        `id`,
+        `uId`,
+        `farmerId`,
+        `relationship`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES
+        (
+        NULL,
+        #{relative.uId},
+        #{relative.farmerId},
+        #{relative.relationship},
+        #{relative.createId},
+        #{relative.updateId},
+        #{relative.created},
+        #{relative.updated}
+        );
+    </insert>
+
+    <update id="update" parameterType="FarmerRelative" flushCache="true">
+        UPDATE tb_farmer_relatives tfr
+        SET
+        tfr.relationship = #{relative.relationship},
+        tfr.farmerId = #{relative.farmerId},
+        tfr.delFlg = #{relative.delFlg},
+        tfr.updateId = #{relative.updateId},
+        tfr.updated = #{relative.updated}
+        WHERE
+        tfr.id = #{relative.id} AND tfr.farmerId = #{relative.farmerId};
+    </update>
+
+    <select id="findAllByFarmerId" resultType="FarmerRelative" flushCache="false">
+        SELECT
+        <include refid="userBaseColumns"/>
+        <include refid="baseColumns"/>
+        FROM tb_farmer_relatives tfr
+        INNER JOIN tb_users u ON (tfr.uId = u.id)
+        WHERE tfr.farmerId = #{farmerId} AND tfr.delFlg = 0
+        ORDER BY tfr.id DESC;
+    </select>
+</mapper>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.document.object.dao.DocumentDao">
+    <sql id="fullColumns">d.*</sql>
+
+    <sql id="baseColumns">
+        d.id,
+        d.fileId,
+        d.documentName,
+        d.documentOwner,
+        d.uploadedDate,
+        d.createId,
+        d.updateId,
+        d.created,
+        d.updated
+    </sql>
+
+    <sql id="fileBaseColumns">
+        f.companyId,
+        f.repositoryId,
+        f.directoryId,
+        f.name,
+        f.extension,
+        f.size,
+        f.version,
+        f.type,
+        f.description,
+        f.owner,
+        f.status
+    </sql>
+
+    <select id="findAll" resultType="Document">
+        SELECT
+        <include refid="baseColumns"/>
+        ,
+        <include refid="fileBaseColumns"/>
+        FROM tb_documents d
+        INNER JOIN tb_files f ON d.fileId = f.id
+        WHERE d.hidden = 0
+        ORDER BY d.id ASC;
+    </select>
+
+    <insert id="insertDocument" parameterType="Document" useGeneratedKeys="true" keyProperty="document.id"
+            keyColumn="id">
+        INSERT
+        INTO
+        `tb_documents`(
+        `id`,
+        `fileId`,
+        `hidden`,
+        `documentName`,
+        `documentOwner`,
+        `uploadedDate`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`
+        )
+        VALUES(
+        NULL,
+        #{document.fileId},
+        #{document.hidden},
+        #{document.documentName},
+        #{document.documentOwner},
+        #{document.uploadedDate},
+        #{document.createId},
+        #{document.updateId},
+        #{document.created},
+        #{document.updated}
+        );
+    </insert>
+
+    <update id="deleteDocumentById" parameterType="Document">
+        UPDATE
+        `tb_documents`
+        SET
+          `hidden` = 1
+        WHERE
+          id = #{documentId};
+    </update>
+
+    <update id="updateDocument" parameterType="Document">
+        UPDATE
+        `tb_documents`
+        SET
+        `documentName` = #{document.documentName},
+        `createId` = #{document.createId},
+        `updateId` = #{document.updateId},
+        `created` = #{document.created},
+        `updated` = #{document.updated}
+        WHERE
+        id = #{document.id};
+    </update>
+</mapper>

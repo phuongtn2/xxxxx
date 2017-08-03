@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vn.azteam.tabasupport.modules.file.object.dao.FileDao">
+    <!--EhcacheCache config-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <property name="timeToLiveSeconds" value="1800"/>
+        <property name="timeToIdleSeconds" value="1800"/>
+        <property name="maxEntriesLocalHeap" value="100"/>
+        <property name="maxEntriesLocalDisk" value="300"/>
+        <property name="memoryStoreEvictionPolicy" value="LFU"/>
+    </cache>
+
+    <sql id="fullColumns">f.*</sql>
+
+    <sql id="baseColumns">
+        f.id,
+        f.clientPrimaryKey,
+        f.companyId,
+        f.repositoryId,
+        f.directoryId,
+        f.name,
+        f.extension,
+        f.size,
+        f.type,
+        f.version,
+        f.description,
+        f.owner,
+        f.createId,
+        f.updateId,
+        f.created,
+        f.updated
+    </sql>
+
+    <select id="findAll" resultType="File" flushCache="false">
+        SELECT
+        <include refid="baseColumns"/>
+        FROM tb_files f
+        ORDER BY f.id DESC;
+    </select>
+
+    <select id="findFileById" resultType="File" flushCache="false">
+        SELECT
+        <include refid="baseColumns"/>
+        FROM tb_files f
+        WHERE f.id = #{fileId}
+        LIMIT 0,1;
+    </select>
+
+    <select id="count" resultType="java.lang.Long" flushCache="false">
+        SELECT COUNT(DISTINCT id) `count`
+        FROM tb_files f
+        WHERE f.id = #{fileId}
+        LIMIT 0, 1;
+    </select>
+
+    <insert id="insertFile" parameterType="File" useGeneratedKeys="true" keyProperty="file.id" keyColumn="id"
+            flushCache="true">
+        INSERT INTO `tb_files`
+        (`id`,
+        `clientPrimaryKey`,
+        `companyId`,
+        `repositoryId`,
+        `directoryId`,
+        `name`,
+        `extension`,
+        `size`,
+        `version`,
+        `type`,
+        `description`,
+        `owner`,
+        `createId`,
+        `updateId`,
+        `created`,
+        `updated`)
+        VALUES
+        (NULL,
+        #{file.clientPrimaryKey},
+        #{file.companyId},
+        #{file.repositoryId},
+        #{file.directoryId},
+        #{file.name},
+        #{file.extension},
+        #{file.size},
+        #{file.version},
+        #{file.type},
+        #{file.description},
+        #{file.owner},
+        #{file.createId},
+        #{file.updateId},
+        #{file.created},
+        #{file.updated}
+        );
+    </insert>
+</mapper>
